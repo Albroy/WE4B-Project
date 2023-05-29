@@ -8,17 +8,10 @@ export class CardService {
   constructor() { }
 
   getCards()  {
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
-    this.Array.push(new Card("../assets/test.jpg","UTBM","9.99","Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
+    this.Array.push(new Card("../assets/test.jpg","UTBM",9.99,0,"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
+    this.Array.push(new Card("../assets/test.jpg","UTBM",9.99,10,"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
+    this.Array.push(new Card("../assets/test.jpg","UTBM",50,50,"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum."));
+
 
 
     return this.Array;

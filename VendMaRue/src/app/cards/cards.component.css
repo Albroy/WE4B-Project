@@ -232,3 +232,8 @@ footer {
     height: 80px;
     color: #fff
 }
+
+del {
+    color: red;
+    font-weight: 900
+}

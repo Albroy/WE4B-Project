@@ -2,10 +2,13 @@
     <img
       src="{{card.photo}}"
       class="card-img-top" alt="...">
-    <div class="card-body">
+      <div class="label-top shadow-sm" *ngIf="card.OnSale > 0">{{card.OnSale}} % </div>
+      <div class="card-body">
       <div class="clearfix mb-3">
         <span class="float-start badge rounded-pill bg-primary">{{card.brand}}</span>
-        <span class="float-end price-hp">{{card.price}}&euro;</span></div>
+        <span class="float-end price-hp" *ngIf="card.OnSale > 0 ; else NotOnSale"><del>{{card.price}}&euro; </del>{{(card.price-(card.price*card.OnSale)/100).toFixed(2)}}&euro;</span>
+        <ng-template #NotOnSale><span class="float-end price-hp">{{card.price}}&euro;</span></ng-template>
+      </div>
       <h5 class="card-title">{{card.text}}</h5>
       <div class="text-center my-4"><a href="#" class="btn btn-warning">Check offer</a></div>
     </div>
