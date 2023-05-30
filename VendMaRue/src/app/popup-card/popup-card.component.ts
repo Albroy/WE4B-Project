@@ -18,4 +18,12 @@ export class PopupCardComponent implements OnInit {
     // Fermez le popup en utilisant la référence au modal
     this.activeModal.close();
   }
+  decrement(){
+    this.card.likes >0 ? this.card.likes -= 1 : "";
+  }
+
+  increment(){
+    this.card.likes += 1;
+  }
+
 }

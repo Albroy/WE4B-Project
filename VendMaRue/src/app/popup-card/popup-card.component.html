@@ -16,5 +16,9 @@
     </span>
     <ng-template #NotOnSale><span class="float-end price-hp">{{card.price}}&euro;</span></ng-template>
     <h5 class="card-title">{{card.text}}</h5>
-
+    <p class="card-text"><small class="text-muted">Likes: {{card.likes}}</small></p>
+    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary btn-sm" (click)="increment()">Like</button>
+      <button type="button" class="btn btn-secondary btn-sm" (click)="decrement()">Dislike</button>
+    </div>
 </div>
