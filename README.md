@@ -10,14 +10,14 @@ b. Header connecté : (nom, logo, recherche, profil)
     
 c. SideBar gauche (catégories)
     
-d. Annonces Présentation (id_vendor titre puis photo prix description)
+d.✅ Annonces Présentation (id_vendor titre puis photo prix description)
     
-e. Annonces pop up (Toutes description + like + partie commentaires)
+e. Annonces pop up (✅ Toutes description + like + partie commentaires)
     
-    e1. like bandeau etoiles
+    e1. ✅ like bandeau 
     e2. commentaires
     
-f. body (annonces 4*4 flex/grid --> 2)
+f.✅ body (annonces 4*4 flex/grid --> 2)
     
 g. footer (plan du site, copyright)
     
@@ -30,3 +30,5 @@ j. Modification/création annonces
 k. pop up suppression de l'annonce
     
 ( l. interface de message )
+
+m. ✅ Page de connexion/inscription
