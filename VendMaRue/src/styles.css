@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-* >.modal-content {
+* >.modal-dialog {
     min-width: 800px !important;
     margin-right: auto;
     margin-left:auto;
