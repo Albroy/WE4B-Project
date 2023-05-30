@@ -12,6 +12,10 @@
                 <ng-template #NotOnSale><span class="float-end price-hp">{{card.price}}&euro;</span></ng-template>
       </div>
       <h5 class="card-title">{{card.text}}</h5>
-      <div class="text-center my-4"><a href="#" class="btn btn-warning">Check offer</a></div>
+      <div class="text-center my-4">      <button class="btn btn-warning" (click)="openModal()">Check offer</button>
+      </div>
     </div>
   </div>
+
+
+  

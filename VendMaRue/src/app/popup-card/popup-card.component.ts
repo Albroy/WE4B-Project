@@ -1,5 +1,6 @@
 import { Component,OnInit,Input} from '@angular/core';
 import { Card } from '../../classes/Card';
+
 @Component({
   selector: 'app-popup-card',
   templateUrl: './popup-card.component.html',
