@@ -1,12 +1,22 @@
+<div class="modal-dialog modal-xl" >
 <div class="modal-header">
-    <h5 class="modal-title">{{ card.brand }}</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+    
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+
+        <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="modal-body">
+</div>
+<div class="modal-body">
     <img src="{{ card.photo }}" alt="Card Photo" class="img-fluid">
-    <p>{{ card.text }}</p>
-    <p>Price: {{ card.price }}</p>
-  </div>
-  
+    <div class="label-top shadow-sm" *ngIf="card.OnSale > 0" [ngStyle]="{ 'background': card.OnSale >= 80 ? 'red' : (card.OnSale >= 50 ? 'orange' : (card.OnSale >= 25 ? 'yellow' : '')) }">{{ card.OnSale }}%</div>
+    <span class="float-start badge rounded-pill bg-primary">{{card.brand}}</span>
+    <span class="float-end price-hp" *ngIf="card.OnSale > 0; else NotOnSale">
+      <del>{{ card.price }}&euro;</del> {{ (card.price - (card.price * card.OnSale) / 100).toFixed(2) }}&euro;
+    </span>
+            <ng-template #NotOnSale><span class="float-end price-hp">{{card.price}}&euro;</span></ng-template>
+  <h5 class="card-title">{{card.text}}</h5>
+
+</div>
+</div>
+
+
