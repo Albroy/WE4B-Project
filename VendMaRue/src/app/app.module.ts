@@ -10,6 +10,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommentsListComponent } from './comments-list/comments-list.component';
     InscriptionComponent,
     ConnexionComponent,
     CommentComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
