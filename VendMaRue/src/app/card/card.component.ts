@@ -18,6 +18,6 @@ export class CardComponent implements OnInit {
   openModal() {
     const modalRef = this.modalService.open(PopupCardComponent);
     modalRef.componentInstance.card = this.card;
-    console.log(this.card.id);
+    // console.log(this.card.id);
   }
 }

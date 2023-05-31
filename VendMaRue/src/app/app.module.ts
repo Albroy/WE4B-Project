@@ -8,6 +8,8 @@ import { CardComponent } from './card/card.component';
 import { PopupCardComponent } from './popup-card/popup-card.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentsListComponent } from './comments-list/comments-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
     CardComponent,
     PopupCardComponent,
     InscriptionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    CommentComponent,
+    CommentsListComponent
   ],
   imports: [
     BrowserModule,
