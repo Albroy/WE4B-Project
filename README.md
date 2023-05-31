@@ -32,3 +32,6 @@ k. pop up suppression de l'annonce
 ( l. interface de message )
 
 m. ✅ Page de connexion/inscription
+
+Koreangroup 
+D-E-F-M-G-H
