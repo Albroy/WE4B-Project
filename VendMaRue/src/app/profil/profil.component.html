@@ -1,4 +1,4 @@
-<section class="h-100 gradient-custom-2">
+<section *ngIf="!error; else errorBlock" class="h-100 gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 col-xl-7 w-100">
@@ -12,7 +12,7 @@
               </button>
             </div>
             <div class="ms-3">
-              <h5>Albert</h5>
+              <h5>{{user.user_name}}</h5>
               <p>Montbéliard</p>
             </div>
           </div>
@@ -58,3 +58,4 @@
     </div>
   </div>
 </section>
+<ng-template #errorBlock><h4 class="d-flex justify-content-center m-5" >Cet utilisateur n'existe pas</h4></ng-template>

@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'',component:CardsComponent},
   {path:'inscription',component:InscriptionComponent},
   {path:'connexion',component:ConnexionComponent},
-  {path:'profil',component:ProfilComponent}
+  {path:'profil/:id',component:ProfilComponent}
 ];
 
 @NgModule({
