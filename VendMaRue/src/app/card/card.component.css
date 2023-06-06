@@ -38,7 +38,7 @@
 .label-top {
     position: absolute;
     background-color: #8bc34a;
-    color: var(--color4);
+    color: var(--color1);
     top: 8px;
     right: 8px;
     padding: 5px 10px 5px 10px;
@@ -82,7 +82,7 @@
 
 
 .btn:hover {
-    background: var(--color3);
+    background: var(--color4a);
 }
 
 

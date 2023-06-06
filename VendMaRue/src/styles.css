@@ -1,8 +1,9 @@
 :root {
-    --color1: #fff7d4;
-    --color2: #ffd95a;
-    --color3: #c07f00;
-    --color4: #4c3d3d;
+    --color1: #FFFFFF;
+    --color2: #f4f0f0;
+    --color3: #5b53d3;
+    --color4: #9792E3;
+    --color4a : rgba(151,146,227,0.6);
 }
 
 
@@ -19,5 +20,5 @@ body{
 
 
 .text-bg-dark{
-    background-color: var(--color4)!important;
+    background-color: var(--color3)!important;
 }
