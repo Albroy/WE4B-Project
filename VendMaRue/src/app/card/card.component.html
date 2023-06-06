@@ -6,15 +6,15 @@
       <div class="card-body">
       <div class="clearfix mb-3">
         <span class="float-start badge rounded-pill bg-primary">{{card.brand}}</span>
-        <span class="float-end price-hp" *ngIf="card.OnSale > 0; else NotOnSale">
+        <span class="float-end price" *ngIf="card.OnSale > 0; else NotOnSale">
           <del>{{ card.price }}&euro;</del> {{ (card.price - (card.price * card.OnSale) / 100).toFixed(2) }}&euro;
         </span>
-                <ng-template #NotOnSale><span class="float-end price-hp">{{card.price}}&euro;</span></ng-template>
+                <ng-template #NotOnSale><span class="float-end price">{{card.price}}&euro;</span></ng-template>
       </div>
       <h5 class="card-title">{{card.title}} par {{card.userid}}</h5>
       <span>{{card.loc}}</span>
       <h5 class="card-title">{{card.text}}</h5>
-      <div class="text-center my-4">      <button class="btn btn-warning" (click)="openModal()">Check offer</button>
+      <div class="text-center my-4">      <button class="btn" (click)="openModal()">Check offer</button>
       </div>
     </div>
   </div>

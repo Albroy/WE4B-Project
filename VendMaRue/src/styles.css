@@ -1,8 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --color1: #fff7d4;
+    --color2: #ffd95a;
+    --color3: #c07f00;
+    --color4: #4c3d3d;
+}
+
+
 @media (min-width: 870px) {
     *> .modal-dialog {
     min-width: 800px !important;
     margin-right: auto;
     margin-left:auto;
     }
+}
+body{
+    background-color: var(--color2);
+}
+
+
+.text-bg-dark{
+    background-color: var(--color4)!important;
 }
