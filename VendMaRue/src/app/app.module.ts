@@ -12,6 +12,7 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ConnexionComponent,
     CommentComponent,
     CommentsListComponent,
-    FooterComponent
+    FooterComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
