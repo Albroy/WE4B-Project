@@ -12,9 +12,9 @@ c. SideBar gauche (catégories)
     
 d.✅ Annonces Présentation (id_vendor titre puis photo prix description)
     
-e. Annonces pop up (✅ Toutes description + like + ✅ partie commentaires)
+e. ✅ Annonces pop up (✅ Toutes description + ✅ like + ✅ partie commentaires)
     
-    e1. like bandeau 
+    e1. ✅ like bandeau 
     e2. ✅commentaires
     
 f.✅ body (annonces 4*4 flex/grid --> 2)
@@ -34,7 +34,7 @@ k. pop up suppression de l'annonce
 m. ✅ Page de connexion/inscription
 
 Koreangroup
-✅D-E-✅F-✅M-✅G-H
+✅D-✅E-✅F-✅M-✅G-H
 
 OSMAN A-B-C
 
