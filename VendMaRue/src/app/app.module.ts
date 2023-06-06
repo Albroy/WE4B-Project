@@ -11,6 +11,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PopupCardComponent implements OnInit {
   @Input() card!: Card;
+  currentRate = 0;
 
   constructor(private activeModal: NgbActiveModal) {}
 

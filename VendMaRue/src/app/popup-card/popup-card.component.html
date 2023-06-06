@@ -19,8 +19,11 @@
     <span>{{card.loc}} </span>
     <span>{{card.date.toLocaleString("fr-FR")}}</span>
     <h5 class="card-text">{{card.text}}</h5>
-    <p class="card-text"><small class="text-muted">Likes: {{card.likes}}</small></p>
 
-<h4>Commentaires</h4>
-<app-comments-list [idCard]="card.id"></app-comments-list>
-</div>
+    <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
+    <p class="card-text"><small class="text-muted">Évaluations: {{currentRate}}</small></p>
+
+
+    <h4>Commentaires</h4>
+    <app-comments-list [idCard]="card.id"></app-comments-list>
+    </div>
