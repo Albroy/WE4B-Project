@@ -19,6 +19,12 @@ export class PopupCardComponent implements OnInit {
     // Fermez le popup en utilisant la référence au modal
     this.activeModal.close();
   }
+  ajouterPanier(): void {
+    this.card.quantity>0 ? this.card.quantity -=1 : "";
+  }
+  retirerPanier(): void {
+    this.card.quantity +=1;
+  }
 
 
 }
