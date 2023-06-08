@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './header/header.component';//enlever apre
 import { CardComponent } from './card/card.component';
 import { PopupCardComponent } from './popup-card/popup-card.component';
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -13,6 +13,8 @@ import { CommentsListComponent } from './comments-list/comments-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfilComponent } from './profil/profil.component';
+import { NewHeaderComponent } from './new-header/new-header.component';
+import { NewSidenavComponent } from './new-sidenav/new-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ProfilComponent } from './profil/profil.component';
     CommentComponent,
     CommentsListComponent,
     FooterComponent,
-    ProfilComponent
+    ProfilComponent,
+    NewHeaderComponent,
+    NewSidenavComponent
   ],
   imports: [
     BrowserModule,

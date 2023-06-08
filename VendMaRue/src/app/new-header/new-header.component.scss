@@ -1,0 +1,32 @@
+.dropdown-menu-dark{
+  background-color:#C07F00;
+}
+
+nav{
+  height: 100%;
+  background-color: #4c3d3d;
+}
+
+.side-nav-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.side-nav-button:hover{
+  background-color: #C07F00;
+  border-radius: 30%;
+}
+
+.btn-outline-light:hover{
+  background-color: #C07F00;
+}
+
+.logo{
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

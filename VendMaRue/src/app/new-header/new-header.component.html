@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand navbar-dark px-2">
+
+  <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggle()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <img class="logo" src="assets/logo4.jpg" alt="logo">
+
+  <a href="#" class="navbar-brand px-2">VendsMaRue</a>
+
+  <div class="navbar-collapse">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                 Vendre
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a href="#" class="dropdown-item">Vendre un produit</a></li>
+                    <li><a href="#" class="dropdown-item">Vendre un service</a></li>
+              </ul>
+          </li>
+
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+            Mes commandes
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a href="#" class="dropdown-item"></a></li>
+            <li><a href="#" class="dropdown-item">Vendre un service</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+            Mes annonces
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a href="#" class="dropdown-item">Vendre un produit</a></li>
+            <li><a href="#" class="dropdown-item">Vendre un service</a></li>
+          </ul>
+        </li>
+
+
+      </ul>
+
+  </div>
+
+  <form class="d-flex me-5">
+    <input class="form-control me-3" type="search" placeholder="Search">
+    <button class="btn btn-outline-light" type="submit">Search</button>
+  </form>
+
+  <div class="profile-logo dropstart">
+    <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+      Osman
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li><a href="#" class="dropdown-item">Sign up</a></li>
+      <li><a href="#" class="dropdown-item">Log In</a></li>
+      <li><a href="#" class="dropdown-item">Your Profile</a></li>
+      <li><a href="#" class="dropdown-item">Log Out</a></li>
+    </ul>
+  </div>
+
+</nav>
+
