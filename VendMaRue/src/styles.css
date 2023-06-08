@@ -18,7 +18,7 @@ body{
     background-color: var(--color2);
 }
 
-
-.text-bg-dark{
+/* 
+.navbar,.side-nav-content{
     background-color: var(--color3)!important;
-}
+} */

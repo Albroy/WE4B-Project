@@ -1,10 +1,10 @@
 .dropdown-menu-dark{
-  background-color:#C07F00;
+  background-color: var(--color3)!important;
 }
 
 nav{
   height: 100%;
-  background-color: #4c3d3d;
+  background-color: var(--color3)!important;
 }
 
 .side-nav-button{
@@ -16,12 +16,12 @@ nav{
 }
 
 .side-nav-button:hover{
-  background-color: #C07F00;
+  background-color: var(--color4a)!important;
   border-radius: 30%;
 }
 
 .btn-outline-light:hover{
-  background-color: #C07F00;
+  background-color: var(--color4a)!important;
 }
 
 .logo{
