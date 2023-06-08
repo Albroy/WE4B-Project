@@ -8,6 +8,11 @@ import { CardComponent } from './card/card.component';
 import { PopupCardComponent } from './popup-card/popup-card.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentsListComponent } from './comments-list/comments-list.component';
+import { FooterComponent } from './footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +22,16 @@ import { ConnexionComponent } from './connexion/connexion.component';
     CardComponent,
     PopupCardComponent,
     InscriptionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    CommentComponent,
+    CommentsListComponent,
+    FooterComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

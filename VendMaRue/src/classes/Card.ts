@@ -9,6 +9,8 @@ export class Card {
     public OnSale: number,
     public likes: number,
     public quantity: number,
+    public date : Date,
+    public loc : string,
     public text ?: string,
   ) {
     this.photo = photo;
@@ -21,6 +23,7 @@ export class Card {
     this.userid = userid;
     this.likes = likes;
     this.quantity = quantity;
-
+    this.date=date;
+    this.loc=loc;
   }
 }

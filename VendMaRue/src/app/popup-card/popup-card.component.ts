@@ -9,6 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PopupCardComponent implements OnInit {
   @Input() card!: Card;
+  currentRate = 0;
 
   constructor(private activeModal: NgbActiveModal) {}
 
@@ -18,12 +19,12 @@ export class PopupCardComponent implements OnInit {
     // Fermez le popup en utilisant la référence au modal
     this.activeModal.close();
   }
-  decrement(){
-    this.card.likes >0 ? this.card.likes -= 1 : "";
+  ajouterPanier(): void {
+    this.card.quantity>0 ? this.card.quantity -=1 : "";
+  }
+  retirerPanier(): void {
+    this.card.quantity +=1;
   }
 
-  increment(){
-    this.card.likes += 1;
-  }
 
 }
