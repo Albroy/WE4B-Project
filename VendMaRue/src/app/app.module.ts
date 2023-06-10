@@ -16,6 +16,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { NewHeaderComponent } from './new-header/new-header.component';
 import { NewSidenavComponent } from './new-sidenav/new-sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

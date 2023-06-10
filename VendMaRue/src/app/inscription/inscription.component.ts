@@ -11,7 +11,11 @@ export class InscriptionComponent implements OnInit{
   public user: User;
 
   constructor(private userService: UserService, private router: Router) {
-    this.user = new User(this.userService.list_length + 1, '../assets/images/user.png', '', '', '', 0, new Date(), '', '')
+    console.log(this.userService.getDataLength() + " : " + this.userService.list_length + 1 + " : " );
+    this.user = new User(0,'../assets/images/user.png', '', '', '', 0, new Date(), '', '')
+    this.user.user_id = 6;
+    console.log(this.user.user_id);
+    console.log(this.user)
   }
 
   ngOnInit(): void {
@@ -24,8 +28,9 @@ export class InscriptionComponent implements OnInit{
   addUser() {
     this.userService.addUser(this.user).subscribe(data => {
       this.user = data
+      console.log(this.user)
     })
-    this.router.navigateByUrl('')
+  // this.router.navigateByUrl('')
   }
   
 

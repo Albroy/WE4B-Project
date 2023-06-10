@@ -9,14 +9,17 @@ export class UserService {
   Array: User[] = [];
   list_length!: number
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getDataLength();
+  }
 
   getData(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/Users')
   }
   getDataLength() {
     this.http.get<User[]>('http://localhost:3000/Users').subscribe(data => {
-      this.list_length = (data).length
+      console.log(": "+data.length + " : ");
+      this.list_length = (data).length;
     })
   }
   addUser(User : User): Observable<User>{
