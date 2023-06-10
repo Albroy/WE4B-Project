@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/classes/Card';
 import { CardService } from '../card.service';
 
@@ -7,12 +7,16 @@ import { CardService } from '../card.service';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent implements OnInit 
-{
-  CardArray : Card[] = []; 
-  constructor(service : CardService) {
-    this.CardArray = service.getCards();
-   }
+export class CardsComponent implements OnInit {
+  CardArray: Card[] = [];
+  constructor(private service: CardService) {
+    this.service.getData().subscribe(data => {
+      this.CardArray = data
+    })
+    // console.log(this.CardArray);
+
+  };
+
   ngOnInit(): void { }
 
 }

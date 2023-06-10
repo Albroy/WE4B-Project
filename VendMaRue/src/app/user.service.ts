@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../classes/User';
-
+import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://localhost/user.php'
+  Array : User[] = [];
+
   constructor(private http : HttpClient) {}
 
-  getUser(){
-    return this.http.get(this.url);
+  getData() : Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:3000/Users')
   }
-
 }

@@ -1,4 +1,4 @@
-<section *ngIf="!error; else errorBlock" class="h-100 gradient-custom-2">
+<section *ngIf="user; else errorBlock" class="h-100 gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 col-xl-7 w-100">
@@ -6,16 +6,17 @@
           <div class="entete rounded-top text-white d-flex flex-row">
             <div class="ms-4 mt-5 d-flex flex-column">
               <img src="./assets/profilepic1.png"
-                   alt="photo de profil" class="img-fluid img-thumbnail mt-4 mb-2">
+              alt="photo de profil" class="img-fluid img-thumbnail mt-4 mb-2">
               <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" >
                 Edit profile
               </button>
             </div>
             <div class="ms-3">
-              <h5>{{user.user_name}}</h5>
-              <p>Montbéliard</p>
+              <h5>{{user.user_name}}  <b>{{user.user_surname}}</b></h5>
+              <p>{{user.user_loc}}</p>
             </div>
           </div>
+          <p class="text-end"> Membre depuis le {{user.user_acc_date.toLocaleString("fr-FR")}}</p>
           <div class="p-4 text-black">
             <div class="d-flex justify-content-end text-center py-1">
               <div>
@@ -36,7 +37,9 @@
             <div class="mb-5">
               <p class="lead fw-normal mb-1">À propos</p>
               <div class="p-4 description">
-                <p class="font-italic mb-1">Description get from db</p>
+                <p class="font-italic mb-1">{{user.user_desc}}</p>
+                <p class="font-italic mb-1">{{user.user_email}}</p>
+                <p class="font-italic mb-1">{{user.user_phone}}</p>
               </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-4">

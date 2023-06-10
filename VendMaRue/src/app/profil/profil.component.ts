@@ -2,7 +2,7 @@ import { Component,Input,OnInit } from '@angular/core';
 import {User} from "../../classes/User";
 import {ProfilService} from "../profil.service";
 import { ActivatedRoute } from '@angular/router';
-
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-profil',
@@ -11,18 +11,30 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfilComponent implements OnInit{
   @Input() user !: User;
+  userlist : User[] = [];
   user_idx :number;
-  error : boolean = false;
 
-  constructor(private activatedroute : ActivatedRoute, private service : ProfilService) {
-    this.user_idx = parseInt(this.activatedroute.snapshot.paramMap.get('id') || '0');
+  constructor(private activatedroute : ActivatedRoute, private userService : UserService) {
+    this.user_idx = parseInt(this.activatedroute.snapshot.params['id'].slice(1), 10);
 
-    if(service.getUserById(this.user_idx) !=  undefined){
-      this.user = service.getUserById(this.user_idx);
-    }else{
-      this.error = true;
-    }
-    console.log(this.user)
+    console.log(this.user_idx);
+    this.userService.getData().subscribe(data => {
+      this.userlist = data;
+      for (let i = 0; i < this.userlist.length; i++) {
+        // console.log(this.userlist[i].user_id + " : " +this.user_idx);
+        if (this.userlist[i].user_id === this.user_idx) {
+          console.log("found");
+          this.user = this.userlist[i];
+          break;
+        }
+      }
+
+      
+    });
+    
+
+    
+
   }
   ngOnInit() {
   }
