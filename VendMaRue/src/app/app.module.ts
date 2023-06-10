@@ -31,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ProfilComponent,
     NewHeaderComponent,
-    NewSidenavComponent
+    NewSidenavComponent,
+    
   ],
   imports: [
     BrowserModule,

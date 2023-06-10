@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Title 1",
-      "userid": 0,
+      "userid": 1,
       "photo": "../assets/test.jpg",
       "brand": "Brand 1",
       "price": 9.99,
@@ -17,7 +17,7 @@
     {
       "id": 2,
       "title": "Title 2",
-      "userid": 0,
+      "userid":1,
       "photo": "../assets/test.jpg",
       "brand": "Brand 2",
       "price": 19.99,
@@ -31,7 +31,7 @@
     {
       "id": 3,
       "title": "Title 3",
-      "userid": 0,
+      "userid": 2,
       "photo": "../assets/test.jpg",
       "brand": "Brand 3",
       "price": 29.99,
@@ -45,7 +45,7 @@
     {
       "id": 4,
       "title": "Title 4",
-      "userid": 0,
+      "userid": 3,
       "photo": "../assets/test.jpg",
       "brand": "Brand 4",
       "price": 39.99,
@@ -59,7 +59,7 @@
     {
       "id": 5,
       "title": "Title 5",
-      "userid": 0,
+      "userid": 4,
       "photo": "../assets/test.jpg",
       "brand": "Brand 5",
       "price": 49.99,
@@ -73,7 +73,7 @@
     {
       "id": 6,
       "title": "Title 6",
-      "userid": 0,
+      "userid": 4,
       "photo": "../assets/test.jpg",
       "brand": "Brand 6",
       "price": 59.99,
@@ -87,7 +87,7 @@
     {
       "id": 7,
       "title": "Title 7",
-      "userid": 0,
+      "userid": 4,
       "photo": "../assets/test.jpg",
       "brand": "Brand 7",
       "price": 69.99,
@@ -101,7 +101,7 @@
     {
       "id": 8,
       "title": "Title 8",
-      "userid": 0,
+      "userid": 2,
       "photo": "../assets/test.jpg",
       "brand": "Brand 8",
       "price": 79.99,
@@ -115,7 +115,7 @@
     {
       "id": 9,
       "title": "Title 9",
-      "userid": 0,
+      "userid": 5,
       "photo": "../assets/test.jpg",
       "brand": "Brand 9",
       "price": 89.99,
@@ -129,7 +129,7 @@
     {
       "id": 10,
       "title": "Title 10",
-      "userid": 0,
+      "userid": 3,
       "photo": "../assets/test.jpg",
       "brand": "Brand 10",
       "price": 99.99,
