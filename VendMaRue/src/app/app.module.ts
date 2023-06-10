@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfilComponent } from './profil/profil.component';
 import { NewHeaderComponent } from './new-header/new-header.component';
 import { NewSidenavComponent } from './new-sidenav/new-sidenav.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NewSidenavComponent } from './new-sidenav/new-sidenav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

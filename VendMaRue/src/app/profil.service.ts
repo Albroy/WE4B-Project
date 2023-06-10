@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from "../classes/User";
-
+import {UserService} from "./user.service";
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +14,8 @@ export class ProfilService {
     this.profil.push(new User(5, "user5_pp", "Mike", "Davis", "mike@example.com", 9999999999, new Date(), "City 5", "Description 5"));
 
   }
-  getUser(){
-    return this.profil;
+  getUser( service : UserService){
+    return service.getUser();
   }
 
   getUserById(id: number):User {
