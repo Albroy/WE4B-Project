@@ -16,7 +16,7 @@
               <p>{{user.user_loc}}</p>
             </div>
           </div>
-          <p class="text-end"> Membre depuis le {{user.user_acc_date.toLocaleString("fr-FR")}}</p>
+          <p class="text-end">Membre depuis le {{ user.user_acc_date | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
           <div class="p-4 text-black">
             <div class="d-flex justify-content-end text-center py-1">
               <div>

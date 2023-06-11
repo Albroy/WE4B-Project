@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { CardService } from '../card.service';
 import { Card } from 'src/classes/Card';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
@@ -15,8 +16,9 @@ export class ProfilComponent implements OnInit{
   cardlist : Card[] = [];
   user_idx :number;
 
-  constructor(private activatedroute : ActivatedRoute, private userService : UserService,private cardService : CardService) {
+  constructor(private activatedroute : ActivatedRoute, private userService : UserService,private cardService : CardService, private datePipe : DatePipe) {
     this.user_idx = parseInt(this.activatedroute.snapshot.params['id'].slice(1), 10);
+    // console.log(sessionStorage.getItem('user'));
 
     //Chargement du profil de l'utilisateur
     console.log(this.user_idx + " user id");

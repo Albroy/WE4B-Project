@@ -48,17 +48,20 @@
     <input class="form-control me-3" type="search" placeholder="Search">
     <button class="btn btn-outline-light" type="submit">Search</button>
   </form>
-  <button class="btn btn-outline-light" routerLink="/connexion" type="button"> Connexion </button>
-  <button class="btn btn-outline-light" routerLink="/inscription" type="button"> Inscription </button>
 
-  <div class="profile-logo dropstart">
-    <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
-      Osman
-    </button>
-    <ul class="dropdown-menu dropdown-menu-dark">
-      <li><a class="dropdown-item" routerLink="/profil/:id">Profil</a></li>
-      <li><a href="#" class="dropdown-item">Log Out</a></li>
-    </ul>
-  </div>
+  <button class="btn btn-outline-light" routerLink="/connexion" type="button" *ngIf="!getUserService().checkUserSession()">Connexion</button>
+  <button class="btn btn-outline-light" routerLink="/inscription" type="button" *ngIf="!getUserService().checkUserSession()">Inscription</button>
+  
+
+<div class="profile-logo dropstart" *ngIf="getUserService().checkUserSession()">
+  <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+    {{getUserService().getUserSurname()}}
+  </button>
+  <ul class="dropdown-menu dropdown-menu-dark">
+    <li><a class="dropdown-item" [routerLink]="'/profil/' + getUserService().getUserId()">Profil</a></li>
+    <li><a class="dropdown-item" routerLink="" (click)="getUserService().deleteUserSession()">Déconnexion</a></li>
+  </ul>
+</div>
+
 
 </nav>

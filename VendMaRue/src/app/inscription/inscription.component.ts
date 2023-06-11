@@ -25,7 +25,7 @@ export class InscriptionComponent implements OnInit {
   onSubmit() {
     this.error = this.isFormValid().error;
     if(this.isFormValid() && this.user.user_pwd == this.mdp2){
-      this.user.user_pwd = bcrypt.hashSync(this.user.user_pwd, 10);
+      //this.user.user_pwd = bcrypt.hashSync(this.user.user_pwd, 10); // pb mdp à corriger
       this.addUser();
     } else {
       this.error=String(this.error);
