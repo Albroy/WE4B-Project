@@ -39,3 +39,7 @@ Koreangroup
 OSMAN A-B-C
 
 Nicolas J-K 
+ ```
+npm install bcryptjs
+npm install --save-dev @types/bcryptjs
+ ```

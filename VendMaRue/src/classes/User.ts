@@ -8,9 +8,11 @@ export class User {
     public user_phone: number,
     public user_acc_date : Date,
     public user_loc : string,
+    public user_pwd : string,
     public user_desc ?: string,
   ) {
     this.id=id;
+    this.user_pwd=user_pwd;
     this.user_pp=user_pp;
     this.user_name=user_name;
     this.user_surname=user_surname;
