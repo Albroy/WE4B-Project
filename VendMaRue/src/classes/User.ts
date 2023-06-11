@@ -1,6 +1,6 @@
 export class User {
   constructor(
-    public user_id : number,
+    public id : number,
     public user_pp: string,
     public user_name: string,
     public user_surname: string,
@@ -10,7 +10,7 @@ export class User {
     public user_loc : string,
     public user_desc ?: string,
   ) {
-    this.user_id=user_id;
+    this.id=id;
     this.user_pp=user_pp;
     this.user_name=user_name;
     this.user_surname=user_surname;

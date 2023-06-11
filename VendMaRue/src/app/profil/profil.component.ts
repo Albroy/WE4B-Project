@@ -23,7 +23,7 @@ export class ProfilComponent implements OnInit{
     this.userService.getData().subscribe(data => {
       this.userlist = data;
       for (let i = 0; i < this.userlist.length; i++) {
-        if (this.userlist[i].user_id === this.user_idx) {
+        if (this.userlist[i].id === this.user_idx) {
           console.log("found");
           this.user = this.userlist[i];
           break;
