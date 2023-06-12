@@ -21,13 +21,20 @@
     <h5 class="card-text">{{card.text}}</h5>
 
     <div>
-    <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
-    <p class="card-text"><small class="text-muted">Évaluations: {{currentRate}}</small></p>
-    <p class="card-text"><small class="text-muted">Disponible: {{card.quantity}}</small></p>
+        <div *ngIf="getUserService().checkUserSession()">
+            <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"
+                (rateChange)="createOrUpdateEvaluation()"></ngb-rating>
+                <p class="card-text">
+                    <small class="text-muted">Évaluations: {{ moyenneAffichage }} / 5</small>
+                  </p>
+                  
+        </div>
 
-    <div class="my-4">      <button class="btn" (click)="ajouterPanier()">Ajouter au panier</button>
-    <div class="my-4">      <button class="btn" (click)="retirerPanier()">Retirer du panier</button>
-</div>
-    <h4>Commentaires</h4>
-    <app-comments-list [idCard]="card.id"></app-comments-list>
-    </div>
+        <p class="card-text"><small class="text-muted">Disponible: {{card.quantity}}</small></p>
+
+        <div class="my-4"> <button class="btn" (click)="ajouterPanier()">Ajouter au panier</button>
+            <div class="my-4"> <button class="btn" (click)="retirerPanier()">Retirer du panier</button>
+            </div>
+            <h4>Commentaires</h4>
+            <app-comments-list [idCard]="card.id"></app-comments-list>
+        </div>
