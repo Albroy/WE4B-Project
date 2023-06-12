@@ -28,7 +28,7 @@
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="mdp">Mot de passe</label>
-                        <input type="password" name="user_pwd" class="form-control" [(ngModel)]="user.user_pwd" required/>
+                        <input type="password" name="mdp" class="form-control" [ngModel]="mdp" (ngModelChange)="onPwdInputChange($event)" required/>
                       </div>
                     </div>
                     <!-- PARTIE DROITE -->

@@ -13,6 +13,7 @@ export class UserService {
   lastid:number=0;
 
   constructor(private http: HttpClient) {
+    // this.getMaxid();
     this.getDataLength();
     this.getData().subscribe(users => {
       this.users = users;
@@ -22,12 +23,13 @@ export class UserService {
   getData(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/Users');
   }
-  getMaxid():void{
-    this.getData().subscribe(data=>{
-      let last :any = data[data.length-1]
-      this.lastid= last.id
-    })
-  }
+  // getMaxid():void{
+  //   this.getData().subscribe(data=>{
+  //     let last :any = data[data.length-1]
+  //     this.lastid= last.id
+  //   })
+  // }
+  
   getDataLength() {
     this.getData().subscribe(data => {
       this.list_length = data.length;
@@ -41,6 +43,7 @@ export class UserService {
   createUserSession(email: string, password: string) {
     const user = this.users.find(u => u.user_email === email && bcrypt.compareSync(password,u.user_pwd));
     if (user) {
+      // console.log(user + " : " , bcrypt.compareSync(password,user.user_pwd));
       sessionStorage.setItem('user', JSON.stringify(user));
     }
   }
