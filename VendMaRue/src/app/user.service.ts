@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../classes/User';
 import { Observable } from 'rxjs';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class UserService {
   }
 
   createUserSession(email: string, password: string) {
-    const user = this.users.find(u => u.user_email === email && u.user_pwd === password);
+    const user = this.users.find(u => u.user_email === email && bcrypt.compareSync(password,u.user_pwd));
     if (user) {
       sessionStorage.setItem('user', JSON.stringify(user));
     }
