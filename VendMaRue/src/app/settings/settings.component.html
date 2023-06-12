@@ -1,0 +1,65 @@
+<div class="wrapper bg-white mt-sm-5">
+    <!-- // add condition si user connecté correctement -->
+    <h4 class="pb-4 border-bottom">Réglages</h4>
+    <div class="d-flex align-items-start py-3 border-bottom">
+        <img src="{{ userString ? user.user_pp : '../assets/profilepic1.png'}}" class="img" alt="profilpicture">
+        <div class="pl-sm-4 pl-2" id="img-section">
+            <b>Photo de profil</b>
+            <p></p>
+            <button class="btn button border"><b>Uploader</b></button>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="firstname">Prénom</label>
+                <input type="text" class="bg-light form-control" placeholder="Votre prénom"
+                    [(ngModel)]="user.user_surname">
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3">
+                <label for="lastname">Nom</label>
+                <input type="text" class="bg-light form-control" placeholder="Votre nom" [(ngModel)]="user.user_name">
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="email">Adresse Email</label>
+                <input type="text" class="bg-light form-control" [(ngModel)]="user.user_email" readonly>
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="tel" class="bg-light form-control" placeholder="+33 00 00 00 00 00"
+                    [(ngModel)]="user.user_phone">
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="country">Localisation</label>
+                <!-- ADD CLASSE LOC ou idk -->
+                <select name="country" id="country" class="bg-light">
+                    <option value="idk" selected>idk</option>
+                    <option value="idk">idk</option>
+
+                </select>
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3" id="lang">
+                <label for="Description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10" class="bg-light"
+                    placeholder="Décrivez-vous en quelques mots..." [(ngModel)]="user.user_desc"></textarea>
+            </div>
+        </div>
+        <div class="py-3 pb-4 border-bottom">
+            <button class="btn btn-primary mr-3">Sauvegarder</button>
+            <button class="btn border button">Annuler</button>
+        </div>
+        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+            <div>
+                <b>Détruire le compte</b>
+                <p>Mot de passe</p>
+            </div>
+            <div class="ml-auto">
+                <button class="btn danger">Désactivation du compte</button>
+            </div>
+        </div>
+    </div>
+</div>

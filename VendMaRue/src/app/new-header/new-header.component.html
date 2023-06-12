@@ -60,6 +60,7 @@
   <ul class="dropdown-menu dropdown-menu-dark">
     <li><a class="dropdown-item" [routerLink]="'/profil/' + getUserService().getUserId()">Profil</a></li>
     <li><a class="dropdown-item" routerLink="" (click)="getUserService().deleteUserSession()">Déconnexion</a></li>
+    <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
   </ul>
 </div>
 
