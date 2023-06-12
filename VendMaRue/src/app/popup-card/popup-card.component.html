@@ -9,7 +9,7 @@
     <img src="{{ card.photo }}" alt="Card Photo" class="img-fluid">
     <div class="label-top shadow-sm" *ngIf="card.OnSale > 0"
         [ngStyle]="{ 'background': card.OnSale >= 80 ? 'red' : (card.OnSale >= 50 ? 'orange' : (card.OnSale >= 25 ? 'yellow' : '')) }">
-        {{ card.OnSale }}%</div>
+        -{{ card.OnSale }}%</div>
     <span class="float-start badge rounded-pill bg-primary">{{card.brand}}</span>
     <span class="float-end price-hp" *ngIf="card.OnSale > 0; else NotOnSale">
         <del>{{ card.price }}&euro;</del> {{ (card.price - (card.price * card.OnSale) / 100).toFixed(2) }}&euro;
@@ -24,10 +24,10 @@
         <div *ngIf="getUserService().checkUserSession()">
             <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"
                 (rateChange)="createOrUpdateEvaluation()"></ngb-rating>
-                <p class="card-text">
-                    <small class="text-muted">Évaluations: {{ moyenneAffichage }} / 5</small>
-                  </p>
-                  
+            <p class="card-text">
+                <small class="text-muted">Évaluations: {{ moyenneAffichage }} / 5</small>
+            </p>
+
         </div>
 
         <p class="card-text"><small class="text-muted">Disponible: {{card.quantity}}</small></p>
