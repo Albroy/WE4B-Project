@@ -4,11 +4,11 @@
 #Planning :
 1. créer design composant angular :
 
-a.  Header  : (nom logo recherche connexion inscription)
+a. ✅Header  : (nom logo recherche connexion inscription)
    
-b. Header connecté : (nom, logo, recherche, profil)
+b. ✅Header connecté : (nom, logo, recherche, profil)
     
-c. SideBar gauche (catégories)
+c.✅ SideBar gauche (catégories)
     
 d.✅ Annonces Présentation (id_vendor titre puis photo prix description)
     
@@ -21,7 +21,7 @@ f.✅ body (annonces 4*4 flex/grid --> 2)
     
 g. ✅ footer (plan du site, copyright)
     
-h.  profil (nickname, pp, location, annoncesPrésentation)
+h. ✅profil (nickname, pp, location, annoncesPrésentation)
     
 i. page de réglage (infos profil formulaire)
    
@@ -34,7 +34,7 @@ k. pop up suppression de l'annonce
 m. ✅ Page de connexion/inscription
 
 Koreangroup
-✅D-✅E-✅F-✅M-✅G-H
+✅D-✅E-✅F-✅M-✅G-✅H
 
 OSMAN A-B-C
 
