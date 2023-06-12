@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class PopupCardComponent implements OnInit, OnChanges {
   @Input() card!: Card;
   currentRate: number;
-  currentEvalId: number = -1;
+  currentEvalId: number = 0;
   list: number = 0;
   evallist: Evaluation[] = [];
   moyenne: number | null = null;
@@ -67,12 +67,10 @@ export class PopupCardComponent implements OnInit, OnChanges {
     const user_id = this.userService.getUserId();
     const card_id = this.card.id;
     const rate = this.currentRate;
-    let fulllist: Evaluation[] = [];
 
     this.evaluationService.getData().subscribe(
       data => {
         this.evallist = data;
-        fulllist = data;
 
         this.evallist = this.evallist.filter(evaluation => evaluation.user_id === this.userService.getUserId() && evaluation.card_id === this.card.id);
 
@@ -86,7 +84,7 @@ export class PopupCardComponent implements OnInit, OnChanges {
             });
           });
         } else {
-          this.currentEvalId = fulllist.length + 1;
+          //currentEvalId : autoincrement
           this.evaluationService.addEval({ id: this.currentEvalId, user_id: Number(user_id), card_id: card_id, rate: rate }).subscribe(
             () => {
               this.getMoyenne().then(newMoyenne => {
@@ -111,7 +109,6 @@ export class PopupCardComponent implements OnInit, OnChanges {
       this.evaluationService.getData().subscribe(
         data => {
           const fulllist: Evaluation[] = data.filter(evaluation => evaluation.card_id === this.card.id);
-          // console.log("CARD ID : " + this.card.id + " Fulllist : " + fulllist.length);
 
           let sum = 0;
           for (let i = 0; i < fulllist.length; i++) {
