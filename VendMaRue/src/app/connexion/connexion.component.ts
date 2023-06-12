@@ -18,7 +18,7 @@ export class ConnexionComponent implements OnInit {
     if (this.mail && this.mdp) {
       this.mail = this.mail.toString();
       // pb mdp à corriger => voir inscription.component.ts
-      this.userService.createUserSession(this.mail, this.mdp);
+      this.userService.createUserSession(this.mail, this.mdp);  
       this.router.navigateByUrl('');
     }  //    
 

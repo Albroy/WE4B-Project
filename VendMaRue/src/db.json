@@ -217,15 +217,26 @@
   ],
   "Users": [
     {
-      "id": 1,
+      "id": 2,
+      "user_pp": "../assets/images/user.png",
+      "user_name": "Marcelin",
+      "user_surname": "Nicolas",
+      "user_email": "Nicolas@marclein.com",
+      "user_phone": 0,
+      "user_acc_date": "2023-06-12T15:54:42.057Z",
+      "user_loc": "Panam",
+      "user_pwd": "$2a$10$NHA7ioSkG0AziLNPb0VpkesbcuBwVItcd1KXStgCu2XBYoyxib3EC"
+    },
+    {
+      "id": 3,
       "user_pp": "../assets/images/user.png",
       "user_name": "t",
       "user_surname": "t",
       "user_email": "t@t.t",
       "user_phone": 0,
-      "user_acc_date": "2023-06-12T15:28:14.405Z",
+      "user_acc_date": "2023-06-12T15:55:30.907Z",
       "user_loc": "t",
-      "user_pwd": "$2a$10$nr0ebaTRWJY6bWix6r7UseB3zLj0AxrhZNNp4gqfL29lzyqO2XfgK"
+      "user_pwd": "$2a$10$5OB7SNZlJ7ls0hpJsxr/POPwYQ.s8QuRpK3CkvEq0NxYh/ps7h6X2"
     }
   ]
 }

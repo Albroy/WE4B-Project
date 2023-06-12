@@ -10,6 +10,7 @@ import * as bcrypt from 'bcryptjs';
 export class UserService {
   users: User[] = [];
   list_length!: number;
+  lastid:number=0;
 
   constructor(private http: HttpClient) {
     this.getDataLength();
@@ -21,7 +22,12 @@ export class UserService {
   getData(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/Users');
   }
-
+  getMaxid():void{
+    this.getData().subscribe(data=>{
+      let last :any = data[data.length-1]
+      this.lastid= last.id
+    })
+  }
   getDataLength() {
     this.getData().subscribe(data => {
       this.list_length = data.length;

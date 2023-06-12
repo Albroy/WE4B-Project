@@ -19,7 +19,8 @@ export class InscriptionComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {
     this.user = new User(0, '../assets/images/user.png', '', '', '', 0, new Date(), '', '')
-    this.user.id = this.userService.list_length + 1;
+    this.user.id= this.userService.lastid;
+    console.log("ID : " +this.userService.lastid)
     this.mdp2 = "";
 
   }
