@@ -242,13 +242,13 @@
   "Users": [
     {
       "id": 1,
-      "user_pp": "../assets/images/user.png",
+      "user_pp": "1_pp.jpg",
       "user_name": "Test",
-      "user_surname": "t",
+      "user_surname": "Test",
       "user_email": "t@t.t",
-      "user_phone": 0,
+      "user_phone": "1234567890",
       "user_acc_date": "2023-06-12T17:53:49.726Z",
-      "user_loc": "t",
+      "user_loc": "idk",
       "user_pwd": "$2a$10$SDcCmTSD/E.wuCIwYmMdYuJEeyw5wHpkAHmDi4IhWtD.O4mUrre7K"
     },
     {

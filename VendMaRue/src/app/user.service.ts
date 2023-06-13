@@ -91,4 +91,15 @@ export class UserService {
       sessionStorage.removeItem('user');
     }
   }
+
+  updateUser(id : number,user_pp:string,user_surname:string,user_name:string,user_phone:number,user_loc:string): Observable<User> {
+    const url = `http://localhost:3000/Users/${id}`;
+    //update SessionUser
+    return this.http.patch<User>(url, {user_pp,user_surname,user_name,user_phone,user_loc});
+  }
+  deleteUser(id: number): Observable<void> {
+    const url = `http://localhost:3000/Users/${id}`;
+    return this.http.delete<void>(url);
+  }
+  
 }

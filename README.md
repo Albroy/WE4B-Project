@@ -43,3 +43,15 @@ Nicolas J-K
 npm install bcryptjs
 npm install --save-dev @types/bcryptjs
  ```
+
+#### user.service.ts
+
+- ✅Créer un utilisateur
+- ✅Récupérer un utilisateur
+- ✅Créer session utilisateur
+- ✅Récupérer session utilisateur
+
+- add update session user : pour dans update user
+#### TODO
+- Récupérer les images et les stocker dans un dossier
+- messagerie
