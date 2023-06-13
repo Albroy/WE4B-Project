@@ -18,6 +18,7 @@ import { NewSidenavComponent } from './new-sidenav/new-sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DatePipe } from '@angular/common';
     ProfilComponent,
     NewHeaderComponent,
     NewSidenavComponent,
+    CreateProductComponent,
     
   ],
   imports: [

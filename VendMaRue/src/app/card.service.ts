@@ -10,9 +10,13 @@ export class CardService {
   Array : Card[] = []
   constructor(private http:HttpClient) { }
 
-  
+
   getData() : Observable<Card[]> {
     return this.http.get<Card[]>('http://localhost:3000/Cards')
   }
-  
+
+  addCard(card: Card): Observable<Card> {
+    return this.http.post<Card>('http://localhost:3000/Cards', card);
+  }
+
 }
