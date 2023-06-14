@@ -1,4 +1,5 @@
 import { Component, OnInit,Input} from '@angular/core';
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-new-sidenav',
@@ -7,38 +8,41 @@ import { Component, OnInit,Input} from '@angular/core';
 })
 export class NewSidenavComponent implements OnInit{
     @Input() sideNavStatus : boolean=false;
+    list :any []=[]
+    array : number[]=[0,1,2,3]
+    //faire push for
 
-    list= [
-      {
-        number:'1',
-        name:'Home',
-        icon:'fa-solid fa-house',
-      },
-      {
-        number:'2',
-        name:'Analytics',
-        icon:'fa-solid fa-chart-line',
-      },
-      {
-        number:'3',
-        name:'Products',
-        icon:'fa-solid fa-box',
-      },
-      {
-        number:'4',
-        name:'Orders',
-        icon:'fa-solid fa-shopping-bag',
-      },
-      {
-        number: '5',
-        name: 'Customers',
-        icon: 'fa-solid fa-user',
-      }
-    ];
-
-    constructor() { }
+    constructor(public userservice : UserService) {}
 
     ngOnInit() {
+      this.list= [
+        {
+          name:'Home',
+          icon:'fa-solid fa-house',
+          route:'/home'
+        },
+        {
+          name:'Analytics',
+          icon:'fa-solid fa-chart-line',
+          route:''
+        },
+        {
+          name:'Products',
+          icon:'fa-solid fa-box',
+          route:''
+        },
+        {
+          name:'Orders',
+          icon:'fa-solid fa-shopping-bag',
+          route:''
+        },
+        {
+          name: 'Profil',
+          icon: 'fa-solid fa-user',
+          route:'/profil/:'
+        }
+      ];
+
     }
 
 }

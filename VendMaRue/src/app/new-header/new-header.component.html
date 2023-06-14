@@ -3,9 +3,9 @@
   <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggle()">
     <i class="fa-solid fa-bars"></i>
   </div>
-  <img class="logo" src="assets/logo4.jpg" alt="logo">
+  <img routerLink="/home" class="logo" src="assets/logo4.jpg" alt="logo">
 
-  <a href="#" class="navbar-brand px-2">VendMaRue</a>
+  <a routerLink="/home" class="navbar-brand px-2">VendMaRue</a>
 
   <div class="navbar-collapse">
     <ul class="navbar-nav me-auto">
@@ -51,7 +51,7 @@
 
   <button class="btn btn-outline-light" routerLink="/connexion" type="button" *ngIf="!getUserService().checkUserSession()">Connexion</button>
   <button class="btn btn-outline-light" routerLink="/inscription" type="button" *ngIf="!getUserService().checkUserSession()">Inscription</button>
-  
+
 
 <div class="profile-logo dropstart" *ngIf="getUserService().checkUserSession()">
   <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
