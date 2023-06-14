@@ -67,6 +67,20 @@ export class SettingsComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  UpInfo() {
+    this.userService.getUser().subscribe(data => {
+      const userlist: User[] = data;
+      for (let i = 0; i < userlist.length; i++) {
+        if (userlist[i].id === this.user.id) {
+          console.log("found");
+          this.user = userlist[i];
+          break;
+        }
+      }
+      this.userService.createUserSession(this.user.user_email, this.newpwd)
+
+    });
+  }
   onSubmit() {
     if (this.file) {
       // this.fileUploadService.upload(this.file).subscribe( : a completer
@@ -82,9 +96,8 @@ export class SettingsComponent implements OnInit {
         this.userService.getData();
       });
       //UPDATE SESSION
-
-      console.log("coucou je vais changer de page "+this.user.id)
-      this.router.navigateByUrl('/profil/:'+this.user.id)
+      this.UpInfo();
+      this.router.navigateByUrl('/settings')
     }
   }
   onSubmitMdp() {
@@ -92,19 +105,8 @@ export class SettingsComponent implements OnInit {
 
       //Changement MDP : DB
       this.userService.updatePwd(this.user.id, this.newpwdtmp).subscribe(data => { this.user = data });
-      this.userService.getUser().subscribe(data => {
-        const userlist : User[]= data;
-        for (let i = 0; i < userlist.length; i++) {
-          if (userlist[i].id === this.user.id) {
-            console.log("found");
-            this.user = userlist[i];
-            break;
-          }
-        }
-        this.userService.createUserSession(this.user.user_email, this.newpwd)
-
-      });
-      this.router.navigateByUrl('/profil/:'+this.user.id)
+      this.UpInfo();
+      this.router.navigateByUrl('/profil/:' + this.user.id)
     }
   }
 
@@ -134,16 +136,17 @@ export class SettingsComponent implements OnInit {
       return { valid: false, error: "Mot de passe incorrect." };
     } else {
       this.newpwdtmp = bcrypt.hashSync(this.newpwdtmp, 10);
-      console.log("Le mot de passe fraichement crypté : ",this.newpwdtmp);
+      console.log("Le mot de passe fraichement crypté : ", this.newpwdtmp);
       return { valid: true, error: "" };
     }
   }
 
   deleteUser(id: number) {
+    this.closeModal();
     this.userService.deleteUser(id).subscribe(() => {
       console.log('Utilisateur supprimé avec succès.');
       this.userService.deleteUserSession()
-      window.location.reload();
+      this.router.navigateByUrl('');
     });
   }
   getUserService() {

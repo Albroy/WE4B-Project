@@ -94,6 +94,7 @@ export class UserService {
 
   updateUser(id: number, user_pp: string, user_surname: string, user_name: string, user_phone: number, user_loc: string, user_desc: string): Observable<User> {
     //update SessionUser
+    console.log("testUpdate")
     return this.http.patch<User>(this.url + `/${id}`, {
       user_pp,
       user_surname,
