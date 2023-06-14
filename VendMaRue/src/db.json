@@ -250,6 +250,17 @@
       "user_acc_date": "2023-06-14T17:18:20.963Z",
       "user_loc": "a",
       "user_pwd": "$2a$10$qhouUFdHOO9OVCahGUhgc.ZmX/CzDM4MmTOILxKVccgQsccTtKajS"
+    },
+    {
+      "id": 2,
+      "user_pp": "../assets/images/user.png",
+      "user_name": "Royer",
+      "user_surname": "Albert",
+      "user_email": "albert.royer@utbm.fr",
+      "user_phone": 0,
+      "user_acc_date": "2023-06-14T17:46:49.507Z",
+      "user_loc": "Belfort",
+      "user_pwd": "$2a$10$OpBKBWrq2d.6msz76niyK.73wQcrfxg4j1kQAwpyeJ.tYd6aj2Mkq"
     }
   ]
 }
