@@ -60,6 +60,24 @@
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
+        <form (submit)="onSubmitMdp()">
+            <!-- MOT DE PASSE ACTUEL -->
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="mdp">Mot de passe</label>
+                    <input type="password" name="mdp" class="form-control" [(ngModel)]="pwd" required/>
+                </div>
+            </div>
+            <!-- NOUVEAU MOT DE PASSE -->
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                  <label class="form-label" for="newmdp">Mot de passe</label>
+                  <input type="password" name="newmdp" class="form-control" [ngModel]="newpwd" (ngModelChange)="onPwdInputChange($event)" required/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+
+        </form>
         <div class="py-3 pb-4 border-bottom">
             <button class="btn btn-primary mr-3">Sauvegarder</button>
             <button class="btn border button">Annuler</button>

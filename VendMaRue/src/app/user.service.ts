@@ -86,16 +86,21 @@ export class UserService {
     }
   }
 
+  
   deleteUserSession() {
     if (sessionStorage.getItem('user')) {
       sessionStorage.removeItem('user');
     }
   }
-
-  updateUser(id : number,user_pp:string,user_surname:string,user_name:string,user_phone:number,user_loc:string): Observable<User> {
+  updatePwd(id : number, user_pwd : string): Observable<User> {
+    console.log(id + " : "+ user_pwd);
+    const url = `http://localhost:3000/Users/${id}`;
+    return this.http.patch<User>(url,{user_pwd});
+  }
+  updateUser(id : number,user_pp:string,user_surname:string,user_name:string,user_phone:number,user_loc:string,user_desc:string): Observable<User> {
     const url = `http://localhost:3000/Users/${id}`;
     //update SessionUser
-    return this.http.patch<User>(url, {user_pp,user_surname,user_name,user_phone,user_loc});
+    return this.http.patch<User>(url, {user_pp,user_surname,user_name,user_phone,user_loc,user_desc});
   }
   deleteUser(id: number): Observable<void> {
     const url = `http://localhost:3000/Users/${id}`;

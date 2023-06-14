@@ -5,6 +5,8 @@ import { DatePipe } from '@angular/common';
 import { FileUploadService } from '../file-upload.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import * as bcrypt from 'bcryptjs';
+
 
 @Component({
   selector: 'app-settings',
@@ -17,19 +19,28 @@ export class SettingsComponent implements OnInit {
   user: User;
   userString: string | null = sessionStorage.getItem('user');
   file: File | null = new File([], "");
-  filename: string = "";
+  filename: string = "../assets/profilepic1.png";
+  pwd: string;
+  newpwd: string = "";
+  newpwdtmp: string = "";
 
-  constructor(private userService: UserService, private datePipe: DatePipe, private modalService:NgbModal,private fileUploadService: FileUploadService, private router: Router) {
-    console.log(sessionStorage.getItem('user'));
-
+  constructor(private userService: UserService, private datePipe: DatePipe, private modalService: NgbModal, private fileUploadService: FileUploadService, private router: Router) {
+    // console.log(sessionStorage.getItem('user'));
+    this.pwd = "";
     if (this.userString) { // Si on est connecté
       this.user = JSON.parse(this.userString);
-      console.log(this.user);
-      this.filename = this.user.id + "_pp.jpg";
+      // console.log(this.user);
     } else {
       this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
     }
   }
+
+
+  onPwdInputChange(newValue: string) {
+    this.newpwd = newValue;
+    this.newpwdtmp = newValue;
+  }
+
   openModal(content: any) {
     this.modalService.open(content, { centered: true }); // Ouvre le modal
     this.isModalOpen = true;
@@ -41,6 +52,7 @@ export class SettingsComponent implements OnInit {
   }
   onFileSelected(event: any) {
     const tmp: File = event.target.files[0];
+    this.filename = this.user.id + "_pp.jpg";
     this.previewImage(tmp);
     console.log(this.file);
     this.file = new File([tmp], this.filename, { type: tmp.type });
@@ -64,15 +76,30 @@ export class SettingsComponent implements OnInit {
   onSubmitInfos() {
     console.log(this.isFormInfosValid());
     if (this.isFormInfosValid().valid) {
-      this.userService.updateUser(this.user.id, this.filename, this.user.user_surname, this.user.user_name, this.user.user_phone, this.user.user_loc).subscribe(data => {
+      this.user.user_desc ? this.user.user_desc : this.user.user_desc = "";
+      this.userService.updateUser(this.user.id, this.filename, this.user.user_surname, this.user.user_name, this.user.user_phone, this.user.user_loc, this.user.user_desc).subscribe(data => {
         this.user = data;
         console.log(this.user);
       });
+      //UPDATE SESSION
+
+      window.location.reload();
+
+    }
+  }
+  onSubmitMdp() {
+    console.log(this.isPasswordValid());
+    if (this.isPasswordValid().valid) {
+      console.log(this.user.user_pwd);
+      this.userService.updatePwd(this.user.id, this.newpwdtmp).subscribe(data => { this.user = data });
+      console.log(this.user.user_pwd);
+      //UPDATE SESSION
+      // window.location.reload();
     }
   }
 
   ngOnInit() {
-    this.userService.checkUserSession()? '': this.router.navigateByUrl('');
+    this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
   }
 
   isFormInfosValid(): { valid: boolean, error: string } {
@@ -92,11 +119,19 @@ export class SettingsComponent implements OnInit {
     }
     return { valid: true, error: "" };
   }
+  isPasswordValid(): { valid: boolean, error: string } {
+    if (!bcrypt.compareSync(this.pwd, this.user.user_pwd)) {
+      return { valid: false, error: "Mot de passe incorrect." };
+    } else {
+      this.newpwdtmp = bcrypt.hashSync(this.newpwdtmp, 10);
+      return { valid: true, error: "" };
+    }
+  }
 
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe(() => {
       console.log('Utilisateur supprimé avec succès.');
-      sessionStorage.removeItem('user');
+      this.userService.deleteUserSession()
       window.location.reload();
     });
   }
