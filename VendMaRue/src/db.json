@@ -243,13 +243,13 @@
     {
       "id": 1,
       "user_pp": "../assets/images/user.png",
-      "user_name": "z",
-      "user_surname": "z",
-      "user_email": "z@z.z",
+      "user_name": "a",
+      "user_surname": "a",
+      "user_email": "a@a.a",
       "user_phone": 0,
-      "user_acc_date": "2023-06-14T16:40:35.855Z",
-      "user_loc": "z",
-      "user_pwd": "$2a$10$ce9oR96T0AtdalupX9plDOngVq2FiKR4783KoNxT9wORjjlrDYZJG"
+      "user_acc_date": "2023-06-14T17:18:20.963Z",
+      "user_loc": "a",
+      "user_pwd": "$2a$10$qhouUFdHOO9OVCahGUhgc.ZmX/CzDM4MmTOILxKVccgQsccTtKajS"
     }
   ]
 }

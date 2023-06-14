@@ -25,14 +25,25 @@ export class ProfilComponent implements OnInit {
 
     //Chargement du profil de l'utilisateur
 
-    this.userlist = this.userService.users;
+    this.userService.getUser().subscribe(data => {
+      this.userlist = data;
+      for (let i = 0; i < this.userlist.length; i++) {
+        if (this.userlist[i].id === this.user_idx) {
+          this.user = this.userlist[i];
+          break;
+        }
+      }
+
+
+    });
+    /*this.userlist = this.userService.users;
     for (let i = 0; i < this.userlist.length; i++) {
       if (this.userlist[i].id === this.user_idx) {
         console.log("found");
         this.user = this.userlist[i];
         break;
       }
-    }
+    }*/
 
 
     //Chargement des posts de l'utilisateur
@@ -41,7 +52,7 @@ export class ProfilComponent implements OnInit {
 
       this.cardlist = this.cardlist.filter(card => card.userid === this.user_idx);
 
-      console.log(this.cardlist.length + " cards trouvées");
+      /*console.log(this.cardlist.length + " cards trouvées");*/
     });
   }
 }

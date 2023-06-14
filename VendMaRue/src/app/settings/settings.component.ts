@@ -79,9 +79,6 @@ export class SettingsComponent implements OnInit {
       this.user.user_desc ? this.user.user_desc : this.user.user_desc = "";
       this.userService.updateUser(this.user.id, this.filename, this.user.user_surname, this.user.user_name, this.user.user_phone, this.user.user_loc, this.user.user_desc).subscribe(data => {
         this.user = data;
-/*
-        console.log(this.user);
-*/
         this.userService.getData();
       });
       //UPDATE SESSION
@@ -91,27 +88,23 @@ export class SettingsComponent implements OnInit {
     }
   }
   onSubmitMdp() {
-/*
-    console.log("ispasswordvalid : "+this.isPasswordValid());
-*/
     if (this.isPasswordValid().valid) {
-/*
-      console.log(this.user.user_pwd+ " "+this.pwd+" " +this.newpwdtmp);
-*/
+
       //Changement MDP : DB
       this.userService.updatePwd(this.user.id, this.newpwdtmp).subscribe(data => { this.user = data });
+      this.userService.getUser().subscribe(data => {
+        const userlist : User[]= data;
+        for (let i = 0; i < userlist.length; i++) {
+          if (userlist[i].id === this.user.id) {
+            console.log("found");
+            this.user = userlist[i];
+            break;
+          }
+        }
+        this.userService.createUserSession(this.user.user_email, this.newpwd)
 
-/*
-      console.log(this.user.user_pwd+ " "+this.pwd+ " "+this.newpwdtmp);
-*/
-      this.userService.createUserSession(this.user.user_email, this.newpwd);
-/*
-      console.log("session : "+sessionStorage.getItem('user'));
-*/
-      console.log("coucou je vais changer de page "+this.user.id)
+      });
       this.router.navigateByUrl('/profil/:'+this.user.id)
-
-      // window.location.reload();
     }
   }
 
