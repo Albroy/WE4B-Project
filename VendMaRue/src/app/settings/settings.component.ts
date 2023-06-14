@@ -79,26 +79,38 @@ export class SettingsComponent implements OnInit {
       this.user.user_desc ? this.user.user_desc : this.user.user_desc = "";
       this.userService.updateUser(this.user.id, this.filename, this.user.user_surname, this.user.user_name, this.user.user_phone, this.user.user_loc, this.user.user_desc).subscribe(data => {
         this.user = data;
+/*
         console.log(this.user);
+*/
         this.userService.getData();
       });
       //UPDATE SESSION
 
-
-      window.location.reload();
-
+      console.log("coucou je vais changer de page "+this.user.id)
+      this.router.navigateByUrl('/profil/:'+this.user.id)
     }
   }
   onSubmitMdp() {
-    console.log(this.isPasswordValid());
+/*
+    console.log("ispasswordvalid : "+this.isPasswordValid());
+*/
     if (this.isPasswordValid().valid) {
+/*
       console.log(this.user.user_pwd+ " "+this.pwd+" " +this.newpwdtmp);
+*/
       //Changement MDP : DB
       this.userService.updatePwd(this.user.id, this.newpwdtmp).subscribe(data => { this.user = data });
-      
+
+/*
       console.log(this.user.user_pwd+ " "+this.pwd+ " "+this.newpwdtmp);
+*/
       this.userService.createUserSession(this.user.user_email, this.newpwd);
+/*
       console.log("session : "+sessionStorage.getItem('user'));
+*/
+      console.log("coucou je vais changer de page "+this.user.id)
+      this.router.navigateByUrl('/profil/:'+this.user.id)
+
       // window.location.reload();
     }
   }
@@ -129,6 +141,7 @@ export class SettingsComponent implements OnInit {
       return { valid: false, error: "Mot de passe incorrect." };
     } else {
       this.newpwdtmp = bcrypt.hashSync(this.newpwdtmp, 10);
+      console.log("Le mot de passe fraichement crypté : ",this.newpwdtmp);
       return { valid: true, error: "" };
     }
   }

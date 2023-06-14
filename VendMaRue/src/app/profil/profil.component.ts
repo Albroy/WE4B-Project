@@ -18,20 +18,21 @@ export class ProfilComponent implements OnInit {
 
   constructor(private activatedroute: ActivatedRoute, private userService: UserService, private cardService: CardService, private datePipe: DatePipe) {
     this.user_idx = parseInt(this.activatedroute.snapshot.params['id'].replace(':', ''), 10);
+  }
+
+  ngOnInit() {
     // console.log(sessionStorage.getItem('user'));
 
     //Chargement du profil de l'utilisateur
-    // console.log(this.user_idx + " user id");
-      this.userlist = this.userService.users;
-      for (let i = 0; i < this.userlist.length; i++) {
-        if (this.userlist[i].id === this.user_idx) {
-          console.log("found");
-          this.user = this.userlist[i];
-          break;
-        }
+
+    this.userlist = this.userService.users;
+    for (let i = 0; i < this.userlist.length; i++) {
+      if (this.userlist[i].id === this.user_idx) {
+        console.log("found");
+        this.user = this.userlist[i];
+        break;
       }
-
-
+    }
 
 
     //Chargement des posts de l'utilisateur
@@ -42,9 +43,5 @@ export class ProfilComponent implements OnInit {
 
       console.log(this.cardlist.length + " cards trouvées");
     });
-
-
-  }
-  ngOnInit() {
   }
 }

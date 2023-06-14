@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../classes/User';
-import { Observable } from 'rxjs';
+import {async, delay, Observable} from 'rxjs';
 import * as bcrypt from 'bcryptjs';
 
 @Injectable({
@@ -21,7 +21,6 @@ export class UserService {
     this.http.get<User[]>(this.url).subscribe(users => {this.users=users; console.log("GETDATA ",this.users);});
   }
 
-  
   getDataLength() {
       this.list_length = this.users.length;
   }
@@ -30,20 +29,26 @@ export class UserService {
     return this.http.post<User>(this.url, user);
   }
 
-  createUserSession(email: string, password: string) {
-    console.log("Création de la session : "+email+" "+password);
-    sessionStorage.getItem('user')? sessionStorage.clear(): console.log("Pas de session");
-    this.getData();
-    console.log(this.users)
-    const user = this.users.find(u => u.user_email === email && bcrypt.compareSync(password,u.user_pwd));
-    console.log(user);
-    if (user) { 
-      console.log(user + " : " , bcrypt.compareSync(password,user.user_pwd)); 
+  async createUserSession(email: string, password: string) {
+    console.log("Entrée fonction session : "+email+" "+password);
+/*
+    sessionStorage.getItem('user') ? sessionStorage.clear() : console.log("Pas de session");
+*/
+
+    await new Promise<void>((resolve) => {
+      this.getData();
+      console.log(this.users);
+      resolve();
+    });
+
+    const user = this.users.find(u => u.user_email === email && bcrypt.compareSync(password, u.user_pwd));
+    console.log("User found : "+ user);
+    if (user) {
+      console.log(" on crée la session User : " + user + " : compareSync : " + bcrypt.compareSync(password,user.user_pwd));
       sessionStorage.setItem('user', JSON.stringify(user));
     }
   }
 
-  
   checkUserSession(): boolean {
     const user = sessionStorage.getItem('user');
     if (user) {
@@ -61,7 +66,7 @@ export class UserService {
     // console.log("pas de données de session");
     return false;
   }
-  
+
   getUserId() {
     const userString = sessionStorage.getItem('user');
     if (userString) {
@@ -80,14 +85,14 @@ export class UserService {
     }
   }
 
-  
+
   deleteUserSession() {
     if (sessionStorage.getItem('user')) {
       sessionStorage.removeItem('user');
     }
   }
   updatePwd(id : number, user_pwd : string): Observable<User> {
-    console.log(id + " : "+ user_pwd);
+    console.log("on est dans updatePwd et on a id : "+id + " password : "+ user_pwd);
     return this.http.patch<User>(this.url+`/${id}`,{user_pwd});
   }
   updateUser(id : number,user_pp:string,user_surname:string,user_name:string,user_phone:number,user_loc:string,user_desc:string): Observable<User> {
@@ -97,5 +102,5 @@ export class UserService {
   deleteUser(id: number): Observable<void> {
     return this.http.delete<void>(this.url+`/${id}`);
   }
-  
+
 }
