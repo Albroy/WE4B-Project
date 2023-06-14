@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand navbar-dark px-2">
 
+  {{getUserService().checkUserSession()}}
+
   <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggle()">
     <i class="fa-solid fa-bars"></i>
   </div>
   <img class="logo" src="assets/logo4.jpg" alt="logo">
 
-  <a href="#" class="navbar-brand px-2">VendMaRue</a>
+  <a  class="navbar-brand px-2"routerLink="">VendMaRue</a>
 
   <div class="navbar-collapse">
     <ul class="navbar-nav me-auto">

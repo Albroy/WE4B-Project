@@ -11,7 +11,7 @@ export class NewHeaderComponent implements OnInit {
   isLoggedIn: boolean;
 
   constructor(private userService: UserService) {
-    this.isLoggedIn = this.userService.checkUserSession();
+    this.isLoggedIn = true;
   }
   ngOnInit() {
   }
@@ -20,6 +20,18 @@ export class NewHeaderComponent implements OnInit {
     this.menuStatus = !this.menuStatus;
     this.sideNavToggle.emit(this.menuStatus);
   }
+
+  TEST(bool : boolean){
+    for (let i = 0; i < 10000000; i++) {
+
+    }
+
+    if(!bool){
+      this.userService.deleteUserSession();
+    }
+
+  }
+
 
 
 
