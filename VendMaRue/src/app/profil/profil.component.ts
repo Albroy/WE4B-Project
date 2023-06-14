@@ -22,8 +22,7 @@ export class ProfilComponent implements OnInit {
 
     //Chargement du profil de l'utilisateur
     // console.log(this.user_idx + " user id");
-    this.userService.getData().subscribe(data => {
-      this.userlist = data;
+      this.userlist = this.userService.users;
       for (let i = 0; i < this.userlist.length; i++) {
         if (this.userlist[i].id === this.user_idx) {
           console.log("found");
@@ -33,7 +32,6 @@ export class ProfilComponent implements OnInit {
       }
 
 
-    });
 
 
     //Chargement des posts de l'utilisateur

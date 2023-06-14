@@ -80,8 +80,10 @@ export class SettingsComponent implements OnInit {
       this.userService.updateUser(this.user.id, this.filename, this.user.user_surname, this.user.user_name, this.user.user_phone, this.user.user_loc, this.user.user_desc).subscribe(data => {
         this.user = data;
         console.log(this.user);
+        this.userService.getData();
       });
       //UPDATE SESSION
+
 
       window.location.reload();
 
@@ -90,10 +92,13 @@ export class SettingsComponent implements OnInit {
   onSubmitMdp() {
     console.log(this.isPasswordValid());
     if (this.isPasswordValid().valid) {
-      console.log(this.user.user_pwd);
+      console.log(this.user.user_pwd+ " "+this.pwd+" " +this.newpwdtmp);
+      //Changement MDP : DB
       this.userService.updatePwd(this.user.id, this.newpwdtmp).subscribe(data => { this.user = data });
-      console.log(this.user.user_pwd);
-      //UPDATE SESSION
+      
+      console.log(this.user.user_pwd+ " "+this.pwd+ " "+this.newpwdtmp);
+      this.userService.createUserSession(this.user.user_email, this.newpwd);
+      console.log("session : "+sessionStorage.getItem('user'));
       // window.location.reload();
     }
   }

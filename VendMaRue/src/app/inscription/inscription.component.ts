@@ -55,6 +55,7 @@ export class InscriptionComponent implements OnInit {
     this.userService.addUser(this.user).subscribe(data => {
       this.user = data;
       console.log(this.user);
+      this.userService.getData();
       this.router.navigateByUrl('');
     }
     )
@@ -85,3 +86,4 @@ export class InscriptionComponent implements OnInit {
 
 }
 
+ 
