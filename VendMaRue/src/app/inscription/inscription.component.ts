@@ -9,18 +9,18 @@ import * as bcrypt from 'bcryptjs';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-  
+
   public user: User;
   public mdp: string;
   public mdp2: string;
   public error: String = "";
-  
+
 
   submitted = false;
   loading = false;
 
   constructor(private userService: UserService, private router: Router) {
-    
+
     this.user = new User(0, '../assets/images/user.png', '', '', '', 0, new Date(), '', '')
     this.user.id= this.userService.lastid;
     console.log("ID : " +this.userService.lastid)
@@ -34,14 +34,14 @@ export class InscriptionComponent implements OnInit {
     this.mdp = newValue;
     console.log("Nouvelle valeur de l'input :", newValue);
   }
-  
+
   ngOnInit(): void { }
 
   onSubmit() {
     this.submitted = true;
     console.log("submit button" + this.submitted)
 
-    // stop here if form is invalid
+    this.error = this.isFormValid().error
     if (this.isFormValid().valid) {
       this.loading = true;
       this.addUser();
@@ -86,4 +86,3 @@ export class InscriptionComponent implements OnInit {
 
 }
 
- 
