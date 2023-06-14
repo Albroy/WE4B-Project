@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { SettingsComponent } from './settings/settings.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SettingsComponent } from './settings/settings.component';
     NewHeaderComponent,
     NewSidenavComponent,
     SettingsComponent,
+    ChatComponent,
     
   ],
   imports: [

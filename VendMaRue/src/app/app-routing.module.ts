@@ -8,6 +8,7 @@ import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {path:'',component:CardsComponent},
+  {path:'home', component:CardsComponent},
   {path:'inscription',component:InscriptionComponent},
   {path:'connexion',component:ConnexionComponent},
   {path:'profil/:id',component:ProfilComponent},
