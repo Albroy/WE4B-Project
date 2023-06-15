@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../classes/User';
-import { Observable } from 'rxjs';
+import {Injectable, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {User} from '../classes/User';
+import {async, delay, Observable} from 'rxjs';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,38 +10,42 @@ import { Observable } from 'rxjs';
 export class UserService {
   users: User[] = [];
   list_length!: number;
+  lastid: number = 0;
+  url: string = 'http://localhost:3000/Users';
 
   constructor(private http: HttpClient) {
     this.getDataLength();
-    this.getData().subscribe(users => {
+    this.getData();
+  }
+
+  getData() {
+    this.http.get<User[]>(this.url).subscribe(users => {
       this.users = users;
     });
   }
 
-  getData(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:3000/Users');
+  getUser(): Observable<User[]> {
+    return this.http.get<User[]>(this.url)
   }
 
   getDataLength() {
-    this.getData().subscribe(data => {
-      this.list_length = data.length;
-    });
+    this.list_length = this.users.length;
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/Users', user);
+    return this.http.post<User>(this.url, user);
   }
 
   createUserSession(email: string, password: string) {
-    const user = this.users.find(u => u.user_email === email && u.user_pwd === password);
+    const user = this.users.find(u => u.user_email === email && bcrypt.compareSync(password, u.user_pwd));
     if (user) {
+      console.log(" on crée la session User : " + user + " : compareSync : " + bcrypt.compareSync(password, user.user_pwd));
       sessionStorage.setItem('user', JSON.stringify(user));
     }
   }
 
   checkUserSession(): boolean {
     const user = sessionStorage.getItem('user');
-    
     if (user) {
       const userUsed: User = JSON.parse(user);
       const exist = this.users.some(u => u.user_email === userUsed.user_email && u.user_pwd === userUsed.user_pwd);
@@ -56,7 +61,6 @@ export class UserService {
     // console.log("pas de données de session");
     return false;
   }
-  
 
   getUserId() {
     const userString = sessionStorage.getItem('user');
@@ -76,9 +80,33 @@ export class UserService {
     }
   }
 
+
   deleteUserSession() {
     if (sessionStorage.getItem('user')) {
       sessionStorage.removeItem('user');
     }
   }
+
+  updatePwd(id: number, user_pwd: string): Observable<User> {
+    console.log("on est dans updatePwd et on a id : " + id + " password : " + user_pwd);
+    return this.http.patch<User>(this.url + `/${id}`, {user_pwd});
+  }
+
+  updateUser(id: number, user_pp: string, user_surname: string, user_name: string, user_phone: number, user_loc: string, user_desc: string): Observable<User> {
+    //update SessionUser
+    console.log("testUpdate")
+    return this.http.patch<User>(this.url + `/${id}`, {
+      user_pp,
+      user_surname,
+      user_name,
+      user_phone,
+      user_loc,
+      user_desc
+    });
+  }
+
+  deleteUser(id: number): Observable<void> {
+    return this.http.delete<void>(this.url + `/${id}`);
+  }
+
 }

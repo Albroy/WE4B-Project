@@ -42,4 +42,20 @@ Nicolas J-K
  ```
 npm install bcryptjs
 npm install --save-dev @types/bcryptjs
+npm install crypto-browserify stream-browserify assert stream-http https-browserify os-browserify
+npm install crypto-browserify
+https://stackoverflow.com/questions/67572355/webpack-5-angular-polyfill-for-node-js-crypto-js
+
  ```
+
+#### user.service.ts
+
+- ✅Créer un utilisateur
+- ✅Récupérer un utilisateur
+- ✅Créer session utilisateur
+- ✅Récupérer session utilisateur
+
+- add update session user : pour dans update user
+#### TODO
+- Récupérer les images et les stocker dans un dossier
+- messagerie

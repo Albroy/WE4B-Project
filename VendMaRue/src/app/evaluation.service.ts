@@ -10,12 +10,14 @@ import { Evaluation } from '../classes/Evaluation';
 export class EvaluationService {
   evaluations: Evaluation[] = [];
   list_length!: number;
+  lastid:number=0;
   constructor(private http:HttpClient) {
     this.getDataLength();
     this.getData().subscribe(evaluations => {
       this.evaluations = evaluations;
     });
   }
+  
   getData(): Observable<Evaluation[]> {
     return this.http.get<Evaluation[]>('http://localhost:3000/Evaluations');
   }

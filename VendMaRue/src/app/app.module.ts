@@ -20,11 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
-// import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-// import { environment } from '../environments/environment';
-// import { provideStorage,getStorage } from '@angular/fire/storage';
-// import {AngularFireModule} from "@angular/fire/compat/";
-// import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { SettingsComponent } from './settings/settings.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +40,9 @@ import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
     NewSidenavComponent,
     CreateProductComponent,
     MesAnnoncesComponent,
-
+    SettingsComponent,
+    ChatComponent
+    
   ],
   imports: [
     BrowserModule,
