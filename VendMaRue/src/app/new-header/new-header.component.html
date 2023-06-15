@@ -43,12 +43,7 @@
     </ul>
 
   </div>
-
-  <form class="d-flex me-5">
-    <input class="form-control me-3" type="search" placeholder="Search">
-    <button class="btn btn-outline-light" type="submit">Search</button>
-  </form>
-
+  <app-search></app-search>
   <button class="btn btn-outline-light" routerLink="/connexion" type="button" *ngIf="!getUserService().checkUserSession()">Connexion</button>
   <button class="btn btn-outline-light" routerLink="/inscription" type="button" *ngIf="!getUserService().checkUserSession()">Inscription</button>
   

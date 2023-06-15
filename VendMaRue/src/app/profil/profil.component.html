@@ -5,14 +5,12 @@
         <div class="card">
           <div class="entete rounded-top text-white d-flex flex-row">
             <div class="ms-4 mt-5 d-flex flex-column">
-              <img src="./assets/profilepic1.png"
-              alt="photo de profil" class="img-fluid img-thumbnail mt-4 mb-2">
-              <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" >
-                Edit profile
-              </button>
+              <img src="./assets/profilepic1.png" alt="photo de profil" class="img-fluid img-thumbnail mt-4 mb-2">
+              <button *ngIf="onMyPage" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" routerLink="/settings">
+                Modifier le profil </button>
             </div>
             <div class="ms-3">
-              <h5>{{user.user_name}}  <b>{{user.user_surname}}</b></h5>
+              <h5>{{user.user_name}} <b>{{user.user_surname}}</b></h5>
               <p>{{user.user_loc}}</p>
             </div>
           </div>
@@ -57,4 +55,6 @@
     </div>
   </div>
 </section>
-<ng-template #errorBlock><h4 class="d-flex justify-content-center m-5" >Cet utilisateur n'existe pas</h4></ng-template>
+<ng-template #errorBlock>
+  <h4 class="d-flex justify-content-center m-5">Cet utilisateur n'existe pas</h4>
+</ng-template>

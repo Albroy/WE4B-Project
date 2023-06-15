@@ -95,6 +95,18 @@
       "user_id": 3,
       "card_id": 1,
       "rate": 5
+    },
+    {
+      "id": 17,
+      "user_id": 5,
+      "card_id": 1,
+      "rate": 5
+    },
+    {
+      "id": 18,
+      "user_id": 5,
+      "card_id": 4,
+      "rate": 4
     }
   ],
   "Cards": [
@@ -274,6 +286,18 @@
       "user_loc": "Tibet",
       "user_pwd": "$2a$10$NdrFFvATiFW6gXRNVje46e3ob4Ty1hT9zSnWcuGK.A6jXeNNq1Pqq",
       "user_desc": "Tobleronne"
+    },
+    {
+      "id": 5,
+      "user_pp": "../assets/profilepic1.png",
+      "user_name": "Zebre",
+      "user_surname": "Zebr",
+      "user_email": "z@z.z",
+      "user_phone": "0123456789",
+      "user_acc_date": "2023-06-15T13:18:05.198Z",
+      "user_loc": "Zimbabwe",
+      "user_pwd": "$2a$10$fjWGFOp0wRndZUFnKynK.O1uUqc.1tSQVsphUIcOlIwy2g2r4jxrK",
+      "user_desc": "ZZZZ"
     }
   ]
 }

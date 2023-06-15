@@ -15,9 +15,18 @@ export class ProfilComponent implements OnInit {
   userlist: User[] = [];
   cardlist: Card[] = [];
   user_idx: number;
+  userString: string | null = sessionStorage.getItem('user');
+  onMyPage: boolean = false;
 
   constructor(private activatedroute: ActivatedRoute, private userService: UserService, private cardService: CardService, private datePipe: DatePipe) {
     this.user_idx = parseInt(this.activatedroute.snapshot.params['id'].replace(':', ''), 10);
+
+    if (this.userString) { // Si on est connecté
+      const connectedUser: User = JSON.parse(this.userString);
+      if (connectedUser.id == this.user_idx) {
+        this.onMyPage = true;
+      }
+    }
   }
 
   ngOnInit() {

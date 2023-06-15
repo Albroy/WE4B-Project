@@ -13,10 +13,12 @@ export class ConnexionComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.userService.getData();
+  }
 
   onSubmit() {
-    if (this.mail && this.mdp) {
+    if (this.mail && this.mdp) { //si les deux champs sont remplis  
       this.mail = this.mail.toString();
       this.userService.createUserSession(this.mail, this.mdp);
       sessionStorage.getItem('user') ? this.router.navigate(['']) : this.error = "Mot de passe ou email incorrect";

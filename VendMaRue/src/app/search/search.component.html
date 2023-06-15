@@ -1,0 +1,12 @@
+<div class="container profile-logo dropstart">
+    <form [formGroup]="searchForm" class="d-flex me-5" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Rechercher..." formControlName="searchValue" class="form-control me-3"
+            (input)="onSearchInput()">
+    </form>
+    <ul *ngIf="hasValue" class="list">
+        <li class="list-item" *ngFor="let user of users" (click)="goToProfile(user.id)">
+          {{ user.user_name }} {{ user.user_surname }}
+        </li>
+      </ul>
+      
+</div>

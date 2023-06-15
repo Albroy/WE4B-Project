@@ -43,7 +43,13 @@ export class UserService {
       sessionStorage.setItem('user', JSON.stringify(user));
     }
   }
-
+  getSessionUser():string|null{
+    const userString = sessionStorage.getItem('user');
+    if(userString){
+      return userString;
+    }
+    return null;
+  }
   checkUserSession(): boolean {
     const user = sessionStorage.getItem('user');
     if (user) {

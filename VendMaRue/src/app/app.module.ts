@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
+import { SearchComponent } from './search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { ChatComponent } from './chat/chat.component';
     NewSidenavComponent,
     SettingsComponent,
     ChatComponent,
+    SearchComponent,
     
   ],
   imports: [
@@ -45,7 +48,8 @@ import { ChatComponent } from './chat/chat.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
