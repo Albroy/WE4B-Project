@@ -23,7 +23,7 @@ g. ✅ footer (plan du site, copyright)
     
 h. ✅profil (nickname, pp, location, annoncesPrésentation)
     
-i. page de réglage (infos profil formulaire)
+i. ✅ page de réglage (infos profil formulaire)
    
 j. Modification/création annonces
     
@@ -36,9 +36,6 @@ m. ✅ Page de connexion/inscription
 Koreangroup
 ✅D-✅E-✅F-✅M-✅G-✅H
 
-OSMAN A-B-C
-
-Nicolas J-K 
  ```
 npm install bcryptjs
 npm install --save-dev @types/bcryptjs
@@ -54,8 +51,14 @@ https://stackoverflow.com/questions/67572355/webpack-5-angular-polyfill-for-node
 - ✅Récupérer un utilisateur
 - ✅Créer session utilisateur
 - ✅Récupérer session utilisateur
-
 - add update session user : pour dans update user
-#### TODO
-- Récupérer les images et les stocker dans un dossier
-- messagerie
+
+#### TODO 
+OSMAN : suppression produit, bouton et image modif
+
+NICOLAS : Récupérer les images et les stocker dans un dossier 
+          Passer les sessions en cookies
+
+CAMILLE : Messagerie
+
+ALBERT : Remplacer bouton panier par Bouton contacter 
