@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/classes/Card';
 import { CardService } from '../card.service';
 import { Router } from '@angular/router';
+import {UserService} from "../user.service";
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-create-product',
@@ -12,11 +14,12 @@ export class CreateProductComponent implements OnInit {
   public product: Card;
   // Autres propriétés et méthodes nécessaires
 
-  constructor(private cardService: CardService, private router: Router) {
+  constructor(private cardService: CardService, private router: Router,private userService : UserService) {
     this.product = new Card(0, '', 0, '', '', 0, 0, 0, 0, new Date(), '');
   }
 
   ngOnInit() {
+    this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
   }
 
   onSubmit() {
@@ -42,6 +45,7 @@ export class CreateProductComponent implements OnInit {
 
     // Ajouter le préfixe "../assets/" au nom du fichier
     this.product.photo = "../assets/" + fileName;
+    this.product.userid= this.userService.getUserId()
 
     this.cardService.addCard(this.product).subscribe(
       (data: Card) => {
@@ -77,3 +81,5 @@ export class CreateProductComponent implements OnInit {
   // Autres méthodes et logique de traitement des données
 
 }
+
+

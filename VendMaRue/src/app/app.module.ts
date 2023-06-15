@@ -19,6 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
+// import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+// import { environment } from '../environments/environment';
+// import { provideStorage,getStorage } from '@angular/fire/storage';
+// import {AngularFireModule} from "@angular/fire/compat/";
+// import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 @NgModule({
   declarations: [
@@ -36,14 +42,19 @@ import { CreateProductComponent } from './create-product/create-product.componen
     NewHeaderComponent,
     NewSidenavComponent,
     CreateProductComponent,
-    
+    MesAnnoncesComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideStorage(() => getStorage()),
+    // AngularFireModule,
+    // AngularFireStorageModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
