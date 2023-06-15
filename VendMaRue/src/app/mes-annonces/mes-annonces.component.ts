@@ -3,6 +3,9 @@ import { Card } from '../../classes/Card';
 import { CardService } from '../card.service';
 import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../classes/User';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,23 +15,41 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class MesAnnoncesComponent implements OnInit {
+  user: User;
   cardlist: Card[] = [];
-  userId: number; // ID de l'utilisateur
+  userString: string | null = sessionStorage.getItem('user');
+  pwd: string;
+  userId: number = 0;
+  showEditButton: boolean = false;
 
-  constructor(
-    private cardService: CardService,
-    private userService: UserService,
-    private activatedRoute: ActivatedRoute
-  ) {
-    this.userId = parseInt(this.activatedRoute.snapshot.params['id'], 10); // Récupérer l'ID de l'utilisateur à partir de l'URL
 
-    this.cardService.getData().subscribe(data => {
-      console.log(data); // Vérifiez si les annonces sont récupérées correctement
-      this.cardlist = data.filter(card => card.userid === this.userId);
-    });
+
+  constructor(private userService: UserService, private cardService: CardService,private router: Router) {
+    this.pwd = "";
+    if (this.userString) { // Si on est connecté
+      this.user = JSON.parse(this.userString);
+      console.log(this.user);
+    } else {
+      this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
+    }
   }
 
   ngOnInit() {
+    if (this.userString) {
+      this.user = JSON.parse(this.userString);
+      this.userId = this.user.id;
+    }
 
+    this.cardService.getData().subscribe(data => {
+      this.cardlist = data.filter(card => card.userid === this.userId);
+    });
+
+    // Activer l'affichage du bouton "Modifier"
+    this.showEditButton = true;
   }
+  editCard(card: Card) {
+    const cardId = card.id;
+    this.router.navigate(['/create-product', cardId]);
+  }
+
 }

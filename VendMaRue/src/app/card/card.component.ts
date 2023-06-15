@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component,Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { Card } from '../../classes/Card';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PopupCardComponent } from '../popup-card/popup-card.component';
@@ -10,6 +10,9 @@ import { PopupCardComponent } from '../popup-card/popup-card.component';
 })
 export class CardComponent implements OnInit {
   @Input() card!: Card;
+  @Input() showEditButton: boolean = false; // Par défaut, le bouton "Modifier" est masqué
+  @Output() editCardEvent = new EventEmitter<Card>();
+
 
   constructor(private modalService: NgbModal) {}
 
@@ -20,4 +23,9 @@ export class CardComponent implements OnInit {
     modalRef.componentInstance.card = this.card;
     // console.log(this.card.id);
   }
+
+  editCard() {
+    this.editCardEvent.emit(this.card);
+  }
+
 }

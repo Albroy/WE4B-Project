@@ -4,6 +4,7 @@ import { CardService } from '../card.service';
 import { Router } from '@angular/router';
 import {UserService} from "../user.service";
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -13,21 +14,46 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 export class CreateProductComponent implements OnInit {
   public product: Card;
   // Autres propriétés et méthodes nécessaires
+  cardId: string | null = null;
+  public cardToEdit: boolean = false;
 
-  constructor(private cardService: CardService, private router: Router,private userService : UserService) {
+
+
+  constructor(private route: ActivatedRoute,private cardService: CardService, private router: Router,private userService : UserService) {
     this.product = new Card(0, '', 0, '', '', 0, 0, 0, 0, new Date(), '');
   }
 
   ngOnInit() {
     this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
+    this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
+    this.cardId = this.route.snapshot.paramMap.get('id');
+    if (this.cardId) {
+      this.cardService.getCardById(this.cardId).subscribe(card => {
+        this.product = card; // Pré-remplir le formulaire avec les valeurs de l'annonce à modifier
+      });
+    }
   }
 
   onSubmit() {
     console.log('Le formulaire a été soumis.');
     // Validation du formulaire et traitement des données
     if (this.isFormValid()) {
-      this.addProduct();
+
+      if (this.cardId) {
+        this.cardService.updateCard(this.cardId, this.product).subscribe(
+          (data: Card) => {
+            console.log('Annonce mise à jour :', data);
+            this.router.navigateByUrl('/mes-annonces'); // Rediriger vers la page appropriée après la mise à jour
+          },
+          (error: any) => {
+            console.error("Erreur lors de la mise à jour de l'annonce :", error);
+          }
+        );
+      } else {
+        this.addProduct();
+      }
       this.resetForm(); // Réinitialiser le formulaire
+
     } else {
       // Gestion des erreurs ou des conditions invalides
     }
@@ -78,7 +104,6 @@ export class CreateProductComponent implements OnInit {
   }
 
 
-  // Autres méthodes et logique de traitement des données
 
 }
 

@@ -184,9 +184,9 @@
     },
     {
       "id": 7,
-      "title": "Title 7",
+      "title": "Quoicoubeh",
       "userid": 4,
-      "photo": "../assets/test.jpg",
+      "photo": "C:\\fakepath\\testcreateproduct.jpg",
       "brand": "Brand 7",
       "price": 69.99,
       "OnSale": 60,
@@ -377,6 +377,36 @@
       "date": "2023-06-14",
       "loc": "Danjoutin",
       "text": "Bengal"
+    },
+    {
+      "id": 21,
+      "title": "Quoicoubehhh",
+      "userid": 4,
+      "photo": "C:\\fakepath\\test.jpg",
+      "brand": "Apagnan",
+      "price": 500,
+      "OnSale": 0,
+      "likes": 0,
+      "quantity": 1,
+      "date": "2023-06-15",
+      "loc": "Unpagnéhein",
+      "text": "Apagnan la crampté",
+      "showEditButton": false
+    },
+    {
+      "id": 22,
+      "title": "aefaifijoa",
+      "userid": 4,
+      "photo": "../assets/testcreateproduct.jpg",
+      "brand": "jzaifjiajfi",
+      "price": 20,
+      "OnSale": 0,
+      "likes": 0,
+      "quantity": 20,
+      "date": "2023-06-16",
+      "loc": "za,fzk",
+      "text": "fazjpfaz",
+      "showEditButton": false
     }
   ],
   "Users": [

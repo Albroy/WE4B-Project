@@ -12,6 +12,7 @@ export class Card {
     public date : Date,
     public loc : string,
     public text ?: string,
+    public showEditButton?: boolean
   ) {
     this.photo = photo;
     this.title = title;
@@ -25,5 +26,6 @@ export class Card {
     this.quantity = quantity;
     this.date=date;
     this.loc=loc;
+    this.showEditButton = showEditButton ?? false; // Par défaut, le bouton "Modifier" est masqué
   }
 }
