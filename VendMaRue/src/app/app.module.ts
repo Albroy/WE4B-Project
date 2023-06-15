@@ -18,6 +18,8 @@ import { NewSidenavComponent } from './new-sidenav/new-sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
 
@@ -36,8 +38,10 @@ import { ChatComponent } from './chat/chat.component';
     ProfilComponent,
     NewHeaderComponent,
     NewSidenavComponent,
+    CreateProductComponent,
+    MesAnnoncesComponent,
     SettingsComponent,
-    ChatComponent,
+    ChatComponent
     
   ],
   imports: [
@@ -45,7 +49,11 @@ import { ChatComponent } from './chat/chat.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideStorage(() => getStorage()),
+    // AngularFireModule,
+    // AngularFireStorageModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

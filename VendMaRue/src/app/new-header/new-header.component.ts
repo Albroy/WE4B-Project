@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from '../user.service';
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-new-header',
   templateUrl: './new-header.component.html',
@@ -10,8 +11,8 @@ export class NewHeaderComponent implements OnInit {
   menuStatus: boolean = false;
   isLoggedIn: boolean;
 
-  constructor(private userService: UserService) {
-    this.isLoggedIn = true;
+  constructor(private userService: UserService, private router: Router) {
+    this.isLoggedIn = this.userService.checkUserSession();
   }
   ngOnInit() {
   }
@@ -21,18 +22,8 @@ export class NewHeaderComponent implements OnInit {
     this.sideNavToggle.emit(this.menuStatus);
   }
 
-  TEST(bool : boolean){
-    for (let i = 0; i < 10000000; i++) {
-
-    }
-
-    if(!bool){
-      this.userService.deleteUserSession();
-    }
-
+  navigateToCreateProduct() {
+    this.router.navigateByUrl('/create-product');
   }
-
-
-
 
 }
