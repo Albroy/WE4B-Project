@@ -3,7 +3,7 @@ import { Card } from 'src/classes/Card';
 import { CardService } from '../card.service';
 import { Router } from '@angular/router';
 import {UserService} from "../user.service";
-import { AngularFireStorage } from '@angular/fire/compat/storage';
+// import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
