@@ -30,6 +30,7 @@ export class CreateProductComponent implements OnInit {
     if (this.cardId) {
       this.cardService.getCardById(this.cardId).subscribe(card => {
         this.product = card; // Pré-remplir le formulaire avec les valeurs de l'annonce à modifier
+        this.cardToEdit = true;
       });
     }
   }
@@ -64,7 +65,12 @@ export class CreateProductComponent implements OnInit {
     form.reset();
   }
 
-
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.product.photo = "../assets/" + file.name; // Ajouter le préfixe "../assets/" au nom du fichier
+    }
+  }
 
   addProduct() {
     const fileName = this.getFileNameFromPath(this.product.photo);

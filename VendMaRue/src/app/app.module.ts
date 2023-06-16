@@ -22,6 +22,10 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
+import { SearchComponent } from './search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +45,10 @@ import { ChatComponent } from './chat/chat.component';
     CreateProductComponent,
     MesAnnoncesComponent,
     SettingsComponent,
-    ChatComponent
-    
+    SearchComponent,
+    ChatComponent,
+    ConfirmationDialogComponent
+
   ],
   imports: [
     BrowserModule,
