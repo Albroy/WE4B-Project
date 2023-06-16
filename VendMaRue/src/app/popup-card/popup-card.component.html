@@ -15,7 +15,7 @@
         <del>{{ card.price }}&euro;</del> {{ (card.price - (card.price * card.OnSale) / 100).toFixed(2) }}&euro;
     </span>
     <ng-template #NotOnSale><span class="float-end price-hp">{{card.price}}&euro;</span></ng-template>
-    <h5 class="card-title">{{card.title}} par {{card.userid}}</h5>
+    <h5 class="card-title">{{card.title}} par {{user.user_surname}}</h5>
     <span>{{card.loc}} </span>
     <span>{{card.date.toLocaleString("fr-FR")}}</span>
     <h5 class="card-text">{{card.text}}</h5>
@@ -32,9 +32,13 @@
 
         <p class="card-text"><small class="text-muted">Disponible: {{card.quantity}}</small></p>
 
-        <div class="my-4"> <button class="btn" (click)="ajouterPanier()">Ajouter au panier</button>
-            <div class="my-4"> <button class="btn" (click)="retirerPanier()">Retirer du panier</button>
+        <div class="my-4">
+            <div class="d-flex align-items-center">
+              <button class="btn me-3" (click)="Afficher()">Afficher le contact</button>
+              <p *ngIf="afficher">{{ user.user_phone }}</p>
             </div>
-            <h4>Commentaires</h4>
-            <app-comments-list [idCard]="card.id"></app-comments-list>
-        </div>
+          </div>
+          
+        <h4>Commentaires</h4>
+        <app-comments-list [idCard]="card.id"></app-comments-list>
+    </div>

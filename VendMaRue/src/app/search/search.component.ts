@@ -16,6 +16,7 @@ import { PopupCardComponent } from '../popup-card/popup-card.component';
 export class SearchComponent implements OnInit {
   searchValue: string = "";
   users: User[] = [];
+  usersforcard: User[] = [];
   cards: Card[] = [];
   searchForm: FormGroup = this.fb.nonNullable.group({
     searchValue: '',
@@ -46,6 +47,7 @@ export class SearchComponent implements OnInit {
         const users = results[0];
         const cards = results[1];
 
+        this.usersforcard = users;//copie des users pour les cartes
         // Filtrer les utilisateurs qui correspondent à la valeur de recherche
         this.users = users.filter(user =>
           (user.user_name.toLowerCase().includes(searchValueLower)) ||
@@ -84,6 +86,7 @@ export class SearchComponent implements OnInit {
   goToCard(cardId: number) {
     const modalRef = this.modalService.open(PopupCardComponent);
     modalRef.componentInstance.card = this.cards.find(card => card.id === cardId);
+    modalRef.componentInstance.user = this.getUserById(cardId);
   }
 
   onSubmit(): void {
@@ -106,5 +109,8 @@ export class SearchComponent implements OnInit {
     // console.log(this.hasValue);
   }
 
-
+  getUserById(cardid: number): User { // à remplacer plus tard, car pas très beau
+    let tmp: User| undefined = this.usersforcard.find((user) => user.id === cardid);
+    return tmp ? tmp : new User(0, "", "DeletedUser", "DeletedUser", "DeletedUser", 0, new Date(), "", "");;
+   }
 }

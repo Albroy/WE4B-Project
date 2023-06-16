@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Card } from '../../classes/Card';
+import { User } from 'src/classes/User';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '../user.service';
 import { EvaluationService } from '../evaluation.service';
@@ -13,11 +14,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class PopupCardComponent implements OnInit, OnChanges {
   @Input() card!: Card;
+  @Input() user!: User;
   currentRate: number;
   currentEvalId: number = 0;
   list: number = 0;
   evallist: Evaluation[] = [];
   moyenne: number | null = null;
+  afficher: boolean = false; // afficher le numéro de téléphone
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -35,7 +38,7 @@ export class PopupCardComponent implements OnInit, OnChanges {
       });
     }
   }
-  
+
 
   ngOnInit(): void {
     this.getMoyenne().then(newMoyenne => {
@@ -49,6 +52,10 @@ export class PopupCardComponent implements OnInit, OnChanges {
     this.activeModal.close();
   }
 
+  Afficher(): void {
+    this.afficher = !this.afficher;
+  }
+  
   ajouterPanier(): void {
     if (this.card.quantity > 0) {
       this.card.quantity -= 1;
