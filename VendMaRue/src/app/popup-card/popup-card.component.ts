@@ -15,7 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class PopupCardComponent implements OnInit, OnChanges {
   @Input() card!: Card;
   @Input() user!: User;
-  currentRate: number;
+  currentRate: number = 0;
   currentEvalId: number = 0;
   list: number = 0;
   evallist: Evaluation[] = [];
@@ -27,8 +27,20 @@ export class PopupCardComponent implements OnInit, OnChanges {
     private userService: UserService,
     private evaluationService: EvaluationService
   ) {
-    this.currentRate = 0;
   }
+
+
+  ngOnInit(): void {
+    this.getMoyenne().then(newMoyenne => {
+      this.moyenne = newMoyenne;
+      this.currentRate = Number(newMoyenne);
+    }).catch(error => {
+      console.log("Erreur lors du calcul de la moyenne :", error);
+    });
+  }
+  
+
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['card'] && !changes['card'].firstChange) {
       this.getMoyenne().then(newMoyenne => {
@@ -38,16 +50,6 @@ export class PopupCardComponent implements OnInit, OnChanges {
       });
     }
   }
-
-
-  ngOnInit(): void {
-    this.getMoyenne().then(newMoyenne => {
-      this.moyenne = newMoyenne;
-    }).catch(error => {
-      console.log("Erreur lors du calcul de la moyenne :", error);
-    });
-  }
-
   closeModal(): void {
     this.activeModal.close();
   }
@@ -55,7 +57,7 @@ export class PopupCardComponent implements OnInit, OnChanges {
   Afficher(): void {
     this.afficher = !this.afficher;
   }
-  
+
   ajouterPanier(): void {
     if (this.card.quantity > 0) {
       this.card.quantity -= 1;
