@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
 export class SearchService {
 
   constructor(private http: HttpClient) { }
-
-  getSearch(search: string): Observable <(User|Card)[]> {
-    return this.http.get<(User|Card)[]>("http://localhost:3000/search/"+search);
-  }
+  
   getUser(search : string): Observable <User[]> {
     return this.http.get<User[]>(`http://localhost:3000/Users`);
+  }
+  getCards(search : string): Observable <Card[]> {
+    return this.http.get<Card[]>(`http://localhost:3000/Cards`);
   }
 }

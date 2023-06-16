@@ -1,12 +1,14 @@
 <div class="container profile-logo dropstart">
-    <form [formGroup]="searchForm" class="d-flex me-5" (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Rechercher..." formControlName="searchValue" class="form-control me-3"
-            (input)="onSearchInput()">
-    </form>
-    <ul *ngIf="hasValue" class="list">
-        <li class="list-item" *ngFor="let user of users" (click)="goToProfile(user.id)">
-          {{ user.user_name }} {{ user.user_surname }}
-        </li>
-      </ul>
-      
+  <form [formGroup]="searchForm" class="d-flex me-5" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Rechercher..." formControlName="searchValue" class="form-control me-3"
+      (input)="onSearchInput()">
+  </form>
+  <ul *ngIf="hasValue" class="list">
+    <li class="list-item" *ngFor="let user of users.slice(0, 4)" (click)="goToProfile(user.id)">
+      {{ user.user_name }} {{ user.user_surname }}
+    </li>
+    <li class="list-item" *ngFor="let card of cards.slice(0, 4)" (click)="goToCard(card.id)">
+      {{ card.title }}
+    </li>
+  </ul>
 </div>
