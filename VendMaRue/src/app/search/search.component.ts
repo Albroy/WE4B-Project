@@ -18,6 +18,8 @@ export class SearchComponent implements OnInit {
   users: User[] = [];
   usersforcard: User[] = [];
   cards: Card[] = [];
+  cardsloc: Card[] = [];
+  cardsbrands: Card[] = [];
   searchForm: FormGroup = this.fb.nonNullable.group({
     searchValue: '',
   });
@@ -41,11 +43,14 @@ export class SearchComponent implements OnInit {
       // Appel des services pour récupérer les utilisateurs et les cartes
       const users$ = this.searchService.getUser(this.searchValue);
       const cards$ = this.searchService.getCards(this.searchValue);
-
+      const cardsloc$ = this.searchService.getCards(this.searchValue);
+      const cardsbrands$ = this.searchService.getCards(this.searchValue);
       // Utilisation de forkJoin pour attendre les résultats des deux appels de service
-      forkJoin([users$, cards$]).subscribe(results => {
+      forkJoin([users$, cards$, cardsloc$,cardsbrands$]).subscribe(results => {
         const users = results[0];
         const cards = results[1];
+        const cardsloc = results[2];
+        const cardsbrands = results[3];
 
         this.usersforcard = users;//copie des users pour les cartes
         // Filtrer les utilisateurs qui correspondent à la valeur de recherche
@@ -58,7 +63,15 @@ export class SearchComponent implements OnInit {
         this.cards = cards.filter(card =>
           (card.title.toLowerCase().includes(searchValueLower))
         );
-
+        // Filter les cartes dont la localisation correspond à la valeur de recherche
+        this.cardsloc = cardsloc.filter(card => (
+          card.loc.toLowerCase().startsWith(searchValueLower)  
+        ));
+        // Filter les cartes dont la marque correspond à la valeur de recherche
+        this.cardsbrands = cardsbrands.filter(card => (
+          card.brand.toLowerCase().includes(searchValueLower)  
+        ));
+        console.log(this.cardsbrands)
       });
     } else {
       // Aucune valeur de recherche, réinitialiser les résultats
@@ -89,6 +102,28 @@ export class SearchComponent implements OnInit {
     modalRef.componentInstance.user = this.getUserById(cardId);
   }
 
+  goToLoc(loc : string ): void {
+    let tmplist = this.cardsloc.filter(card => card.loc === loc);
+    const queryParams = {
+      info: this.cardsloc[0].loc.toString(),
+      cardlist: JSON.stringify(tmplist)
+    };
+
+  
+    this.router.navigate(['/annonces-filtre'], { queryParams });
+  }
+
+  goToBrand(brand : string ): void {
+    let tmplist = this.cardsbrands.filter(card => card.brand === brand);
+    console.log(tmplist);
+    const queryParams = {
+      info: this.cardsbrands[0].brand.toString(),
+      cardlist: JSON.stringify(tmplist)
+    };
+    this.router.navigate(['/annonces-filtre'], { queryParams });
+
+  } 
+
   onSubmit(): void {
 
   }
@@ -110,7 +145,7 @@ export class SearchComponent implements OnInit {
   }
 
   getUserById(cardid: number): User { // à remplacer plus tard, car pas très beau
-    let tmp: User| undefined = this.usersforcard.find((user) => user.id === cardid);
+    let tmp: User | undefined = this.usersforcard.find((user) => user.id === cardid);
     return tmp ? tmp : new User(0, "", "DeletedUser", "DeletedUser", "DeletedUser", 0, new Date(), "", "");;
-   }
+  }
 }

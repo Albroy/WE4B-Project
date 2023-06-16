@@ -24,6 +24,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
 import { SearchComponent } from './search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AnnoncesFiltreComponent } from './annonces-filtre/annonces-filtre.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SettingsComponent,
     ChatComponent,
     SearchComponent,
-    ChatComponent
+    ChatComponent,
+    AnnoncesFiltreComponent
     
   ],
   imports: [
