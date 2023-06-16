@@ -18,8 +18,8 @@
       <input type="number" id="quantity" class="form-control" [(ngModel)]="product.quantity" name="quantity">
     </div>
     <div class="form-group">
-      <label for="date"><i class="fa-solid fa-calendar-day"></i> Date</label>
-      <input type="date" id="date" class="form-control" [(ngModel)]="product.date" name="date">
+      <label for="OnSale"><i class="fa-solid fa-calendar-day"></i> Réduction</label>
+      <input type="text" id="OnSale" class="form-control" [(ngModel)]="product.OnSale" name="date">
     </div>
     <div class="form-group">
       <label for="location"><i class="fa-solid fa-map-marker-alt"></i> Localisation</label>
@@ -30,8 +30,10 @@
       <textarea id="description" class="form-control" [(ngModel)]="product.text" name="text"></textarea>
     </div>
     <div class="form-group">
-      <label for="photo"><i class="fa-solid fa-image"></i> Photo</label>
-      <input type="file" id="photo" class="form-control" [(ngModel)]="product.photo" name="photo">
+      <label>
+        <i class="fa-solid fa-image"></i> Photo
+        <input type="file" id="photo" class="form-control" (change)="onFileSelected($event)" name="photo">
+      </label>
     </div>
     <button type="submit" class="btn btn-primary">
       {{ cardToEdit ? 'Modifier' : 'Créer le produit' }}

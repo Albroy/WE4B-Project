@@ -11,7 +11,7 @@ import { User } from 'src/classes/User';
 })
 export class CardComponent implements OnInit {
   @Input() card!: Card;
-  @Input() showEditButton: boolean = false; // Par défaut, le bouton "Modifier" est masqué
+  @Input() showEditButton: boolean = false;
   @Output() editCardEvent = new EventEmitter<Card>();
   users: User[] = [];
 

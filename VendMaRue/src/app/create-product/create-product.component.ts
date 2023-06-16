@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/classes/Card';
 import { CardService } from '../card.service';
 import { Router } from '@angular/router';
-import {UserService} from "../user.service";
+import { UserService } from "../user.service";
 // import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,12 +19,11 @@ export class CreateProductComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute,private cardService: CardService, private router: Router,private userService : UserService) {
+  constructor(private route: ActivatedRoute, private cardService: CardService, private router: Router, private userService: UserService) {
     this.product = new Card(0, '', 0, '', '', 0, 0, 0, 0, new Date(), '');
   }
 
   ngOnInit() {
-    this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
     this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
     this.cardId = this.route.snapshot.paramMap.get('id');
     if (this.cardId) {
@@ -63,16 +62,18 @@ export class CreateProductComponent implements OnInit {
     const form = document.getElementById('productForm') as HTMLFormElement;
     form.reset();
   }
-
-
+  
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.product.photo = "../assets/" + file.name; // Ajouter le préfixe "../assets/" au nom du fichier
+    }
+  }
 
   addProduct() {
-    const fileName = this.getFileNameFromPath(this.product.photo);
-
-    // Ajouter le préfixe "../assets/" au nom du fichier
-    this.product.photo = "../assets/" + fileName;
-    this.product.userid= this.userService.getUserId()
-
+    this.product.userid = this.userService.getUserId()
+    this.product.date = new Date();
+    console.log(this.product.photo)
     this.cardService.addCard(this.product).subscribe(
       (data: Card) => {
         console.log('Nouveau produit ajouté :', data);
@@ -85,10 +86,10 @@ export class CreateProductComponent implements OnInit {
   }
 
   isFormValid(): boolean {
-    const { title, brand, price, quantity, date, loc } = this.product;
+    const { title, brand, price, quantity, date, loc,OnSale} = this.product;
 
     // Vérification des champs requis
-    if (!title || !brand || !price || !quantity || !date || !loc) {
+    if (!title || !brand || !price || !quantity || !date || !loc|| !OnSale) {
       return false;
     }
 

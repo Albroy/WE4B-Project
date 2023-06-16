@@ -150,7 +150,7 @@
       "quantity": 3,
       "date": "2023-06-10",
       "loc": "Ville 3",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+      "text": " TOUT"
     },
     {
       "id": 4,
@@ -192,20 +192,6 @@
       "quantity": 6,
       "date": "2023-06-10",
       "loc": "Ville 6",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    },
-    {
-      "id": 7,
-      "title": "Quoicoubeh",
-      "userid": 4,
-      "photo": "C:\\fakepath\\testcreateproduct.jpg",
-      "brand": "Brand 7",
-      "price": 69.99,
-      "OnSale": 60,
-      "likes": 0,
-      "quantity": 7,
-      "date": "2023-06-10",
-      "loc": "Ville 7",
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
     },
     {
@@ -263,34 +249,6 @@
       "date": "2023-06-13",
       "loc": "noxus",
       "text": "vend darius"
-    },
-    {
-      "id": 12,
-      "title": "OU",
-      "userid": 0,
-      "photo": "../assets/C:\\fakepath\\testcreateproduct.jpg",
-      "brand": "Maou",
-      "price": 50,
-      "OnSale": 0,
-      "likes": 0,
-      "quantity": 100,
-      "date": "2023-06-15",
-      "loc": "SISI",
-      "text": "lalal"
-    },
-    {
-      "id": 13,
-      "title": "SIsi",
-      "userid": 0,
-      "photo": "../assets/C:\\fakepath\\testcreateproduct.jpg",
-      "brand": "OKAY",
-      "price": 50,
-      "OnSale": 0,
-      "likes": 0,
-      "quantity": 5,
-      "date": "2002-12-10",
-      "loc": "adazd",
-      "text": "dzadazf"
     },
     {
       "id": 14,
@@ -391,21 +349,6 @@
       "text": "Bengal"
     },
     {
-      "id": 21,
-      "title": "Quoicoubehhh",
-      "userid": 4,
-      "photo": "C:\\fakepath\\test.jpg",
-      "brand": "Apagnan",
-      "price": 500,
-      "OnSale": 0,
-      "likes": 0,
-      "quantity": 1,
-      "date": "2023-06-15",
-      "loc": "Unpagnéhein",
-      "text": "Apagnan la crampté",
-      "showEditButton": false
-    },
-    {
       "id": 22,
       "title": "aefaifijoa",
       "userid": 4,
@@ -417,8 +360,49 @@
       "quantity": 20,
       "date": "2023-06-16",
       "loc": "za,fzk",
-      "text": "fazjpfaz",
-      "showEditButton": false
+      "text": "fazjpfaz"
+    },
+    {
+      "id": 23,
+      "title": "Mon Coloc",
+      "userid": 2,
+      "photo": "../assets/test.jpg",
+      "brand": "UTBM",
+      "price": 500,
+      "OnSale": "50",
+      "likes": 0,
+      "quantity": 1,
+      "date": "2010-10-10",
+      "loc": "Belfort",
+      "text": "Vend Coloc D4 lol, contactez moi !"
+    },
+    {
+      "id": 24,
+      "title": "Greg",
+      "userid": 2,
+      "photo": "../assets/test.jpg",
+      "brand": "Greg",
+      "price": 1,
+      "OnSale": 0,
+      "likes": 0,
+      "quantity": 1,
+      "date": "1000-02-20",
+      "loc": "Greg",
+      "text": "ggg Ouais c'est greg"
+    },
+    {
+      "id": 25,
+      "title": "Rein gauche",
+      "userid": 5,
+      "photo": "../assets/test.jpg",
+      "brand": "Moi",
+      "price": 5000,
+      "OnSale": "10",
+      "likes": 0,
+      "quantity": 1,
+      "date": "2023-06-16T14:34:01.037Z",
+      "loc": "Belfort",
+      "text": "Je m'appelle Nico et je vends mon rein, en plus y'a une réduc"
     }
   ],
   "Users": [
