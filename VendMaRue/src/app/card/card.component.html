@@ -15,9 +15,10 @@
       <span>{{card.loc}}</span>
       <h5 class="card-title">{{card.text}}</h5>
       <div class="text-center my-4">      <button class="btn" (click)="openModal()">Voir l'offre</button>
+        <button class="btn btn-primary" *ngIf="showEditButton" (click)="editCard()">Modifier</button>
       </div>
     </div>
   </div>
 
 
-  
+

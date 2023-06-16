@@ -14,7 +14,7 @@
           Vendre
         </a>
         <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a href="#" class="dropdown-item">Vendre un produit</a></li>
+          <li><a class="dropdown-item" routerLink="/create-product">Vendre un produit</a></li>
           <li><a href="#" class="dropdown-item">Vendre un service</a></li>
         </ul>
       </li>
@@ -25,7 +25,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-dark">
           <li><a href="#" class="dropdown-item"></a></li>
-          <li><a href="#" class="dropdown-item">Vendre un service</a></li>
+          <li><a href="#" class="dropdown-item">Voir mes commandes</a></li>
         </ul>
       </li>
 
@@ -34,7 +34,7 @@
           Mes annonces
         </a>
         <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a href="#" class="dropdown-item">Vendre un produit</a></li>
+          <li><a href="#" class="dropdown-item" routerLink="/mes-annonces">Voir mes annonces</a></li>
           <li><a href="#" class="dropdown-item">Vendre un service</a></li>
         </ul>
       </li>
@@ -46,7 +46,7 @@
   <app-search></app-search>
   <button class="btn btn-outline-light" routerLink="/connexion" type="button" *ngIf="!getUserService().checkUserSession()">Connexion</button>
   <button class="btn btn-outline-light" routerLink="/inscription" type="button" *ngIf="!getUserService().checkUserSession()">Inscription</button>
-  
+
 
 <div class="profile-logo dropstart" *ngIf="getUserService().checkUserSession()">
   <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">

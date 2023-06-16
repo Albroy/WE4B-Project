@@ -63,5 +63,6 @@ export class ProfilComponent implements OnInit {
 
       /*console.log(this.cardlist.length + " cards trouvées");*/
     });
+
   }
 }
