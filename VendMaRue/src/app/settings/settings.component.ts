@@ -23,14 +23,14 @@ export class SettingsComponent implements OnInit {
   pwd: string;
   newpwd: string = "";
   newpwdtmp: string = "";
-  done : boolean = false;
+  done: boolean = false;
 
   constructor(private userService: UserService, private datePipe: DatePipe, private modalService: NgbModal, private router: Router, private uploadService: FileUploadService) {
     // console.log(sessionStorage.getItem('user'));
     this.pwd = "";
     if (this.userString) { // Si on est connecté
       this.user = JSON.parse(this.userString);
-      // console.log(this.user);
+      this.filename = this.user.id + "_pp.jpg";
     } else {
       this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
     }
@@ -51,13 +51,12 @@ export class SettingsComponent implements OnInit {
     this.modalService.dismissAll(); // Ferme le modal
     this.isModalOpen = false;
   }
+  
   onFileSelected(event: any) {
     const tmp: File = event.target.files[0];
     this.filename = this.user.id + "_pp.jpg";
     this.previewImage(tmp);
-    console.log(this.file);
     this.file = new File([tmp], this.filename, { type: tmp.type });
-    console.log(this.file);
   }
 
   previewImage(file: File) {
@@ -73,7 +72,7 @@ export class SettingsComponent implements OnInit {
       const userlist: User[] = data;
       for (let i = 0; i < userlist.length; i++) {
         if (userlist[i].id === this.user.id) {
-          console.log("found");
+          // console.log("found");
           this.user = userlist[i];
           break;
         }
@@ -82,12 +81,13 @@ export class SettingsComponent implements OnInit {
 
     });
   }
+
   onSubmitInfos() {
-    console.log(this.isFormInfosValid());
+    // console.log(this.isFormInfosValid());
     if (this.file) {
       console.log("uploading")
       this.uploadService.uploadImage(this.file)
-      console.log(this.file.name)
+      // console.log(this.file.name)
     }
     if (this.isFormInfosValid().valid) {
       this.user.user_desc ? this.user.user_desc : this.user.user_desc = "";
@@ -97,7 +97,12 @@ export class SettingsComponent implements OnInit {
       });
       //UPDATE SESSION
       this.UpInfo();
-      this.router.navigateByUrl('/settings')
+
+      //Redirection sur la meme page pour refresh
+      const queryParams = {
+        info: '/settings',
+      };
+      this.router.navigate(['/redirect'], { queryParams });
     }
   }
   onSubmitMdp() {
@@ -110,10 +115,10 @@ export class SettingsComponent implements OnInit {
     }
   }
 
-  async ngOnInit() : Promise<void> {
+  async ngOnInit(): Promise<void> {
     this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
-    this.user.user_pp=await this.uploadService.getImageUrl(this.user.id + "_pp.jpg")
-    this.done=true
+    this.user.user_pp = await this.uploadService.getImageUrl(this.user.id + "_pp.jpg")
+    this.done = true
   }
 
   isFormInfosValid(): { valid: boolean, error: string } {
@@ -125,7 +130,6 @@ export class SettingsComponent implements OnInit {
       return { valid: false, error: "Veuillez remplir tous les champs." };
     }
     if (!fromat_name.test(user_name) || !fromat_name.test(user_surname)) {
-      console.log(" : ", fromat_name.test(user_name));
       return { valid: false, error: "Veuillez ne pas utiliser de caractères spéciaux." };
     }
     if (!format_tel.test(String(user_phone))) {
@@ -138,7 +142,7 @@ export class SettingsComponent implements OnInit {
       return { valid: false, error: "Mot de passe incorrect." };
     } else {
       this.newpwdtmp = bcrypt.hashSync(this.newpwdtmp, 10);
-      console.log("Le mot de passe fraichement crypté : ", this.newpwdtmp);
+      // console.log("Le mot de passe fraichement crypté : ", this.newpwdtmp);
       return { valid: true, error: "" };
     }
   }
@@ -151,6 +155,7 @@ export class SettingsComponent implements OnInit {
       this.router.navigateByUrl('');
     });
   }
+  
   getUserService() {
     return this.userService;
   }

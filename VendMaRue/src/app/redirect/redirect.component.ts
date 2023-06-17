@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RedirectComponent implements OnInit {
   constructor(private router : Router, private route : ActivatedRoute) {}
+  // renvoie sur l'url spécifiée dans le paramètre info de l'url
   ngOnInit(): void {
       this.route.queryParams.subscribe(params => {
         const url = params['info'];

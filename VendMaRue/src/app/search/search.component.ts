@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit {
 
   /**
    * Effectue une recherche en utilisant la valeur de recherche actuelle.
-   * Récupère les utilisateurs et les cartes correspondant à la valeur de recherche.
+   * Récupère les utilisateurs et les cartes, lieux ou brands correspondant à la valeur de recherche.
    * Filtré les résultats pour n'inclure que ceux qui correspondent à la valeur de recherche.
    */
   fetchData(): void {
@@ -71,7 +71,7 @@ export class SearchComponent implements OnInit {
         this.cardsbrands = cardsbrands.filter(card => (
           card.brand.toLowerCase().includes(searchValueLower)  
         ));
-        console.log(this.cardsbrands)
+        // console.log(this.cardsbrands)
       });
     } else {
       // Aucune valeur de recherche, réinitialiser les résultats
@@ -97,7 +97,6 @@ export class SearchComponent implements OnInit {
 
   /**
   * Ouvre une fenêtre modale pour afficher une carte spécifiée par son identifiant.
-  *
   * @param cardId L'identifiant de la carte que l'on souhaite afficher.
   */
   goToCard(cardId: number) {
@@ -119,7 +118,7 @@ export class SearchComponent implements OnInit {
 
   goToBrand(brand : string ): void {
     let tmplist = this.cardsbrands.filter(card => card.brand === brand);
-    console.log(tmplist);
+    // console.log(tmplist);
     const queryParams = {
       info: this.cardsbrands[0].brand.toString(),
       cardlist: JSON.stringify(tmplist)
