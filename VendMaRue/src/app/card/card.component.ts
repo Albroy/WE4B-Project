@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PopupCardComponent } from '../popup-card/popup-card.component';
 import { UserService } from '../user.service';
 import { User } from 'src/classes/User';
+import { FileUploadService } from '../file-upload.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -17,11 +18,15 @@ export class CardComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private userService: UserService
+    private userService: UserService,
+    private uploadService: FileUploadService
   ) {}
 
   ngOnInit(): void {
     this.users = this.userService.users;
+    this.card.photo = this.uploadService.getImageUrl(this.card.photo);
+    console.log(this.card.photo); // Affiche l'URL de l'image sur Firebase Storage
+    
     // console.log(this.users);
   }
 
@@ -40,4 +45,10 @@ export class CardComponent implements OnInit {
   editCard() {
     this.editCardEvent.emit(this.card);
   }
+
+  getUploadService(){
+    return this.uploadService;
+  }
+
+
 }

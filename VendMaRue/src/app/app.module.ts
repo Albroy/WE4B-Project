@@ -25,6 +25,9 @@ import { ChatComponent } from './chat/chat.component';
 import { SearchComponent } from './search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AnnoncesFiltreComponent } from './annonces-filtre/annonces-filtre.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { firebaseConfig } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,8 @@ import { AnnoncesFiltreComponent } from './annonces-filtre/annonces-filtre.compo
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig)
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideStorage(() => getStorage()),
     // AngularFireModule,

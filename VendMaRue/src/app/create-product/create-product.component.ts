@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserService } from "../user.service";
 // import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ActivatedRoute } from '@angular/router';
+import { FileUploadService } from '../file-upload.service';
 
 @Component({
   selector: 'app-create-product',
@@ -16,10 +17,11 @@ export class CreateProductComponent implements OnInit {
   // Autres propriétés et méthodes nécessaires
   cardId: string | null = null;
   public cardToEdit: boolean = false;
+  public file : File = new File([""], "");
 
 
 
-  constructor(private route: ActivatedRoute, private cardService: CardService, private router: Router, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private cardService: CardService, private router: Router, private userService: UserService, private uploadService: FileUploadService) {
     this.product = new Card(0, '', 0, '', '', 0, 0, 0, 0, new Date(), '');
   }
 
@@ -64,9 +66,10 @@ export class CreateProductComponent implements OnInit {
   }
   
   onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    if (file) {
-      this.product.photo = "../assets/" + file.name; // Ajouter le préfixe "../assets/" au nom du fichier
+    this.file = event.target.files[0];
+    if (this.file) {
+      this.product.photo = "../assets/" + this.file.name; 
+      // Ajouter le préfixe "../assets/" au nom du fichier
     }
   }
 
@@ -74,6 +77,7 @@ export class CreateProductComponent implements OnInit {
     this.product.userid = this.userService.getUserId()
     this.product.date = new Date();
     console.log(this.product.photo)
+    this.uploadService.uploadImage(this.file)
     this.cardService.addCard(this.product).subscribe(
       (data: Card) => {
         console.log('Nouveau produit ajouté :', data);

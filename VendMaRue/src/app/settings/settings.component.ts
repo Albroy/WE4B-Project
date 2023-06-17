@@ -24,7 +24,7 @@ export class SettingsComponent implements OnInit {
   newpwd: string = "";
   newpwdtmp: string = "";
 
-  constructor(private userService: UserService, private datePipe: DatePipe, private modalService: NgbModal, private fileUploadService: FileUploadService, private router: Router) {
+  constructor(private userService: UserService, private datePipe: DatePipe, private modalService: NgbModal, private fileUploadService: FileUploadService, private router: Router, private uploadService: FileUploadService) {
     // console.log(sessionStorage.getItem('user'));
     this.pwd = "";
     if (this.userString) { // Si on est connecté
@@ -84,6 +84,7 @@ export class SettingsComponent implements OnInit {
   onSubmit() {
     if (this.file) {
       // this.fileUploadService.upload(this.file).subscribe( : a completer
+      this.uploadService.uploadImage(this.file)
     }
 
   }

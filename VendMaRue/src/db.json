@@ -403,6 +403,48 @@
       "date": "2023-06-16T14:34:01.037Z",
       "loc": "Belfort",
       "text": "Je m'appelle Nico et je vends mon rein, en plus y'a une réduc"
+    },
+    {
+      "id": 26,
+      "title": "T",
+      "userid": 4,
+      "photo": "../assets/profilepic1.png",
+      "brand": "T",
+      "price": 5,
+      "OnSale": "1",
+      "likes": 0,
+      "quantity": 5,
+      "date": "2023-06-17T09:17:00.002Z",
+      "loc": "T",
+      "text": "T"
+    },
+    {
+      "id": 27,
+      "title": "t",
+      "userid": 4,
+      "photo": "../assets/testcreateproduct.jpg",
+      "brand": "t",
+      "price": 4,
+      "OnSale": "4",
+      "likes": 0,
+      "quantity": 4,
+      "date": "2023-06-17T09:27:51.718Z",
+      "loc": "R",
+      "text": "R"
+    },
+    {
+      "id": 28,
+      "title": "T",
+      "userid": 4,
+      "photo": "../assets/test.jpg",
+      "brand": "t",
+      "price": 5,
+      "OnSale": "5",
+      "likes": 0,
+      "quantity": 5,
+      "date": "2023-06-17T09:33:14.288Z",
+      "loc": "Paris",
+      "text": "fdf"
     }
   ],
   "Users": [
@@ -431,7 +473,7 @@
     },
     {
       "id": 4,
-      "user_pp": "../assets/profilepic1.png",
+      "user_pp": "4_pp.jpg",
       "user_name": "Trombonne",
       "user_surname": "Tomate",
       "user_email": "t@t.t",

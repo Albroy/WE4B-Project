@@ -1,5 +1,5 @@
 <div class="card shadow-sm">
-  <img src="{{card.photo}}" class="card-img-top" alt="...">
+  <img src="{{ card.photo }}" class="card-img-top" alt="...">
   <div class="label-top shadow-sm" *ngIf="card.OnSale > 0"
     [ngStyle]="{ 'background': card.OnSale >= 80 ? 'red' : (card.OnSale >= 50 ? 'orange' : (card.OnSale >= 25 ? 'yellow' : '')) }">
     -{{ card.OnSale }}%</div>
