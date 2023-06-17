@@ -26,10 +26,7 @@ export class CardComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.users = this.userService.users;
     this.card.photo = await this.uploadService.getImageUrl(this.card.photo);
-    // console.log(this.card.photo)
     this.done=true;
-
-    // console.log(this.users);
   }
 
   getUserById(id: number): User { // à remplacer plus tard, car pas très beau

@@ -7,7 +7,7 @@
                     <label for="imageUpload"></label>
                 </div>
                 <div class="avatar-preview">
-                    <div id="imagePreview"
+                    <div id="imagePreview" *ngIf="done"
                         [style.background-image]="'url(' + (userString ? user.user_pp : '../assets/profilepic1.png') + ')'">
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
                 </div>
             </form>
             <div class="d-sm-flex flex-column align-items-center pt-3 border-top">
@@ -85,7 +85,7 @@
                     <button class="btn danger" (click)="openModal(deactivateModal)">Désactivation du compte</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

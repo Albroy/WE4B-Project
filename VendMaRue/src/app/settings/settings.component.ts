@@ -23,8 +23,9 @@ export class SettingsComponent implements OnInit {
   pwd: string;
   newpwd: string = "";
   newpwdtmp: string = "";
+  done : boolean = false;
 
-  constructor(private userService: UserService, private datePipe: DatePipe, private modalService: NgbModal, private fileUploadService: FileUploadService, private router: Router, private uploadService: FileUploadService) {
+  constructor(private userService: UserService, private datePipe: DatePipe, private modalService: NgbModal, private router: Router, private uploadService: FileUploadService) {
     // console.log(sessionStorage.getItem('user'));
     this.pwd = "";
     if (this.userString) { // Si on est connecté
@@ -81,15 +82,13 @@ export class SettingsComponent implements OnInit {
 
     });
   }
-  onSubmit() {
-    if (this.file) {
-      // this.fileUploadService.upload(this.file).subscribe( : a completer
-      this.uploadService.uploadImage(this.file)
-    }
-
-  }
   onSubmitInfos() {
     console.log(this.isFormInfosValid());
+    if (this.file) {
+      console.log("uploading")
+      this.uploadService.uploadImage(this.file)
+      console.log(this.file.name)
+    }
     if (this.isFormInfosValid().valid) {
       this.user.user_desc ? this.user.user_desc : this.user.user_desc = "";
       this.userService.updateUser(this.user.id, this.filename, this.user.user_surname, this.user.user_name, this.user.user_phone, this.user.user_loc, this.user.user_desc).subscribe(data => {
@@ -111,8 +110,10 @@ export class SettingsComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() : Promise<void> {
     this.userService.checkUserSession() ? '' : this.router.navigateByUrl('');
+    this.user.user_pp=await this.uploadService.getImageUrl(this.user.id + "_pp.jpg")
+    this.done=true
   }
 
   isFormInfosValid(): { valid: boolean, error: string } {

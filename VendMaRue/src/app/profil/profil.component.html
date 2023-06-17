@@ -5,7 +5,7 @@
         <div class="card">
           <div class="entete rounded-top text-white d-flex flex-row">
             <div class="ms-4 mt-5 d-flex flex-column">
-              <img src="./assets/profilepic1.png" alt="photo de profil" class="img-fluid img-thumbnail mt-4 mb-2">
+              <img *ngIf="done" [src]="user.user_pp" alt="photo de profil" class="img-fluid img-thumbnail mt-4 mb-2">
               <button *ngIf="onMyPage" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" routerLink="/settings">
                 Modifier le profil </button>
             </div>

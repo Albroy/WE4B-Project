@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 import { CardService } from '../card.service';
 import { Card } from 'src/classes/Card';
 import { DatePipe } from '@angular/common';
+import { FileUploadService } from '../file-upload.service';
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
@@ -17,8 +18,9 @@ export class ProfilComponent implements OnInit {
   user_idx: number;
   userString: string | null = sessionStorage.getItem('user');
   onMyPage: boolean = false;
+  done: boolean = false;
 
-  constructor(private activatedroute: ActivatedRoute, private userService: UserService, private cardService: CardService, private datePipe: DatePipe) {
+  constructor(private activatedroute: ActivatedRoute, private userService: UserService, private cardService: CardService, private uploadService: FileUploadService) {
     this.user_idx = parseInt(this.activatedroute.snapshot.params['id'].replace(':', ''), 10);
 
     if (this.userString) { // Si on est connecté
@@ -29,12 +31,9 @@ export class ProfilComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    // console.log(sessionStorage.getItem('user'));
-
-    //Chargement du profil de l'utilisateur
-
-    this.userService.getUser().subscribe(data => {
+  async ngOnInit(): Promise<void> {
+    // Chargement du profil de l'utilisateur
+    this.userService.getUser().subscribe(async (data) => {
       this.userlist = data;
       for (let i = 0; i < this.userlist.length; i++) {
         if (this.userlist[i].id === this.user_idx) {
@@ -42,27 +41,20 @@ export class ProfilComponent implements OnInit {
           break;
         }
       }
-
-
+  
+      this.user.user_pp = await this.uploadService.getImageUrl(this.user.id + "_pp.jpg");
+      console.log(this.user.user_pp);
+      this.done = true;
     });
-    /*this.userlist = this.userService.users;
-    for (let i = 0; i < this.userlist.length; i++) {
-      if (this.userlist[i].id === this.user_idx) {
-        console.log("found");
-        this.user = this.userlist[i];
-        break;
-      }
-    }*/
-
-
-    //Chargement des posts de l'utilisateur
-    this.cardService.getData().subscribe(data => {
+  
+    // Chargement des posts de l'utilisateur
+    this.cardService.getData().subscribe((data) => {
       this.cardlist = data;
-
-      this.cardlist = this.cardlist.filter(card => card.userid === this.user_idx);
-
+  
+      this.cardlist = this.cardlist.filter((card) => card.userid === this.user_idx);
+  
       /*console.log(this.cardlist.length + " cards trouvées");*/
     });
-
   }
+  
 }
