@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
   @Input() showEditButton: boolean = false;
   @Output() editCardEvent = new EventEmitter<Card>();
   users: User[] = [];
+  done: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -25,6 +26,8 @@ export class CardComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.users = this.userService.users;
     this.card.photo = await this.uploadService.getImageUrl(this.card.photo);
+    // console.log(this.card.photo)
+    this.done=true;
 
     // console.log(this.users);
   }
