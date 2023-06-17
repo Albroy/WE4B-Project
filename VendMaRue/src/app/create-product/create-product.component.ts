@@ -80,8 +80,10 @@ export class CreateProductComponent implements OnInit {
     this.cardService.addCard(this.product).subscribe(
       (data: Card) => {
         console.log('Nouveau produit ajouté :', data);
-        this.router.navigateByUrl(''); // Rediriger vers la page d'accueil ou une autre page appropriée
-      },
+        const queryParams = {
+          info: ``
+        }
+        this.router.navigate(['redirect'],{queryParams})      },
       error => {
         console.error("Erreur lors de l'ajout du produit :", error);
       }

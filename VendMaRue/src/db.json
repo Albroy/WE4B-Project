@@ -157,6 +157,20 @@
       "date": "2023-06-17T11:15:30.515Z",
       "loc": "Belfort",
       "text": "Gratuit"
+    },
+    {
+      "id": 6,
+      "title": "Tanguy",
+      "userid": 4,
+      "photo": "png-clipart-apricot-apricot.png",
+      "brand": "Tanguy",
+      "price": 194,
+      "OnSale": "20",
+      "likes": 0,
+      "quantity": 1,
+      "date": "2023-06-17T16:54:20.475Z",
+      "loc": "Belfort",
+      "text": "C'est Tanguy"
     }
   ],
   "Users": [
