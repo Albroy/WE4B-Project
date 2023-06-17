@@ -13,7 +13,10 @@ import { FileUploadService } from '../file-upload.service';
 export class CardComponent implements OnInit {
   @Input() card!: Card;
   @Input() showEditButton: boolean = false;
+  @Input() showDeleteButton: boolean = false;
   @Output() editCardEvent = new EventEmitter<Card>();
+  @Output() deleteCardEvent = new EventEmitter<Card>();
+
   users: User[] = [];
   done: boolean = false;
 
@@ -49,5 +52,8 @@ export class CardComponent implements OnInit {
     return this.uploadService;
   }
 
-
+  deleteCard(card: Card) {
+    // Appeler la méthode deleteCardEvent avec la carte en tant que paramètre
+    this.deleteCardEvent.emit(this.card);
+  }
 }

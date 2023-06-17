@@ -111,20 +111,6 @@
   ],
   "Cards": [
     {
-      "id": 2,
-      "title": "Test",
-      "userid": 4,
-      "photo": "test.jpg",
-      "brand": "t",
-      "price": 1,
-      "OnSale": "80",
-      "likes": 0,
-      "quantity": 1,
-      "date": "2023-06-17T10:42:57.141Z",
-      "loc": "Belfort",
-      "text": "C'est un test"
-    },
-    {
       "id": 3,
       "title": "test",
       "userid": 4,
@@ -182,14 +168,15 @@
     },
     {
       "id": 2,
-      "user_pp": "../assets/images/user.png",
+      "user_pp": "2_pp.jpg",
       "user_name": "Royer",
       "user_surname": "Albert",
       "user_email": "albert.royer@utbm.fr",
-      "user_phone": 0,
+      "user_phone": "0123456789",
       "user_acc_date": "2023-06-14T17:46:49.507Z",
       "user_loc": "Belfort",
-      "user_pwd": "$2a$10$OpBKBWrq2d.6msz76niyK.73wQcrfxg4j1kQAwpyeJ.tYd6aj2Mkq"
+      "user_pwd": "$2a$10$OpBKBWrq2d.6msz76niyK.73wQcrfxg4j1kQAwpyeJ.tYd6aj2Mkq",
+      "user_desc": ""
     },
     {
       "id": 4,

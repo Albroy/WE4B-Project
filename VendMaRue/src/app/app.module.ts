@@ -29,6 +29,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { firebaseConfig } from '../environments/environment';
 import { RedirectComponent } from './redirect/redirect.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { RedirectComponent } from './redirect/redirect.component';
     SearchComponent,
     ChatComponent,
     AnnoncesFiltreComponent,
-    RedirectComponent
+    RedirectComponent,
+    ConfirmationDialogComponent
     
   ],
   imports: [

@@ -31,6 +31,9 @@ export class CardService {
     const url = `${this.apiUrl}/${cardId}`;
     return this.http.put<Card>(url, card);
   }
-
+  deleteCard(cardId: number): Observable<Card> {
+    const url = `${this.apiUrl}/${cardId}`;
+    return this.http.delete<Card>(url);
+  }
 
 }

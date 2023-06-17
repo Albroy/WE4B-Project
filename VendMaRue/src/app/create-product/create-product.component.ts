@@ -3,7 +3,6 @@ import { Card } from 'src/classes/Card';
 import { CardService } from '../card.service';
 import { Router } from '@angular/router';
 import { UserService } from "../user.service";
-// import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ActivatedRoute } from '@angular/router';
 import { FileUploadService } from '../file-upload.service';
 
@@ -99,17 +98,6 @@ export class CreateProductComponent implements OnInit {
 
     return true;
   }
-
-  getFileNameFromPath(path: string | undefined): string {
-    if (!path) {
-      return '';
-    }
-
-    return path.split('\\').pop() || '';
-  }
-
-
-
 }
 
 
