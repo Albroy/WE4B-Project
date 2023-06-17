@@ -86,9 +86,13 @@ export class SearchComponent implements OnInit {
    * @param userId L'identifiant de l'utilisateur dont on souhaite afficher le profil.
    */
   goToProfile(userId: number) {
-    this.router.navigateByUrl(`/profil/${userId}`, { skipLocationChange: false }).then(() => {
-      window.location.reload();
-    });
+    // this.router.navigateByUrl(`/profil/${userId}`, { skipLocationChange: false }).then(() => {
+      // window.location.reload();
+      const queryParams = {
+        info: `profil/${userId}`
+      }
+      this.router.navigate(['redirect'],{queryParams})
+    // });
   }
 
   /**

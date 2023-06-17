@@ -8,6 +8,7 @@ import {CreateProductComponent} from "./create-product/create-product.component"
 import {MesAnnoncesComponent} from "./mes-annonces/mes-annonces.component";
 import { SettingsComponent } from './settings/settings.component';
 import { AnnoncesFiltreComponent } from './annonces-filtre/annonces-filtre.component';
+import { RedirectComponent } from './redirect/redirect.component';
 
 const routes: Routes = [
   {path:'',component:CardsComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'settings',component:SettingsComponent},
   { path: 'create-product/:id', component: CreateProductComponent },
   {path : 'annonces-filtre', component: AnnoncesFiltreComponent},
+  {path : 'redirect',component:RedirectComponent}
 ];
 
 @NgModule({

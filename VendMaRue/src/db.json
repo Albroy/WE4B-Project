@@ -140,17 +140,17 @@
     },
     {
       "id": 4,
-      "title": "Mon colo",
+      "title": "Mon coloc",
       "userid": 4,
       "photo": "SAKEN.jpg",
       "brand": "UTBM",
-      "price": 5000,
+      "price": 50,
       "OnSale": "95",
       "likes": 0,
       "quantity": 1,
       "date": "2023-06-17T10:53:23.881Z",
       "loc": "Belfort",
-      "text": "joueur lol D4"
+      "text": "joueur lol D4 hardstuck"
     },
     {
       "id": 5,
@@ -200,7 +200,7 @@
       "user_phone": "0123456789",
       "user_acc_date": "2023-06-14T19:30:21.131Z",
       "user_loc": "Tibet",
-      "user_pwd": "$2a$10$NdrFFvATiFW6gXRNVje46e3ob4Ty1hT9zSnWcuGK.A6jXeNNq1Pqq",
+      "user_pwd": "$2a$10$uNbjD3p95Qmwc/XWpXTrm.qmKUVSnEBUYr9AmoZrX.0cY0mVYvV/S",
       "user_desc": "Tobleronne"
     },
     {

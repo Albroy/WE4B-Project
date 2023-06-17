@@ -4,7 +4,7 @@
     </button>
 </div>
 <div class="modal-body">
-    <img src="{{ card.photo }}" alt="Card Photo" class="img-fluid">
+    <img *ngIf="done" [src]="card.photo" alt="Card Photo" class="img-fluid">
     <div class="label-top shadow-sm" *ngIf="card.OnSale > 0"
         [ngStyle]="{ 'background': card.OnSale >= 80 ? 'red' : (card.OnSale >= 50 ? 'orange' : (card.OnSale >= 25 ? 'yellow' : '')) }">
         -{{ card.OnSale }}%

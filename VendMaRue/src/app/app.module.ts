@@ -28,6 +28,7 @@ import { AnnoncesFiltreComponent } from './annonces-filtre/annonces-filtre.compo
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { firebaseConfig } from '../environments/environment';
+import { RedirectComponent } from './redirect/redirect.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { firebaseConfig } from '../environments/environment';
     ChatComponent,
     SearchComponent,
     ChatComponent,
-    AnnoncesFiltreComponent
+    AnnoncesFiltreComponent,
+    RedirectComponent
     
   ],
   imports: [

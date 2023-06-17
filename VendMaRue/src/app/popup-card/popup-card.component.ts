@@ -6,7 +6,7 @@ import { UserService } from '../user.service';
 import { EvaluationService } from '../evaluation.service';
 import { Evaluation } from 'src/classes/Evaluation';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { FileUploadService } from '../file-upload.service';
 @Component({
   selector: 'app-popup-card',
   templateUrl: './popup-card.component.html',
@@ -21,22 +21,26 @@ export class PopupCardComponent implements OnInit, OnChanges {
   evallist: Evaluation[] = [];
   moyenne: number | null = null;
   afficher: boolean = false; // afficher le numéro de téléphone
+  done : boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
     private userService: UserService,
-    private evaluationService: EvaluationService
+    private evaluationService: EvaluationService,
+    private uploadService: FileUploadService
   ) {
   }
 
 
-  ngOnInit(): void {
+  async ngOnInit():Promise <void> {
     this.getMoyenne().then(newMoyenne => {
       this.moyenne = newMoyenne;
       this.currentRate = Number(newMoyenne);
     }).catch(error => {
       console.log("Erreur lors du calcul de la moyenne :", error);
     });
+    this.card.photo = this.card.photo.startsWith("https") ? this.card.photo: await this.uploadService.getImageUrl(this.card.photo);
+    this.done=true;
   }
   
 
