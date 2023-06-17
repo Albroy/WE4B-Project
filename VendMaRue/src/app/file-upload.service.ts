@@ -26,15 +26,9 @@ export class FileUploadService {
       ).subscribe();
     });
   }
-   getImageUrl(imagePath: string) : string{
-    try {
-      const ref = this.storage.ref(imagePath);
-      const im = ref.getDownloadURL();
-      return String(url);
-    } catch (error) {
-      console.error('Error getting image URL:', error);
-      throw error;
-    }
+  async getImageUrl(imageName: string): Promise<string> {
+    const storageRef = this.storage.ref('images/' + imageName);
+    return storageRef.getDownloadURL().toPromise();
   }
 
 }

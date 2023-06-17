@@ -22,11 +22,10 @@ export class CardComponent implements OnInit {
     private uploadService: FileUploadService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.users = this.userService.users;
-    this.card.photo = this.uploadService.getImageUrl(this.card.photo);
-    console.log(this.card.photo); // Affiche l'URL de l'image sur Firebase Storage
-    
+    this.card.photo = await this.uploadService.getImageUrl(this.card.photo);
+
     // console.log(this.users);
   }
 
