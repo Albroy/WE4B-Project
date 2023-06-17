@@ -107,6 +107,12 @@
       "user_id": 5,
       "card_id": 4,
       "rate": 4
+    },
+    {
+      "id": 19,
+      "user_id": 2,
+      "card_id": 6,
+      "rate": 5
     }
   ],
   "Cards": [
@@ -155,18 +161,6 @@
   ],
   "Users": [
     {
-      "id": 1,
-      "user_pp": "../assets/profilepic1.png",
-      "user_name": "MeaeaOOOO",
-      "user_surname": "Abricotier",
-      "user_email": "a@a.a",
-      "user_phone": "0123456789",
-      "user_acc_date": "2023-06-14T17:18:20.963Z",
-      "user_loc": "Arbois",
-      "user_pwd": "$2a$10$UT8KpS2lJJNPFJupq0OFBea9dNVW4.gNtBeijD4u9lfLjHE/i0KHG",
-      "user_desc": "Arbouan"
-    },
-    {
       "id": 2,
       "user_pp": "2_pp.jpg",
       "user_name": "Royer",
@@ -201,6 +195,18 @@
       "user_loc": "Zimbabwe",
       "user_pwd": "$2a$10$fjWGFOp0wRndZUFnKynK.O1uUqc.1tSQVsphUIcOlIwy2g2r4jxrK",
       "user_desc": "ZZZZ"
+    },
+    {
+      "id": 6,
+      "user_pp": "6_pp.jpg",
+      "user_name": "Abricot",
+      "user_surname": "Alain",
+      "user_email": "a@a.a",
+      "user_phone": "0123456789",
+      "user_acc_date": "2023-06-17T16:46:56.212Z",
+      "user_loc": "Arbois",
+      "user_pwd": "$2a$10$qPQIfdVHoyqFG5TWocP33.g/zayyYkfImivBBunGpDW5zaVPHNrSK",
+      "user_desc": ""
     }
   ]
 }
