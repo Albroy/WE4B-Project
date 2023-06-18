@@ -8,8 +8,6 @@ import { CardComponent } from './card/card.component';
 import { PopupCardComponent } from './popup-card/popup-card.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { CommentComponent } from './comment/comment.component';
-import { CommentsListComponent } from './comments-list/comments-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfilComponent } from './profil/profil.component';
@@ -42,8 +40,6 @@ import { ChatsComponent } from './chats/chats.component';
     PopupCardComponent,
     InscriptionComponent,
     ConnexionComponent,
-    CommentComponent,
-    CommentsListComponent,
     FooterComponent,
     ProfilComponent,
     NewHeaderComponent,
@@ -69,10 +65,6 @@ import { ChatsComponent } from './chats/chats.component';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideStorage(() => getStorage()),
-    // AngularFireModule,
-    // AngularFireStorageModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
