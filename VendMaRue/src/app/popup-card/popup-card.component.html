@@ -35,7 +35,7 @@
     <p class="card-text"><small class="text-muted">Disponible: {{card.quantity}}</small></p>
 
     <div class="my-4">
-      <a class="btn" (click)="openConversation(card.userid)">Contacter</a>
+      <a *ngIf="connect && user.id != card.userid" class="btn" (click)="newConversation(card.userid)">Contacter</a>
       <h4>Commentaires</h4>
       <app-comments-list [idCard]="card.id"></app-comments-list>
     </div>

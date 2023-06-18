@@ -26,7 +26,7 @@ export class PopupCardComponent implements OnInit, OnChanges {
   user : User;
   conversationList : Chat[] = []
   conversationID : number = 0
-
+  connect : boolean = false
   constructor(
     private activeModal: NgbActiveModal,
     private userService: UserService,
@@ -37,8 +37,10 @@ export class PopupCardComponent implements OnInit, OnChanges {
     this.currentRate = 0;
     if (this.userString) { // Si on est connecté
       this.user = JSON.parse(this.userString);
+      this.connect = true
     } else {
       this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
+      this.connect = false
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -64,16 +66,38 @@ export class PopupCardComponent implements OnInit, OnChanges {
     this.activeModal.close();
   }
 
-  async openConversation(id: number) {
+
+  // Ouverture de la conversation déclenché par "contacter"
+  // On récupère id_user du post
+  async newConversation(id: number) {
+    /*Si l'utilisateur est connecté et n'est pas propriétaire de l'offre*/
     if (this.user.id !== 0 && this.user.id != id) {
       /*Récupération des conversations de la bdd*/
       try {
         const data = await this.conversationService.getData().toPromise();
-        this.conversationList = data ? data : [];
+        this.conversationList = data?data:[];
 
         /*On cherche les conversations que l'utilisateur connecté possède*/
         const search = this.conversationList.find(u => u.userid_client === this.user.id && u.userid_vendor === this.card.userid);
-        this.conversationID = search ? search.id : 0;
+
+        /*Si l'utilisteur possède une conversation, on récupère l'id*/
+        if (search) {
+          this.conversationID = search.id;
+        } else {
+
+          /*Sinon on créé la conversation*/
+          const newChat = new Chat(0, this.card.title, this.card.userid, this.user.id, new Date());
+          const createdChat = await this.conversationService.addChat(newChat).toPromise();
+
+
+          /*Mise à jour de la bdd*/
+          const updatedData = await this.conversationService.getData().toPromise();
+          this.conversationList = updatedData?updatedData:[]
+
+          /*Récupération id de la nouvelle conversation*/
+          const updatedSearch = this.conversationList.find(u => u.userid_client === this.user.id && u.userid_vendor === this.card.userid);
+          this.conversationID = updatedSearch ? updatedSearch.id : 0;
+        }
       } catch (error) {
         console.log(error);
       }
@@ -83,10 +107,13 @@ export class PopupCardComponent implements OnInit, OnChanges {
         info: `/chat/:${this.conversationID}`,
       };
       this.router.navigate(['/redirect'], { queryParams });
+
+    } else {
+      /*L'utilisateur n'est pas connecté*/
+      console.log("User not connected");
     }
-
+    this.closeModal()
   }
-
 
   ajouterPanier(): void {
     if (this.card.quantity > 0) {

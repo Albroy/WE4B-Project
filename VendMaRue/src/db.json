@@ -471,75 +471,26 @@
   "Chats": [
     {
       "id": 1,
-      "title": "Title 2",
-      "userid_vendor": 1,
-      "userid_client": 5,
-      "date": "16/06.2020"
-    },
-    {
-      "id": 2,
-      "title": "Title 3",
-      "userid_vendor": 2,
-      "userid_client": 5,
-      "date": "16/06/2020"
-    },
-    {
-      "id": 3,
-      "title": "Title 4",
-      "userid_vendor": 3,
-      "userid_client": 5,
-      "date": "16/06/2020"
-    },
-    {
-      "id": 4,
-      "title": "Quoicoubeh",
-      "userid_vendor": 4,
-      "userid_client": 5,
-      "date": "16/06/2020"
-    },
-    {
-      "id": 5,
-      "title": "Title 2",
+      "title": "Title 1",
       "userid_vendor": 1,
       "userid_client": 6,
-      "date": "16/06/2020"
-    },
-    {
-      "id": 6,
-      "title": "Title 6",
-      "userid_vendor": 4,
-      "userid_client": 6,
-      "date": "2023-06-18T11:07:19.234Z"
+      "date": "2023-06-18T15:34:28.237Z"
     }
   ],
   "Messages": [
     {
       "id": 1,
-      "contenu": "test",
-      "userid": 5,
+      "contenu": "salut",
+      "userid": 6,
       "conversation_id": 1,
-      "date": "18/06/2023"
+      "date": "2023-06-18T15:34:31.523Z"
     },
     {
       "id": 2,
-      "contenu": "coucou",
-      "userid": 5,
-      "conversation_id": 2,
-      "date": "16/06/2023"
-    },
-    {
-      "id": 3,
-      "contenu": "hello",
-      "userid": 5,
-      "conversation_id": 4,
-      "date": "16/06/2023"
-    },
-    {
-      "id": 4,
-      "contenu": "salut j'aimerais acheter votre produit",
+      "contenu": "bonjour je souhaiterais avoir plus d'information ",
       "userid": 6,
-      "conversation_id": 5,
-      "date": "16/06/2023"
+      "conversation_id": 1,
+      "date": "2023-06-18T15:46:07.311Z"
     }
   ]
 }

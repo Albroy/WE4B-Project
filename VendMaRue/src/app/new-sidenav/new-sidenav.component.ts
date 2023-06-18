@@ -1,6 +1,6 @@
 import { Component, OnInit,Input} from '@angular/core';
 import {UserService} from "../user.service";
-
+import {User} from "../../classes/User"
 @Component({
   selector: 'app-new-sidenav',
   templateUrl: './new-sidenav.component.html',
@@ -9,12 +9,23 @@ import {UserService} from "../user.service";
 export class NewSidenavComponent implements OnInit{
     @Input() sideNavStatus : boolean=false;
     list :any []=[]
-    array : number[]=[0,1,2,3]
-    //faire push for
+    userString: string | null = sessionStorage.getItem('user');
+    user : User;
+    connect : boolean = false;
+    constructor(public userservice : UserService) {
+      if (this.userString) { // Si on est connecté
+        this.user = JSON.parse(this.userString);
+        this.connect = true
+      } else {
+        this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
+        this.connect = false;
+      }
+    }
 
-    constructor(public userservice : UserService) {}
+  getUserService() {return this.userservice;}
 
-    ngOnInit() {
+
+  ngOnInit() {
       this.list= [
         {
           name:'Home',
@@ -25,16 +36,6 @@ export class NewSidenavComponent implements OnInit{
           name:'Conversation',
           icon:'fa-solid fa-comment',
           route:'/chats'
-        },
-        {
-          name:'Products',
-          icon:'fa-solid fa-box',
-          route:''
-        },
-        {
-          name:'Orders',
-          icon:'fa-solid fa-shopping-bag',
-          route:''
         },
         {
           name: 'Profil',

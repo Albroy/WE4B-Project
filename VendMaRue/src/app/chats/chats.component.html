@@ -1,20 +1,26 @@
 <h3>Conversations :</h3>
 <div *ngIf="connect;else notconnected">
   <div *ngIf="chat;else nochat" class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
-    <div *ngFor="let chatVar of ChatArray; let i = index" class="row row-cols-4">
-      <a (click)="conversation(chatVar.id)">{{chatVar.title}}</a>
-      <p>{{chatVar.date}}</p>
+    <div class="center lien" *ngFor="let chatVar of ChatArray; let i = index">
+      <a (click)="conversation(chatVar.id)">{{chatVar.title}} : {{chatVar.date.toLocaleString('fr-FR')}}
+      </a>
     </div>
   </div>
   <ng-template #nochat>
-    <p>Vous n'avez pas de conversations</p>
+    <div class="center">
+      <p>Vous n'avez pas de conversations</p>
+    </div>
   </ng-template>
 </div>
 
 <ng-template #notconnected>
-  <p>Veuillez vous connecter</p>
-  <a routerLink="/connexion">Connexion</a>
+  <div class="center">
+    <p>Veuillez vous connecter :</p>
+    <a routerLink="/connexion">Connexion</a>
+  </div>
 </ng-template>
+
+
 
 
 

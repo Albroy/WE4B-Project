@@ -71,9 +71,6 @@ export class ChatComponent implements OnInit{
     console.log("Message : "+this.newMessage.contenu)
     this.messageservice.addMessage(new Message(0,this.newMessage.contenu,this.user.id,this.conversation_idx,new Date())).subscribe(
       data => {
-/*
-        console.log(data)
-*/
         this.refreshMessage()
       }
     )
