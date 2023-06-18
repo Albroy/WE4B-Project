@@ -7,11 +7,11 @@ import { ActivatedRoute } from '@angular/router';
 import { FileUploadService } from '../file-upload.service';
 
 @Component({
-  selector: 'app-create-product',
-  templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.css']
+  selector: 'app-create-card',
+  templateUrl: './create-card.component.html',
+  styleUrls: ['./create-card.component.css']
 })
-export class CreateProductComponent implements OnInit {
+export class CreateCardComponent implements OnInit {
   public product: Card;
   // Autres propriétés et méthodes nécessaires
   cardId: string | null = null;

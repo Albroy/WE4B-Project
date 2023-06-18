@@ -5,59 +5,41 @@
   </div>
   <img class="logo" src="assets/logo4.jpg" alt="logo">
 
-  <a  class="navbar-brand px-2" routerLink="">VendMaRue</a>
+  <a class="navbar-brand px-2" routerLink="">VendMaRue</a>
 
-  <div class="navbar-collapse">
-    <ul class="navbar-nav me-auto">
+  <div  class="navbar-collapse" >
+    <ul class="navbar-nav me-auto"*ngIf="getUserService().checkUserSession()">
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-          Vendre
+        <a routerLink="/create-card" class="nav-link" role="button">
+          Vendre un produit
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a class="dropdown-item" routerLink="/create-product">Vendre un produit</a></li>
-          <li><a href="#" class="dropdown-item">Vendre un service</a></li>
-        </ul>
       </li>
 
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-          Mes commandes
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a href="#" class="dropdown-item"></a></li>
-          <li><a href="#" class="dropdown-item">Voir mes commandes</a></li>
-        </ul>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+        <a routerLink="/mes-annonces" class="nav-link" role="button">
           Mes annonces
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a href="#" class="dropdown-item" routerLink="/mes-annonces">Voir mes annonces</a></li>
-          <li><a href="#" class="dropdown-item">Vendre un service</a></li>
-        </ul>
       </li>
-
-
     </ul>
 
   </div>
   <app-search></app-search>
-  <button class="btn btn-outline-light" routerLink="/connexion" type="button" *ngIf="!getUserService().checkUserSession()">Connexion</button>
-  <button class="btn btn-outline-light" routerLink="/inscription" type="button" *ngIf="!getUserService().checkUserSession()">Inscription</button>
+  <button class="btn btn-outline-light" routerLink="/connexion" type="button"
+    *ngIf="!getUserService().checkUserSession()">Connexion</button>
+  <button class="btn btn-outline-light" routerLink="/inscription" type="button"
+    *ngIf="!getUserService().checkUserSession()">Inscription</button>
 
 
-<div class="profile-logo dropstart" *ngIf="getUserService().checkUserSession()">
-  <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
-    {{getUserService().getUserSurname()}}
-  </button>
-  <ul class="dropdown-menu dropdown-menu-dark">
-    <li><a class="dropdown-item" [routerLink]="'/profil/' + getUserService().getUserId()">Profil</a></li>
-    <li><a class="dropdown-item" routerLink="" (click)="getUserService().deleteUserSession()">Déconnexion</a></li>
-    <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
-  </ul>
-</div>
+  <div class="profile-logo dropstart" *ngIf="getUserService().checkUserSession()">
+    <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+      {{getUserService().getUserSurname()}}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li><a class="dropdown-item" [routerLink]="'/profil/' + getUserService().getUserId()">Profil</a></li>
+      <li><a class="dropdown-item" routerLink="" (click)="getUserService().deleteUserSession()">Déconnexion</a></li>
+      <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
+    </ul>
+  </div>
 
 
 </nav>

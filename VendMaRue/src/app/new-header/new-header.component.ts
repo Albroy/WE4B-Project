@@ -23,7 +23,7 @@ export class NewHeaderComponent implements OnInit {
   }
 
   navigateToCreateProduct() {
-    this.router.navigateByUrl('/create-product');
+    this.router.navigateByUrl('/create-card');
   }
 
 }

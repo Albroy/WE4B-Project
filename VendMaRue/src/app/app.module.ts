@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
-import { HeaderComponent } from './header/header.component';//enlever apre
 import { CardComponent } from './card/card.component';
 import { PopupCardComponent } from './popup-card/popup-card.component';
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -16,7 +15,7 @@ import { NewSidenavComponent } from './new-sidenav/new-sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { CreateProductComponent } from './create-product/create-product.component';
+import { CreateCardComponent } from './create-card/create-card.component';
 import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
@@ -35,7 +34,6 @@ import { ChatsComponent } from './chats/chats.component';
   declarations: [
     AppComponent,
     CardsComponent,
-    HeaderComponent,
     CardComponent,
     PopupCardComponent,
     InscriptionComponent,
@@ -44,7 +42,7 @@ import { ChatsComponent } from './chats/chats.component';
     ProfilComponent,
     NewHeaderComponent,
     NewSidenavComponent,
-    CreateProductComponent,
+    CreateCardComponent,
     MesAnnoncesComponent,
     SettingsComponent,
     ChatComponent,

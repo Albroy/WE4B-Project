@@ -4,7 +4,7 @@ import { InscriptionComponent } from "./inscription/inscription.component";
 import { CardsComponent } from "./cards/cards.component";
 import { ConnexionComponent } from "./connexion/connexion.component";
 import { ProfilComponent } from "./profil/profil.component";
-import { CreateProductComponent } from "./create-product/create-product.component";
+import { CreateCardComponent } from "./create-card/create-card.component";
 import { MesAnnoncesComponent } from "./mes-annonces/mes-annonces.component";
 import { SettingsComponent } from './settings/settings.component';
 import { AnnoncesFiltreComponent } from './annonces-filtre/annonces-filtre.component';
@@ -21,10 +21,10 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'chat/:id', component: ChatComponent },
   { path: 'chats', component: ChatsComponent },
-  { path: 'create-product', component: CreateProductComponent },
+  { path: 'create-card', component: CreateCardComponent },
   { path: 'mes-annonces', component: MesAnnoncesComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'create-product/:id', component: CreateProductComponent },
+  { path: 'create-card/:id', component: CreateCardComponent },
   { path: 'annonces-filtre', component: AnnoncesFiltreComponent },
   { path: 'redirect', component: RedirectComponent }
 ];

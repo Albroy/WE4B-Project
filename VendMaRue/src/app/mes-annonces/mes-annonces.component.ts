@@ -52,7 +52,7 @@ export class MesAnnoncesComponent implements OnInit {
   }
   editCard(card: Card) {
     const cardId = card.id;
-    this.router.navigate(['/create-product', cardId]);
+    this.router.navigate(['/create-card', cardId]);
   }
 
   deleteCard(card: Card) {

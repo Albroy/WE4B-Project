@@ -191,6 +191,20 @@
       "date": "2023-06-18T11:31:53.885Z",
       "loc": "Besac",
       "text": "test"
+    },
+    {
+      "id": 8,
+      "title": "Test2",
+      "userid": 2,
+      "photo": "Alb_a_logo_with_a_capybara_ee924ade-7755-4b93-a7e4-2d50bf139427.png",
+      "brand": "UTBM",
+      "price": 1,
+      "OnSale": "1",
+      "likes": 0,
+      "quantity": 1,
+      "date": "2023-06-18T11:55:41.591Z",
+      "loc": "Montbéliard",
+      "text": "tTETAZYETUAZYU"
     }
   ],
   "Users": [
