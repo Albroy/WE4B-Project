@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'connexion',component:ConnexionComponent},
   {path:'profil/:id',component:ProfilComponent},
   {path:'settings',component:SettingsComponent},
-  {path: 'chat', component:ChatComponent},
+  {path: 'chat/:id', component:ChatComponent},
   {path:'create-product',component:CreateProductComponent},
   {path:'mes-annonces',component:MesAnnoncesComponent},
   {path:'settings',component:SettingsComponent},

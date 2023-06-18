@@ -22,6 +22,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ChatComponent } from './chat/chat.component';
     CreateProductComponent,
     MesAnnoncesComponent,
     SettingsComponent,
-    ChatComponent
+    ChatComponent,
+    MessageComponent
     
   ],
   imports: [

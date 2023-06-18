@@ -30,5 +30,9 @@ export class ChatService {
     );
   }
 
+  addChat(chat : Chat) :Observable<any>{
+    return this.http.post('http://localhost:3000/Chats',chat)
+  }
+
 
 }

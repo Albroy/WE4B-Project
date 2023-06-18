@@ -1,16 +1,35 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col mt-3 mb-3"><h3>Chat</h3></div>
 
-    <div class="w-100"></div>
-    <div class="col m-1">Contact</div>
-    <div class="col m-1">Sujet</div>
-  </div>
-  <div class="row" *ngFor="let chatItem of chatArray; let i = index">
-    <div class="w-100"></div>
-    <div class="col m-1"></div>
-    <div class="col m-1">{{ chatItem.title }}</div>
-  </div>
+  <!--test-->
+  {{connect}}
+  <!--<h2>Le chat : </h2>
+  <app-message *ngFor="let messageVar of MessageArray; let i = index" [message]="messageVar" ></app-message>
+  <div>
+    <form #chatForm="ngForm" (ngSubmit)="onSubmit()">
+      <input type="text" name="inputChat" [(ngModel)]="newMessage.contenu">
+      <button type="submit" name="envoi">Envoyer</button>
+    </form>
+  </div>-->
 
+
+  <!--Si on est connecté, on affiche le chat-->
+  <ng-template *ngIf="connect === 'true'; else notconnectedBlock">
+    {{connect}}
+    <h2>Le chat : </h2>
+    <app-message *ngFor="let messageVar of MessageArray; let i = index" [message]="messageVar" ></app-message>
+    <div>
+      <form #chatForm="ngForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="inputChat" [(ngModel)]="newMessage.contenu">
+        <button type="submit" name="envoi">Envoyer</button>
+      </form>
+    </div>
+  </ng-template>
+
+  <!--Sinon on invite l'utilisateur à se connecter-->
+  <ng-template #notconnectedBlock>
+    {{connect}}
+    <h3>Veuillez-vous connectez</h3>
+    <a routerLink="/connexion">Se connecter</a>
+  </ng-template>
 </div>
 

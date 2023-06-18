@@ -444,6 +444,46 @@
       "user_loc": "Tibet",
       "user_pwd": "$2a$10$NdrFFvATiFW6gXRNVje46e3ob4Ty1hT9zSnWcuGK.A6jXeNNq1Pqq",
       "user_desc": "Tobleronne"
+    },
+    {
+      "id": 5,
+      "user_pp": "../assets/images/user.png",
+      "user_name": "Tariel",
+      "user_surname": "camille",
+      "user_email": "test@test.test",
+      "user_phone": 0,
+      "user_acc_date": "2023-06-17T20:10:04.303Z",
+      "user_loc": "rouen",
+      "user_pwd": "$2a$10$bFAMBsfs6J031kBzDPd0.eWZ0RwihwWvWUNhL4pwZE7ETMfrj.NL6"
+    },
+    {
+      "id": 6,
+      "user_pp": "../assets/images/user.png",
+      "user_name": "z",
+      "user_surname": "z",
+      "user_email": "z@z.z",
+      "user_phone": 0,
+      "user_acc_date": "2023-06-18T06:40:05.914Z",
+      "user_loc": "rouen",
+      "user_pwd": "$2a$10$qMVne155BxWLpg9MTXXkyuCdgxnPfq8Ip0IzghLpuc23NCvs0vmhu"
+    }
+  ],
+  "Chats": [
+    {
+      "id": 1,
+      "title": "Title 2",
+      "userid_vendor": 1,
+      "userid_client": 5,
+      "date": "16/06.2020"
+    }
+  ],
+  "Messages": [
+    {
+      "id": 1,
+      "contenu": "test",
+      "userid": 5,
+      "conversation_id": 1,
+      "date": "18/06/2023"
     }
   ]
 }
