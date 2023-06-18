@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit{
   /*Variables de session*/
   user : any
   userString: string | null = sessionStorage.getItem('user');
-  connect : string = "false"
+  connect : boolean = false
 
   constructor(private activatedroute : ActivatedRoute,private chatservice:ChatService, private messageservice : MessageService) {
 
@@ -31,10 +31,10 @@ export class ChatComponent implements OnInit{
     if (this.userString) { // Si on est connecté
       this.user = JSON.parse(this.userString);
       console.log(this.user);
-      this.connect = "true"
+      this.connect = true
     } else {
       this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
-      this.connect = "false"
+      this.connect = false
       console.log(this.connect)
     }
 

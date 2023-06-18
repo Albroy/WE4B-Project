@@ -8,6 +8,7 @@ import {CreateProductComponent} from "./create-product/create-product.component"
 import {MesAnnoncesComponent} from "./mes-annonces/mes-annonces.component";
 import { SettingsComponent } from './settings/settings.component';
 import {ChatComponent} from "./chat/chat.component";
+import {RedirectComponent} from "./redirect/redirect.component";
 
 const routes: Routes = [
   {path:'',component:CardsComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'create-product',component:CreateProductComponent},
   {path:'mes-annonces',component:MesAnnoncesComponent},
   {path:'settings',component:SettingsComponent},
-  { path: 'create-product/:id', component: CreateProductComponent }
+  { path: 'create-product/:id', component: CreateProductComponent },
+  {path:'redirect', component:RedirectComponent}
 ];
 
 @NgModule({

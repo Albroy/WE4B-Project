@@ -23,6 +23,7 @@ import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
 import { MessageComponent } from './message/message.component';
+import { RedirectComponent } from './redirect/redirect.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MessageComponent } from './message/message.component';
     MesAnnoncesComponent,
     SettingsComponent,
     ChatComponent,
-    MessageComponent
+    MessageComponent,
+    RedirectComponent
     
   ],
   imports: [

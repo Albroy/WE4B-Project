@@ -2,9 +2,9 @@
 <p>Test affichage message : {{message.contenu}}</p>
 
 <!--Lessage de l'utilisateur expéditeur : celui connecté-->
-<ng-template *ngIf="message.userid === user.id; else elseBlock ">
+<div *ngIf="message.userid === user.id; else elseBlock ">
   <p style="left: 0px;">la personne connectée : {{message.contenu}}</p>
-</ng-template>
+</div>
 
 <!-- Message de l'utilisateur destinataire -->
 <ng-template #elseBlock>

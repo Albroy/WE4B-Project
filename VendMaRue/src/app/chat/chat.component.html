@@ -13,7 +13,7 @@
 
 
   <!--Si on est connecté, on affiche le chat-->
-  <ng-template *ngIf="connect === 'true'; else notconnectedBlock">
+  <div *ngIf="connect; else notconnectedBlock">
     {{connect}}
     <h2>Le chat : </h2>
     <app-message *ngFor="let messageVar of MessageArray; let i = index" [message]="messageVar" ></app-message>
@@ -23,11 +23,11 @@
         <button type="submit" name="envoi">Envoyer</button>
       </form>
     </div>
-  </ng-template>
+  </div>
 
   <!--Sinon on invite l'utilisateur à se connecter-->
   <ng-template #notconnectedBlock>
-    {{connect}}
+    <p>Donc : </p>{{connect}}
     <h3>Veuillez-vous connectez</h3>
     <a routerLink="/connexion">Se connecter</a>
   </ng-template>
