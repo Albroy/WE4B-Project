@@ -35,12 +35,7 @@
     <p class="card-text"><small class="text-muted">Disponible: {{card.quantity}}</small></p>
 
     <div class="my-4">
-      <!--<button class="btn" (click)="ajouterPanier()">Ajouter au panier</button>
-      <div class="my-4">
-        <button class="btn" (click)="retirerPanier()">Retirer du panier</button>
-      </div>-->
-      <!--Ne ferme pas la popup ?-->
-      <a class="btn" routerLink="chat/:{{card.userid}}">Contacter</a>
+      <a class="btn" (click)="openConversation(card.userid)">Contacter</a>
       <h4>Commentaires</h4>
       <app-comments-list [idCard]="card.id"></app-comments-list>
     </div>

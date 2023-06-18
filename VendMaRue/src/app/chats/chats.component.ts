@@ -31,7 +31,9 @@ export class ChatsComponent {
       if(this.ChatArray.length == 0){
         this.chat=false
       }
+/*
       console.log(this.ChatArray)
+*/
     })
   };
 

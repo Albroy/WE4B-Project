@@ -23,7 +23,9 @@ export class MessageComponent implements OnInit{
 
     if (this.userString) { // Si on est connecté
       this.user = JSON.parse(this.userString);
+/*
       console.log("Dans message component : " + this.user);
+*/
     } else {
       this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
     }
@@ -31,13 +33,9 @@ export class MessageComponent implements OnInit{
   }
 
   ngOnInit():void {
+/*
     console.log(this.message)
-    /*this.messageService.getMessage().subscribe(data => {
-      let tmpMsgArray = data.filter(u => u.conversation_id === this.conversation_idx)
-      this.MessageArray = tmpMsgArray
-      console.log("dans message")
-      console.log(this.MessageArray)
-    })*/
+*/
   }
 
 

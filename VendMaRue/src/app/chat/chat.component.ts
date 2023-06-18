@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit{
   name : string = ""
   MessageArray: Message[] = [];
   public error: String = "";
-  newMessage : Message = new Message(0,'',1,1,'')
+  newMessage : Message = new Message(0,'',0,0,new Date())
   conversation_idx: number;
 
   /*Variables de session*/
@@ -30,12 +30,16 @@ export class ChatComponent implements OnInit{
     /*Test si l'on est connecté, récupère l'utilisateur connecté*/
     if (this.userString) { // Si on est connecté
       this.user = JSON.parse(this.userString);
+/*
       console.log(this.user);
+*/
       this.connect = true
     } else {
       this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
       this.connect = false
+/*
       console.log(this.connect)
+*/
     }
 
     /*Récupère le numéro de conversation*/
@@ -56,16 +60,20 @@ export class ChatComponent implements OnInit{
     this.messageservice.getMessage().subscribe(data => {
       let tmpMsgArray = data.filter(u => u.conversation_id === this.conversation_idx)
       this.MessageArray = tmpMsgArray
+/*
       console.log(this.MessageArray)
+*/
     })
   }
 
   /*Ajout message bdd lorsqu'on clique sur envoyer*/
   onSubmit() {
     console.log("Message : "+this.newMessage.contenu)
-    this.messageservice.addMessage(new Message(0,this.newMessage.contenu,this.user.id,this.conversation_idx,"16/06/2023")).subscribe(
+    this.messageservice.addMessage(new Message(0,this.newMessage.contenu,this.user.id,this.conversation_idx,new Date())).subscribe(
       data => {
+/*
         console.log(data)
+*/
         this.refreshMessage()
       }
     )

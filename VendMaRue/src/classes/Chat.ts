@@ -4,7 +4,7 @@ export class Chat {
     public title : string,
     public userid_vendor : number,
     public userid_client : number,
-    public date : string
+    public date : Date
   ) {
     this.title = title;
     this.id = id;

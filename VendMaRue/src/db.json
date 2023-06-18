@@ -503,6 +503,13 @@
       "userid_vendor": 1,
       "userid_client": 6,
       "date": "16/06/2020"
+    },
+    {
+      "id": 6,
+      "title": "Title 6",
+      "userid_vendor": 4,
+      "userid_client": 6,
+      "date": "2023-06-18T11:07:19.234Z"
     }
   ],
   "Messages": [

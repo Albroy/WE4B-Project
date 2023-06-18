@@ -4,7 +4,7 @@ export class Message {
     public contenu : string,
     public userid : number,
     public conversation_id : number,
-    public date : string
+    public date : Date
   ) {
     this.contenu = contenu;
     this.id = id;

@@ -5,6 +5,10 @@ import { UserService } from '../user.service';
 import { EvaluationService } from '../evaluation.service';
 import { Evaluation } from 'src/classes/Evaluation';
 import { HttpErrorResponse } from '@angular/common/http';
+import {Router} from "@angular/router";
+import {ChatService} from "../chat.service";
+import {User} from "../../classes/User"
+import {Chat} from "../../classes/Chat";
 
 @Component({
   selector: 'app-popup-card',
@@ -18,13 +22,24 @@ export class PopupCardComponent implements OnInit, OnChanges {
   list: number = 0;
   evallist: Evaluation[] = [];
   moyenne: number | null = null;
+  userString: string | null = sessionStorage.getItem('user');
+  user : User;
+  conversationList : Chat[] = []
+  conversationID : number = 0
 
   constructor(
     private activeModal: NgbActiveModal,
     private userService: UserService,
-    private evaluationService: EvaluationService
+    private evaluationService: EvaluationService,
+    private router: Router,
+    private conversationService: ChatService
   ) {
     this.currentRate = 0;
+    if (this.userString) { // Si on est connecté
+      this.user = JSON.parse(this.userString);
+    } else {
+      this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
+    }
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['card'] && !changes['card'].firstChange) {
@@ -35,7 +50,7 @@ export class PopupCardComponent implements OnInit, OnChanges {
       });
     }
   }
-  
+
 
   ngOnInit(): void {
     this.getMoyenne().then(newMoyenne => {
@@ -48,6 +63,30 @@ export class PopupCardComponent implements OnInit, OnChanges {
   closeModal(): void {
     this.activeModal.close();
   }
+
+  async openConversation(id: number) {
+    if (this.user.id !== 0 && this.user.id != id) {
+      /*Récupération des conversations de la bdd*/
+      try {
+        const data = await this.conversationService.getData().toPromise();
+        this.conversationList = data ? data : [];
+
+        /*On cherche les conversations que l'utilisateur connecté possède*/
+        const search = this.conversationList.find(u => u.userid_client === this.user.id && u.userid_vendor === this.card.userid);
+        this.conversationID = search ? search.id : 0;
+      } catch (error) {
+        console.log(error);
+      }
+
+      /*Redirection sur la page de conversation*/
+      const queryParams = {
+        info: `/chat/:${this.conversationID}`,
+      };
+      this.router.navigate(['/redirect'], { queryParams });
+    }
+
+  }
+
 
   ajouterPanier(): void {
     if (this.card.quantity > 0) {
