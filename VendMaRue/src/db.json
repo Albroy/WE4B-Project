@@ -118,17 +118,17 @@
   "Cards": [
     {
       "id": 3,
-      "title": "test",
+      "title": "Ville",
       "userid": 4,
       "photo": "testcreateproduct.jpg",
-      "brand": "test",
+      "brand": "INFO",
       "price": 5,
       "OnSale": "1",
       "likes": 0,
       "quantity": 1,
       "date": "2023-06-17T10:50:23.257Z",
-      "loc": "1",
-      "text": "1"
+      "loc": "Belfort",
+      "text": "Je vends une ville en peinture blablabla"
     },
     {
       "id": 4,
@@ -156,21 +156,21 @@
       "quantity": 1,
       "date": "2023-06-17T11:15:30.515Z",
       "loc": "Belfort",
-      "text": "Gratuit"
+      "text": "Gratuit ou presque"
     },
     {
       "id": 6,
-      "title": "Tanguy",
+      "title": "Abricot",
       "userid": 4,
       "photo": "png-clipart-apricot-apricot.png",
-      "brand": "Tanguy",
+      "brand": "Nourriture",
       "price": 194,
       "OnSale": "20",
       "likes": 0,
       "quantity": 1,
       "date": "2023-06-17T16:54:20.475Z",
       "loc": "Belfort",
-      "text": "C'est Tanguy"
+      "text": "C'est un abricot"
     }
   ],
   "Users": [
