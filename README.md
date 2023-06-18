@@ -59,6 +59,7 @@ npm install crypto-browserify
 - Chargement des produits en AJAX.
 - Systeme de publication de produits / modification / effacement.
 - Mots de passe cryptés.
+- Système de messagerie pour contacter un vendeur et répondre client
 
 ### Echantillon de test :
 
@@ -70,8 +71,6 @@ npm install crypto-browserify
 - card : une annonce
 - cards : toutes les annonces
 - chat :
-- comment : un commentaire
-- comments-list : tous les commentaires
 - confirmation-dialog : pop up de confirmation
 - connexion : page de connexion
 - create-card : formulaire de création d'annonce
@@ -89,7 +88,6 @@ npm install crypto-browserify
 #### Services :
 
 - card : pour les annonces
-- comment : pour les commentaires
 - evaluation : pour les notations sur les annonces
 - file-upload : pour les images
 - search : pour la recherche
@@ -97,9 +95,10 @@ npm install crypto-browserify
 #### Classes :
 
 - Card : pour les annonces
-- Comment : pour les commentaires
 - Evaluation : pour les notations sur les annonces
 - User : pour les utilisateurs
+- Chat : pour les conversations
+- Message : pour les messages des conversations
 
 #### Autres :
 
@@ -113,7 +112,7 @@ Bootstrap
 
 Nous avons développé l'application "VendMaRue", une plateforme de type marketplace. Notre objectif était de créer un site web moderne en utilisant Angular comme framework front-end.
 
-Nous avons réussi à mettre en place les principales fonctionnalités attendues, telles que le système de connexion, d'inscription et de déconnexion des utilisateurs, ainsi que la possibilité de rechercher des produits, des utilisateurs et des localisations spécifiques. Nous avons également mis en place un système de notation par étoiles, réservé aux utilisateurs connectés, et un système de profil et de paramètres pour les utilisateurs.
+Nous avons réussi à mettre en place les principales fonctionnalités attendues, telles que le système de connexion, d'inscription et de déconnexion des utilisateurs, ainsi que la possibilité de rechercher des produits, des utilisateurs et des localisations spécifiques. Enfin, nous avons également mis en place un système de notation par étoiles, réservé aux utilisateurs connectés, et un système de profil et de paramètres pour les utilisateurs. Nous avons un système de conversation pour mettre en contact acheteurs et vendeurs.
 
 L'un des aspects clés de notre projet était le chargement des produits en utilisant AJAX, ce qui permet une expérience utilisateur fluide et réactive. Nous avons également implémenté un système de publication, de modification et de suppression des annonces.
 
