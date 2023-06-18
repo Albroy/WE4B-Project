@@ -30,7 +30,6 @@ export class MesAnnoncesComponent implements OnInit {
     this.pwd = "";
     if (this.userString) { // Si on est connecté
       this.user = JSON.parse(this.userString);
-      console.log(this.user);
     } else {
       this.user = new User(0, "", "", "", "", 0, new Date(), "", "");
     }

@@ -75,11 +75,11 @@ export class CreateCardComponent implements OnInit {
   addProduct() {
     this.product.userid = this.userService.getUserId()
     this.product.date = new Date();
-    console.log(this.product.photo)
+    // console.log(this.product.photo)
     this.uploadService.uploadImage(this.file)
     this.cardService.addCard(this.product).subscribe(
       (data: Card) => {
-        console.log('Nouveau produit ajouté :', data);
+        // console.log('Nouveau produit ajouté :', data);
         const queryParams = {
           info: ``
         }

@@ -30,7 +30,7 @@ export class InscriptionComponent implements OnInit {
       ''
     );
     this.user.id = this.userService.lastid;
-    console.log('ID : ' + this.userService.lastid);
+    // console.log('ID : ' + this.userService.lastid);
     this.mdp2 = '';
     this.mdp = '';
   }
@@ -38,14 +38,13 @@ export class InscriptionComponent implements OnInit {
   onPwdInputChange(newValue: string) {
     this.user.user_pwd = newValue;
     this.mdp = newValue;
-    console.log("Nouvelle valeur de l'input :", newValue);
+    // console.log("Nouvelle valeur de l'input :", newValue);
   }
 
   ngOnInit(): void {}
 
   onSubmit() {
     this.submitted = true;
-    console.log('submit button' + this.submitted);
 
     this.error = this.isFormValid().error;
     if (this.isFormValid().valid) {
@@ -63,7 +62,7 @@ export class InscriptionComponent implements OnInit {
 
     this.userService.addUser(this.user).subscribe((data) => {
       this.user = data;
-      console.log(this.user);
+      // console.log(this.user);
       this.userService.getData();
       this.router.navigateByUrl('');
     });

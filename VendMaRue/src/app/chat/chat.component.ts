@@ -68,7 +68,7 @@ export class ChatComponent implements OnInit{
 
   /*Ajout message bdd lorsqu'on clique sur envoyer*/
   onSubmit() {
-    console.log("Message : "+this.newMessage.contenu)
+    // console.log("Message : "+this.newMessage.contenu)
     this.messageservice.addMessage(new Message(0,this.newMessage.contenu,this.user.id,this.conversation_idx,new Date())).subscribe(
       data => {
 /*
