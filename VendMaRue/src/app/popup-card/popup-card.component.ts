@@ -192,7 +192,6 @@ export class PopupCardComponent implements OnInit, OnChanges {
 
           let sum = 0;
           for (let i = 0; i < fulllist.length; i++) {
-            // console.log("Rate : " + fulllist[i].rate)
             sum += fulllist[i].rate;
           }
 

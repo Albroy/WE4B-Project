@@ -42,7 +42,7 @@ export class CreateCardComponent implements OnInit {
       if (this.cardId) {
         this.cardService.updateCard(this.cardId, this.product).subscribe(
           (data: Card) => {
-            console.log('Annonce mise à jour :', data);
+            // console.log('Annonce mise à jour :', data);
             this.router.navigateByUrl('/mes-annonces'); // Rediriger vers la page appropriée après la mise à jour
           },
           (error: any) => {

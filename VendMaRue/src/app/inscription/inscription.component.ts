@@ -52,10 +52,6 @@ export class InscriptionComponent implements OnInit {
       this.addUser();
     }
 
-    console.log(
-      'form valid ' + this.loading + ' :  ',
-      this.isFormValid().error
-    );
   }
   addUser() {
     this.user.user_pwd = bcrypt.hashSync(this.user.user_pwd, 10);
