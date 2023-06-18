@@ -61,12 +61,6 @@ export class UserService {
       (u) => u.user_email === email && bcrypt.compareSync(password, u.user_pwd) //compare le mdp en clair avec le mdp crypté
     );
     if (user) {
-      console.log(
-        ' on crée la session User : ' +
-          user +
-          ' : compareSync : ' +
-          bcrypt.compareSync(password, user.user_pwd)
-      );
       sessionStorage.setItem('user', JSON.stringify(user));
     }
   }
