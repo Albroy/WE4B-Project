@@ -513,7 +513,7 @@
       "user_phone": 0,
       "user_acc_date": "2023-06-18T12:33:38.102Z",
       "user_loc": "Lons-le-Saunier",
-      "user_pwd": "$2a$10$kJdlsC6S1j2sPiiCTGAyfOOigKGSAgYvwwaIAEbv2d2wwIgvoh13K"
+      "user_pwd": "$2a$10$3KDEFpEhUBpmq7Yl57jpJObeVDAL5p1H9Mpf6f9Yp6.bDxjB1Hc12"
     },
     {
       "id": 8,
@@ -524,7 +524,7 @@
       "user_phone": 0,
       "user_acc_date": "2023-06-18T12:40:30.298Z",
       "user_loc": "Barcelone",
-      "user_pwd": "$2a$10$hWV3CeVaArpnV3R3ANZZc.OyF75soUet4TS0js0T.1ocDRtRZeBB."
+      "user_pwd": "$2a$10$3KDEFpEhUBpmq7Yl57jpJObeVDAL5p1H9Mpf6f9Yp6.bDxjB1Hc12"
     },
     {
       "id": 9,
@@ -535,18 +535,18 @@
       "user_phone": 0,
       "user_acc_date": "2023-06-18T12:43:41.589Z",
       "user_loc": "Marseille",
-      "user_pwd": "$2a$10$uUeVXv0BXmAZKWZ8lTPPUOEfNFUZljUoE7FFfLe9PVllJ22PcvKBa"
+      "user_pwd": "$2a$10$3KDEFpEhUBpmq7Yl57jpJObeVDAL5p1H9Mpf6f9Yp6.bDxjB1Hc12"
     },
     {
       "id": 10,
       "user_pp": "../assets/images/user.png",
-      "user_name": "Quoi",
-      "user_surname": "coubeh",
+      "user_name": "Telephone",
+      "user_surname": "Telegraphe",
       "user_email": "tel@tel.tel",
       "user_phone": 0,
       "user_acc_date": "2023-06-18T12:48:09.100Z",
       "user_loc": "Paris",
-      "user_pwd": "$2a$10$DJkqwHMxe0NKwvUhY1ZSeuPaZXLxjFhjJ6lCf.OrNLqhXE9p8LXtG"
+      "user_pwd": "$2a$10$3KDEFpEhUBpmq7Yl57jpJObeVDAL5p1H9Mpf6f9Yp6.bDxjB1Hc12"
     },
     {
       "id": 11,
@@ -557,7 +557,18 @@
       "user_phone": 0,
       "user_acc_date": "2023-06-18T12:52:49.356Z",
       "user_loc": "Montbéliard",
-      "user_pwd": "$2a$10$ADWyxshA.R3ZnGDbJ9eyce4.7keMY9SWNpcOO/Dy6XzvgxploMA7y"
+      "user_pwd": "$2a$10$3KDEFpEhUBpmq7Yl57jpJObeVDAL5p1H9Mpf6f9Yp6.bDxjB1Hc12"
+    },
+    {
+      "id": 12,
+      "user_pp": "../assets/images/user.png",
+      "user_name": "marcelin",
+      "user_surname": "nicolas",
+      "user_email": "nicolas.marcelin@utbm.fr",
+      "user_phone": 0,
+      "user_acc_date": "2023-06-18T18:57:40.328Z",
+      "user_loc": "Belfort",
+      "user_pwd": "$2a$10$OpBKBWrq2d.6msz76niyK.73wQcrfxg4j1kQAwpyeJ.tYd6aj2Mkq"
     }
   ],
   "Chats": [

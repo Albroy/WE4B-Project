@@ -88,6 +88,20 @@ npm install crypto-browserify
 
 ### Echantillon de test :
 
+
+| Email| Nom| mdp      |
+| -------- | --- | ---------- |
+|albert.royer@utbm.fr | Royer Albert  | root  |
+| t@t.t | Trombonne Tomate  | t|
+| z@z.z| Zebre Zelda  | z|
+|a@a.a|Abricot Alain|a|
+|lemuscle@muscle.com| Jean Philippe |test|
+|fifa@fifa.com| Lionel messi |test|
+|anime@anime.com| Kanguy Yone |test|
+|tel@tel.tel| Telephone Telegraphe|test|
+|poule@poule.com|Lons Mickael|test|
+|nicolas.marcelin@utbm.fr|marcelin nicolas|root|
+
 ### Le site :
 
 #### Components :
