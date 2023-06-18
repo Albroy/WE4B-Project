@@ -7,9 +7,9 @@ import { EvaluationService } from '../evaluation.service';
 import { Evaluation } from 'src/classes/Evaluation';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FileUploadService } from '../file-upload.service';
-import {Router} from "@angular/router";
-import {ChatService} from "../chat.service";
-import {Chat} from "../../classes/Chat";
+import { Router } from "@angular/router";
+import { ChatService } from "../chat.service";
+import { Chat } from "../../classes/Chat";
 
 @Component({
   selector: 'app-popup-card',
@@ -25,11 +25,12 @@ export class PopupCardComponent implements OnInit, OnChanges {
   evallist: Evaluation[] = [];
   moyenne: number | null = null;
   afficher: boolean = false; // afficher le numéro de téléphone
-  done : boolean = false;
+  done: boolean = false;
   userString: string | null = sessionStorage.getItem('user');
-  userSess : User;
-  conversationList : Chat[] = []
-  conversationID : number = 0
+  userSess: User;
+  conversationList: Chat[] = []
+  conversationID: number = 0
+  connect: boolean = false
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -48,17 +49,17 @@ export class PopupCardComponent implements OnInit, OnChanges {
   }
 
 
-  async ngOnInit():Promise <void> {
+  async ngOnInit(): Promise<void> {
     this.getMoyenne().then(newMoyenne => {
       this.moyenne = newMoyenne;
       this.currentRate = Number(newMoyenne);
     }).catch(error => {
       console.log("Erreur lors du calcul de la moyenne :", error);
     });
-    this.card.photo = this.card.photo.startsWith("https") ? this.card.photo: await this.uploadService.getImageUrl(this.card.photo);
-    this.done=true;
+    this.card.photo = this.card.photo.startsWith("https") ? this.card.photo : await this.uploadService.getImageUrl(this.card.photo);
+    this.done = true;
   }
-  
+
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -78,16 +79,37 @@ export class PopupCardComponent implements OnInit, OnChanges {
     this.afficher = !this.afficher;
   }
 
-  async openConversation(id: number) {
-    if (this.userSess.id !== 0 && this.user.id != id) {
+  // Ouverture de la conversation déclenché par "contacter"
+  // On récupère id_user du post
+  async newConversation(id: number) {
+    /*Si l'utilisateur est connecté et n'est pas propriétaire de l'offre*/
+    if (this.user.id !== 0 && this.user.id != id) {
       /*Récupération des conversations de la bdd*/
       try {
         const data = await this.conversationService.getData().toPromise();
         this.conversationList = data ? data : [];
 
         /*On cherche les conversations que l'utilisateur connecté possède*/
-        const search = this.conversationList.find(u => u.userid_client === this.userSess.id && u.userid_vendor === this.card.userid);
-        this.conversationID = search ? search.id : 0;
+        const search = this.conversationList.find(u => u.userid_client === this.user.id && u.userid_vendor === this.card.userid);
+
+        /*Si l'utilisteur possède une conversation, on récupère l'id*/
+        if (search) {
+          this.conversationID = search.id;
+        } else {
+
+          /*Sinon on créé la conversation*/
+          const newChat = new Chat(0, this.card.title, this.card.userid, this.user.id, new Date());
+          const createdChat = await this.conversationService.addChat(newChat).toPromise();
+
+
+          /*Mise à jour de la bdd*/
+          const updatedData = await this.conversationService.getData().toPromise();
+          this.conversationList = updatedData ? updatedData : []
+
+          /*Récupération id de la nouvelle conversation*/
+          const updatedSearch = this.conversationList.find(u => u.userid_client === this.user.id && u.userid_vendor === this.card.userid);
+          this.conversationID = updatedSearch ? updatedSearch.id : 0;
+        }
       } catch (error) {
         console.log(error);
       }
@@ -97,9 +119,14 @@ export class PopupCardComponent implements OnInit, OnChanges {
         info: `/chat/:${this.conversationID}`,
       };
       this.router.navigate(['/redirect'], { queryParams });
-    }
 
+    } else {
+      /*L'utilisateur n'est pas connecté*/
+      console.log("User not connected");
+    }
+    this.closeModal()
   }
+
 
 
   ajouterPanier(): void {

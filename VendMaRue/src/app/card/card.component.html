@@ -14,7 +14,7 @@
     <h5 class="card-title">{{card.title + " par " + getUserById(card.userid).user_surname}}</h5>
     <span>{{card.loc}}</span>
     <h5 class="card-title">{{card.text}}</h5>
-    <a *ngIf="connect" class="btn mb-3" (click)="newConversation(card.userid)" >Contacter</a>
+    <a *ngIf="connect && user.id != card.userid" class="btn mb-3" (click)="newConversation(card.userid)" >Contacter</a>
     <div class="text-center my-4"> <button class="btn" (click)="openModal()">Voir l'offre</button>
       <button class="btn btn-primary" *ngIf="showEditButton" (click)="editCard()">Modifier</button>
       <button class="btn btn-danger" *ngIf="showDeleteButton" (click)="deleteCard(card)">Supprimer</button>
