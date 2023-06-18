@@ -34,7 +34,8 @@
             <div class="row">
                 <div class="col-lg-6 p-3">
                     <div class="d-flex align-items-center">
-                        <button class="btn me-3" (click)="Afficher()">Contacter</button>
+                        <button class="btn me-3" (click)="Afficher()">Téléphone</button>
+                        <a class="btn" (click)="openConversation(card.userid)">Contacter</a>
                     </div>
                 </div>
 
@@ -49,6 +50,7 @@
 
 </div>
 <div>
+    
     <h4>Commentaires</h4>
     <app-comments-list [idCard]="card.id"></app-comments-list>
 </div>

@@ -22,9 +22,9 @@ export class NewSidenavComponent implements OnInit{
           route:'/home'
         },
         {
-          name:'Analytics',
-          icon:'fa-solid fa-chart-line',
-          route:''
+          name:'Conversation',
+          icon:'fa-solid fa-comment',
+          route:'/chats'
         },
         {
           name:'Products',

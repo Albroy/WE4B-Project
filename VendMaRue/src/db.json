@@ -113,6 +113,12 @@
       "user_id": 2,
       "card_id": 6,
       "rate": 5
+    },
+    {
+      "id": 20,
+      "user_id": 4,
+      "card_id": 4,
+      "rate": 5
     }
   ],
   "Cards": [
@@ -139,7 +145,7 @@
       "price": 50,
       "OnSale": "95",
       "likes": 0,
-      "quantity": 1,
+      "quantity": 10,
       "date": "2023-06-17T10:53:23.881Z",
       "loc": "Belfort",
       "text": "joueur lol D4 hardstuck"
@@ -171,6 +177,20 @@
       "date": "2023-06-17T16:54:20.475Z",
       "loc": "Belfort",
       "text": "C'est un abricot"
+    },
+    {
+      "id": 7,
+      "title": "Test",
+      "userid": 4,
+      "photo": "Alb_a_logo_with_a_capybara_bcb7e1a0-9c84-406c-92a8-be64bca19b26.png",
+      "brand": "test",
+      "price": 1,
+      "OnSale": "20",
+      "likes": 0,
+      "quantity": 1,
+      "date": "2023-06-18T11:31:53.885Z",
+      "loc": "Besac",
+      "text": "test"
     }
   ],
   "Users": [
@@ -221,6 +241,108 @@
       "user_loc": "Arbois",
       "user_pwd": "$2a$10$qPQIfdVHoyqFG5TWocP33.g/zayyYkfImivBBunGpDW5zaVPHNrSK",
       "user_desc": ""
+    }
+  ],
+  "Chats": [
+    {
+      "id": 1,
+      "title": "Title 2",
+      "userid_vendor": 1,
+      "userid_client": 5,
+      "date": "16/06.2020"
+    },
+    {
+      "id": 2,
+      "title": "Title 3",
+      "userid_vendor": 2,
+      "userid_client": 5,
+      "date": "16/06/2020"
+    },
+    {
+      "id": 3,
+      "title": "Title 4",
+      "userid_vendor": 3,
+      "userid_client": 5,
+      "date": "16/06/2020"
+    },
+    {
+      "id": 4,
+      "title": "Quoicoubeh",
+      "userid_vendor": 4,
+      "userid_client": 5,
+      "date": "16/06/2020"
+    },
+    {
+      "id": 5,
+      "title": "Title 2",
+      "userid_vendor": 1,
+      "userid_client": 6,
+      "date": "16/06/2020"
+    },
+    {
+      "id": 6,
+      "title": "Title 6",
+      "userid_vendor": 4,
+      "userid_client": 6,
+      "date": "2023-06-18T11:07:19.234Z"
+    },
+    {
+      "id": 7,
+      "title": "Rein de Nico",
+      "userid_vendor": 4,
+      "userid_client": 2,
+      "date": "2023-06-18T11:28:03.001Z"
+    }
+  ],
+  "Messages": [
+    {
+      "id": 1,
+      "contenu": "test",
+      "userid": 5,
+      "conversation_id": 1,
+      "date": "18/06/2023"
+    },
+    {
+      "id": 2,
+      "contenu": "coucou",
+      "userid": 5,
+      "conversation_id": 2,
+      "date": "16/06/2023"
+    },
+    {
+      "id": 3,
+      "contenu": "hello",
+      "userid": 5,
+      "conversation_id": 4,
+      "date": "16/06/2023"
+    },
+    {
+      "id": 4,
+      "contenu": "salut j'aimerais acheter votre produit",
+      "userid": 6,
+      "conversation_id": 5,
+      "date": "16/06/2023"
+    },
+    {
+      "id": 5,
+      "contenu": "Salut",
+      "userid": 2,
+      "conversation_id": 7,
+      "date": "2023-06-18T11:28:08.475Z"
+    },
+    {
+      "id": 6,
+      "contenu": "Ca va ?",
+      "userid": 2,
+      "conversation_id": 7,
+      "date": "2023-06-18T11:28:10.877Z"
+    },
+    {
+      "id": 7,
+      "contenu": "Ca va et toi ?",
+      "userid": 4,
+      "conversation_id": 7,
+      "date": "2023-06-18T11:28:31.882Z"
     }
   ]
 }

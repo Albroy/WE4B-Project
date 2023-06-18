@@ -30,6 +30,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { firebaseConfig } from '../environments/environment';
 import { RedirectComponent } from './redirect/redirect.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MessageComponent } from './message/message.component';
+import { ChatsComponent } from './chats/chats.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     ChatComponent,
     AnnoncesFiltreComponent,
     RedirectComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    MessageComponent,
+    ChatsComponent
     
   ],
   imports: [

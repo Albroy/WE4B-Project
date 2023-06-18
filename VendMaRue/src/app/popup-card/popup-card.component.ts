@@ -7,6 +7,10 @@ import { EvaluationService } from '../evaluation.service';
 import { Evaluation } from 'src/classes/Evaluation';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FileUploadService } from '../file-upload.service';
+import {Router} from "@angular/router";
+import {ChatService} from "../chat.service";
+import {Chat} from "../../classes/Chat";
+
 @Component({
   selector: 'app-popup-card',
   templateUrl: './popup-card.component.html',
@@ -22,13 +26,25 @@ export class PopupCardComponent implements OnInit, OnChanges {
   moyenne: number | null = null;
   afficher: boolean = false; // afficher le numéro de téléphone
   done : boolean = false;
+  userString: string | null = sessionStorage.getItem('user');
+  userSess : User;
+  conversationList : Chat[] = []
+  conversationID : number = 0
 
   constructor(
     private activeModal: NgbActiveModal,
     private userService: UserService,
     private evaluationService: EvaluationService,
-    private uploadService: FileUploadService
+    private uploadService: FileUploadService,
+    private router: Router,
+    private conversationService: ChatService
   ) {
+    this.currentRate = 0;
+    if (this.userString) { // Si on est connecté
+      this.userSess = JSON.parse(this.userString);
+    } else {
+      this.userSess = new User(0, "", "", "", "", 0, new Date(), "", "");
+    }
   }
 
 
@@ -61,6 +77,30 @@ export class PopupCardComponent implements OnInit, OnChanges {
   Afficher(): void {
     this.afficher = !this.afficher;
   }
+
+  async openConversation(id: number) {
+    if (this.userSess.id !== 0 && this.user.id != id) {
+      /*Récupération des conversations de la bdd*/
+      try {
+        const data = await this.conversationService.getData().toPromise();
+        this.conversationList = data ? data : [];
+
+        /*On cherche les conversations que l'utilisateur connecté possède*/
+        const search = this.conversationList.find(u => u.userid_client === this.userSess.id && u.userid_vendor === this.card.userid);
+        this.conversationID = search ? search.id : 0;
+      } catch (error) {
+        console.log(error);
+      }
+
+      /*Redirection sur la page de conversation*/
+      const queryParams = {
+        info: `/chat/:${this.conversationID}`,
+      };
+      this.router.navigate(['/redirect'], { queryParams });
+    }
+
+  }
+
 
   ajouterPanier(): void {
     if (this.card.quantity > 0) {

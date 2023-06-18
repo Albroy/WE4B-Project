@@ -1,1 +1,22 @@
-<p>chat works!</p>
+<div class="container-fluid">
+
+  <!--Si on est connecté, on affiche le chat-->
+  <div *ngIf="connect; else notconnectedBlock">
+    <h2>Le chat : </h2>
+    <app-message *ngFor="let messageVar of MessageArray; let i = index" [message]="messageVar" ></app-message>
+    <div>
+      <form #chatForm="ngForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="inputChat" [(ngModel)]="newMessage.contenu">
+        <button type="submit" name="envoi">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <!--Sinon on invite l'utilisateur à se connecter-->
+  <ng-template #notconnectedBlock>
+    <p>Donc : </p>{{connect}}
+    <h3>Veuillez-vous connectez</h3>
+    <a routerLink="/connexion">Se connecter</a>
+  </ng-template>
+</div>
+
