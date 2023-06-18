@@ -1,20 +1,7 @@
 <div class="container-fluid">
 
-  <!--test-->
-  {{connect}}
-  <!--<h2>Le chat : </h2>
-  <app-message *ngFor="let messageVar of MessageArray; let i = index" [message]="messageVar" ></app-message>
-  <div>
-    <form #chatForm="ngForm" (ngSubmit)="onSubmit()">
-      <input type="text" name="inputChat" [(ngModel)]="newMessage.contenu">
-      <button type="submit" name="envoi">Envoyer</button>
-    </form>
-  </div>-->
-
-
   <!--Si on est connecté, on affiche le chat-->
   <div *ngIf="connect; else notconnectedBlock">
-    {{connect}}
     <h2>Le chat : </h2>
     <app-message *ngFor="let messageVar of MessageArray; let i = index" [message]="messageVar" ></app-message>
     <div>

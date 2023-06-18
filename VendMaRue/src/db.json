@@ -496,6 +496,13 @@
       "userid_vendor": 4,
       "userid_client": 5,
       "date": "16/06/2020"
+    },
+    {
+      "id": 5,
+      "title": "Title 2",
+      "userid_vendor": 1,
+      "userid_client": 6,
+      "date": "16/06/2020"
     }
   ],
   "Messages": [
@@ -518,6 +525,13 @@
       "contenu": "hello",
       "userid": 5,
       "conversation_id": 4,
+      "date": "16/06/2023"
+    },
+    {
+      "id": 4,
+      "contenu": "salut j'aimerais acheter votre produit",
+      "userid": 6,
+      "conversation_id": 5,
       "date": "16/06/2023"
     }
   ]

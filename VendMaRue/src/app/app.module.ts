@@ -24,6 +24,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ChatComponent } from './chat/chat.component';
 import { MessageComponent } from './message/message.component';
 import { RedirectComponent } from './redirect/redirect.component';
+import { ChatsComponent } from './chats/chats.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { RedirectComponent } from './redirect/redirect.component';
     SettingsComponent,
     ChatComponent,
     MessageComponent,
-    RedirectComponent
+    RedirectComponent,
+    ChatsComponent
     
   ],
   imports: [

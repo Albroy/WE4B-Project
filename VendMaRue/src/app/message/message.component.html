@@ -1,9 +1,6 @@
-<!-- Message de l'utilisateur connecté, expéditeur -->
-<p>Test affichage message : {{message.contenu}}</p>
-
 <!--Lessage de l'utilisateur expéditeur : celui connecté-->
 <div *ngIf="message.userid === user.id; else elseBlock ">
-  <p style="left: 0px;">la personne connectée : {{message.contenu}}</p>
+  <p style="left: 0px;">{{message.contenu}}</p>
 </div>
 
 <!-- Message de l'utilisateur destinataire -->

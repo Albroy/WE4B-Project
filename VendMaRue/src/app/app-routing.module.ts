@@ -9,6 +9,7 @@ import {MesAnnoncesComponent} from "./mes-annonces/mes-annonces.component";
 import { SettingsComponent } from './settings/settings.component';
 import {ChatComponent} from "./chat/chat.component";
 import {RedirectComponent} from "./redirect/redirect.component";
+import {ChatsComponent} from "./chats/chats.component";
 
 const routes: Routes = [
   {path:'',component:CardsComponent},
@@ -18,10 +19,11 @@ const routes: Routes = [
   {path:'profil/:id',component:ProfilComponent},
   {path:'settings',component:SettingsComponent},
   {path: 'chat/:id', component:ChatComponent},
+  {path:'chats', component:ChatsComponent},
   {path:'create-product',component:CreateProductComponent},
   {path:'mes-annonces',component:MesAnnoncesComponent},
   {path:'settings',component:SettingsComponent},
-  { path: 'create-product/:id', component: CreateProductComponent },
+  {path: 'create-product/:id', component: CreateProductComponent },
   {path:'redirect', component:RedirectComponent}
 ];
 
