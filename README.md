@@ -70,6 +70,23 @@ npm install crypto-browserify
 ```
 
 ---
+#### Lancement du projet
+
+- lancement du serveur json:
+
+à éxecuter dans le dossier src/
+
+```bash
+ json-server --watch db.json
+```
+
+- lancement du serveur angular:
+
+```bash
+ ng serve
+```
+
+
 
 #### Fonctionnalités
 
