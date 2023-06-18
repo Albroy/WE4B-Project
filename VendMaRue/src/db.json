@@ -119,6 +119,30 @@
       "user_id": 4,
       "card_id": 4,
       "rate": 5
+    },
+    {
+      "id": 21,
+      "user_id": 2,
+      "card_id": 13,
+      "rate": 4
+    },
+    {
+      "id": 22,
+      "user_id": 2,
+      "card_id": 10,
+      "rate": 1
+    },
+    {
+      "id": 23,
+      "user_id": 2,
+      "card_id": 9,
+      "rate": null
+    },
+    {
+      "id": 24,
+      "user_id": 2,
+      "card_id": 5,
+      "rate": null
     }
   ],
   "Cards": [
@@ -442,7 +466,7 @@
       "user_acc_date": "2023-06-14T17:46:49.507Z",
       "user_loc": "Belfort",
       "user_pwd": "$2a$10$OpBKBWrq2d.6msz76niyK.73wQcrfxg4j1kQAwpyeJ.tYd6aj2Mkq",
-      "user_desc": ""
+      "user_desc": "Hello, je m'appelle Albert et je vends des trucs"
     },
     {
       "id": 4,

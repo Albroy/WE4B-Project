@@ -21,10 +21,35 @@ Le projet de l’UV WE4B repose sur le développement d’un front-end sous Angu
 C'est pourquoi nous avons décidé de créer un site web type marketplace : **VendMaRue**.
 
 ---
+## Sommaire
+
+- [WE4B-Project](#we4b-project)
+  - [Informations](#informations)
+    - [Projet étudiant](#projet-étudiant)
+    - [Auteurs](#auteurs)
+    - [Sujet](#sujet)
+  - [Sommaire](#sommaire)
+    - [Screenshots](#screenshots)
+    - [Installation des dépendances :](#installation-des-dépendances-)
+      - [Fonctionnalités](#fonctionnalités)
+    - [Echantillon de test :](#echantillon-de-test-)
+    - [Le site :](#le-site-)
+      - [Components :](#components-)
+      - [Services :](#services-)
+      - [Classes :](#classes-)
+      - [Autres :](#autres-)
+      - [Style :](#style-)
+    - [Conclusion :](#conclusion-)
+      - [TODO](#todo)
 
 ### Screenshots
 
-Mettre des screenshots ici
+![Accueil si déconnecté](./screen/accueil_deco)
+![Accueil si connecté](./screen/accueil_co)
+![Popup](./screen/popup)
+![Profil](./screen/profil)
+![Réglages](./screen/reglages)
+
 
 ### Installation des dépendances :
 
@@ -106,7 +131,7 @@ npm install crypto-browserify
 
 #### Style :
 
-Bootstrap
+Bootstrap & CSS
 
 ### Conclusion :
 
