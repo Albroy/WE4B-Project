@@ -31,7 +31,8 @@ C'est pourquoi nous avons décidé de créer un site web type marketplace : **Ve
   - [Sommaire](#sommaire)
     - [Screenshots](#screenshots)
     - [Installation des dépendances :](#installation-des-dépendances-)
-      - [Fonctionnalités](#fonctionnalités)
+    - [Lancement du projet](#lancement-du-projet)
+    - [Fonctionnalités](#fonctionnalités)
     - [Echantillon de test :](#echantillon-de-test-)
     - [Le site :](#le-site-)
       - [Components :](#components-)
@@ -70,7 +71,7 @@ npm install crypto-browserify
 ```
 
 ---
-#### Lancement du projet
+### Lancement du projet
 
 - lancement du serveur json:
 
@@ -88,7 +89,7 @@ npm install crypto-browserify
 
 
 
-#### Fonctionnalités
+### Fonctionnalités
 
 - Système de connexion / déconnexion / inscription/ suppression.
 - Implémentation d'une fonction de recherche pour permettre aux utilisateurs de trouver du contenu spécifique :
