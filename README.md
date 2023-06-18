@@ -1,61 +1,127 @@
 # WE4B-Project
- Premier projet Angular
 
-#Planning :
-1. créer design composant angular :
+## Informations
 
-a. ✅Header  : (nom logo recherche connexion inscription)
-   
-b. ✅Header connecté : (nom, logo, recherche, profil)
-    
-c.✅ SideBar gauche (catégories)
-    
-d.✅ Annonces Présentation (id_vendor titre puis photo prix description)
-    
-e. ✅ Annonces pop up (✅ Toutes description + ✅ like + ✅ partie commentaires)
-    
-    e1. ✅ like bandeau 
-    e2. ✅commentaires
-    
-f.✅ body (annonces 4*4 flex/grid --> 2)
-    
-g. ✅ footer (plan du site, copyright)
-    
-h. ✅profil (nickname, pp, location, annoncesPrésentation)
-    
-i. page de réglage (infos profil formulaire)
-   
-j. Modification/création annonces
-    
-k. pop up suppression de l'annonce
-    
-( l. interface de message )
+### Projet étudiant
 
-m. ✅ Page de connexion/inscription
+- Université: [UTBM](http://www.utbm.fr/)
+- UV: WE4B
+- Semestre: P23
 
-Koreangroup
-✅D-✅E-✅F-✅M-✅G-✅H
+### Auteurs
 
-OSMAN A-B-C
+- [Albert Royer](https://github.com/Rarynn)
+- [Camille Tariel](https://github.com/cami010318)
+- [Nicolas Marcelin](https://github.com/nic0c0)
+- [Osman Gaygusuz](https://github.com/osmandaway)
 
-Nicolas J-K 
- ```
+### Sujet
+
+Le projet de l’UV WE4B repose sur le développement d’un front-end sous Angular pour une application single page moderne .
+C'est pourquoi nous avons décidé de créer un site web type marketplace : **VendMaRue**.
+
+---
+
+### Screenshots
+
+Mettre des screenshots ici
+
+### Installation des dépendances :
+
+- Gestion des mots de passe :
+
+```bash
 npm install bcryptjs
 npm install --save-dev @types/bcryptjs
 npm install crypto-browserify stream-browserify assert stream-http https-browserify os-browserify
 npm install crypto-browserify
-https://stackoverflow.com/questions/67572355/webpack-5-angular-polyfill-for-node-js-crypto-js
+```
 
- ```
+- Gestion des images :
 
-#### user.service.ts
+```bash
+ npm install firebase
+ npm install firebase @angular/fire
+```
 
-- ✅Créer un utilisateur
-- ✅Récupérer un utilisateur
-- ✅Créer session utilisateur
-- ✅Récupérer session utilisateur
+---
 
-- add update session user : pour dans update user
+#### Fonctionnalités
+
+- Système de connexion / déconnexion / inscription/ suppression.
+- Implémentation d'une fonction de recherche pour permettre aux utilisateurs de trouver du contenu spécifique :
+  - Recherche d'un produit
+  - Recherche d'un utilisateur
+  - Recherche par localisation
+  - Recherche par marque
+- Système de notation par étoiles : seuls les utilisateurs connectés peuvent noter.
+- Système de profil/paramètres :
+- Chargement des produits en AJAX.
+- Systeme de publication de produits / modification / effacement.
+- Mots de passe cryptés.
+
+### Echantillon de test :
+
+### Le site :
+
+#### Components :
+
+- annonces-filtres : pour afficher les résultats de recherche
+- card : une annonce
+- cards : toutes les annonces
+- chat :
+- comment : un commentaire
+- comments-list : tous les commentaires
+- confirmation-dialog : pop up de confirmation
+- connexion : page de connexion
+- create-card : formulaire de création d'annonce
+- footer : footer
+- inscription : page d'inscription
+- mes-annonces : toutes les annonces de l'utilisateur
+- new-header : header
+- new-sidebar : sidebar
+- popup-card : modal d'une annonce
+- profil : page de profil
+- redirect : page de redirection
+- search : barre de recherche
+- settings : page de paramètres
+
+#### Services :
+
+- card : pour les annonces
+- comment : pour les commentaires
+- evaluation : pour les notations sur les annonces
+- file-upload : pour les images
+- search : pour la recherche
+
+#### Classes :
+
+- Card : pour les annonces
+- Comment : pour les commentaires
+- Evaluation : pour les notations sur les annonces
+- User : pour les utilisateurs
+
+#### Autres :
+
+- Environements : pour le lien firebase
+
+#### Style :
+
+Bootstrap
+
+### Conclusion :
+
+Nous avons développé l'application "VendMaRue", une plateforme de type marketplace. Notre objectif était de créer un site web moderne en utilisant Angular comme framework front-end.
+
+Nous avons réussi à mettre en place les principales fonctionnalités attendues, telles que le système de connexion, d'inscription et de déconnexion des utilisateurs, ainsi que la possibilité de rechercher des produits, des utilisateurs et des localisations spécifiques. Nous avons également mis en place un système de notation par étoiles, réservé aux utilisateurs connectés, et un système de profil et de paramètres pour les utilisateurs.
+
+L'un des aspects clés de notre projet était le chargement des produits en utilisant AJAX, ce qui permet une expérience utilisateur fluide et réactive. Nous avons également implémenté un système de publication, de modification et de suppression des annonces.
+
+Nous avons pris en compte la sécurité des mots de passe en utilisant la bibliothèque "bcryptjs" pour le hachage des mots de passe. De plus, nous avons utilisé Firebase pour gérer le téléchargement et le stockage des images associées aux annonces.
+
+En conclusion, notre projet "VendMaRue" est une application fonctionnelle qui répond aux exigences d'une marketplace moderne. Nous avons réussi à développer les fonctionnalités clés et à offrir une expérience utilisateur agréable. Nous avons également pris en compte la sécurité des utilisateurs en utilisant des méthodes de cryptage des mots de passe. Nous sommes fiers du travail accompli et des connaissances acquises tout au long de ce projet.
+
 #### TODO
-- Récupérer les images et les stocker dans un dossier
-- messagerie
+
+- [Patch warning](https://stackoverflow.com/questions/67572355/webpack-5-angular-polyfill-for-node-js-crypto-js)
+- système de follow

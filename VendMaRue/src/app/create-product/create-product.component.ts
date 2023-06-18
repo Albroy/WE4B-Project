@@ -68,7 +68,7 @@ export class CreateProductComponent implements OnInit {
     this.file = event.target.files[0];
     if (this.file) {
       this.product.photo = this.file.name; 
-      // Ajouter le préfixe "../assets/" au nom du fichier
+      // Ajouter le préfixe "../assets/" au nom du fichier //penser à changer le nom du fichier 
     }
   }
 
