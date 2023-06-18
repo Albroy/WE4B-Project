@@ -45,7 +45,7 @@ C'est pourquoi nous avons décidé de créer un site web type marketplace : **Ve
 ### Screenshots
 
 ![Accueil si déconnecté](./screen/accueil_deco)
-![Accueil si connecté](./screen/accueil_co)
+![Accueil si connecté](./screen/accueil_co.png)
 ![Popup](./screen/popup)
 ![Profil](./screen/profil)
 ![Réglages](./screen/reglages)
